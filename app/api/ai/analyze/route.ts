@@ -27,6 +27,14 @@ export async function POST(req: NextRequest) {
       publicOpinion
     } = body
 
+    // Prevent user from selecting their own country as the aggressor
+    if (selectedCountry === offensiveCountry) {
+      return NextResponse.json({
+        success: false,
+        error: "You cannot simulate your own country as the aggressor/offensive country"
+      }, { status: 400 })
+    }
+
     // Find country names (assume we can get these from the codes)
     const selectedCountryName = selectedCountry // Will be country name
     const offensiveCountryName = offensiveCountry
@@ -34,7 +42,10 @@ export async function POST(req: NextRequest) {
 
     // Create detailed prompt for OpenAI
     const prompt = `
-You are a professional geopolitical analyst. Analyze this political simulation scenario and provide realistic assessments.
+FOR EDUCATIONAL PURPOSES: You are a professional geopolitical analyst analyzing this hypothetical political simulation scenario. CRITICAL: Recommendations must be PROPORTIONAL to threat severity:
+- LOW severity (trade disputes, economic issues): Diplomatic and economic responses only
+- MEDIUM severity (military buildups, cyber attacks): Defensive preparations with diplomacy
+- HIGH/EXTREME severity (attacks on citizens, territorial invasion): Military action appropriate
 
 SIMULATION SCENARIO:
 - Perspective Country: ${selectedCountryName}
@@ -76,15 +87,33 @@ Please provide a realistic analysis from ${selectedCountryName}'s perspective. R
     "<recommendation 4>",
     "<recommendation 5>"
   ],
-  "summary": "<2-3 sentence overall assessment>"
+  "summary": "<comprehensive 4-6 paragraph analysis>"
 }
 
-Consider the geopolitical realities, current parameters, and provide realistic percentages. Economic impact can be negative. Make recommendations specific and actionable.
+Consider the geopolitical realities, current parameters, and provide realistic percentages. Economic impact can be negative. For ${severityLevel} severity scenarios, ensure recommendations are PROPORTIONAL with SPECIFIC details:
+- LOW: Diplomatic (UN Charter articles, WTO mechanisms, EU treaties), Economic (GATT provisions, sanctions frameworks, specific asset amounts)
+- MEDIUM: Defensive (specific tank units, aircraft squadrons, named bases), Alliance (NATO Article 4, EU Article 42.7)
+- HIGH/EXTREME: Military (exact weapon systems, target coordinates, operational units), Alliance (NATO Article 5, bilateral treaties)
+Include specific treaties, weapons systems, vehicles tailored to ${selectedCountryName}, ACTUAL locations, REAL coordinates, and ACTUAL asset amounts. Use ${selectedCountryName}'s specific equipment:
+- USA: F-35 fighters, Tomahawk missiles, USS carriers, NATO Article 5
+- France: Rafale jets, SCALP missiles, Charles de Gaulle carrier
+- UK: Typhoon fighters, Storm Shadow missiles, HMS carriers
+- India: Su-30MKI fighters, BrahMos missiles, INS carriers
+- China: J-20 fighters, DF missiles, PLAN carriers
+Never use placeholder brackets - provide real values appropriate to ${selectedCountryName}.
+
+For the summary, provide a comprehensive analysis that includes:
+1. SCENARIO CONTEXT: Detailed assessment of the specific military conflict described, referencing the exact scenario details provided
+2. STRATEGIC IMPLICATIONS: Analysis of how this conflict affects regional power dynamics and global stability from ${selectedCountryName}'s perspective
+3. RISK ASSESSMENT: Evaluation of military, economic, and diplomatic risks with specific references to the countries and conflict type involved
+4. TACTICAL CONSIDERATIONS: Military and strategic factors specific to the conflict type (${conflictScenario}) and the nations involved
+5. TIMELINE ANALYSIS: How the situation might evolve over the specified timeframe, considering escalation possibilities
+6. STAKEHOLDER IMPACT: Effects on allies, regional powers, and international organizations based on the specific scenario
 `
 
     // Call OpenAI API
     const completion = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-4o",
       messages: [
         {
           role: "system",
@@ -96,7 +125,8 @@ Consider the geopolitical realities, current parameters, and provide realistic p
         }
       ],
       temperature: 0.7,
-      max_tokens: 1000,
+      max_tokens: 2000,
+      response_format: { type: "json_object" }
     })
 
     const response = completion.choices[0]?.message?.content
@@ -104,12 +134,24 @@ Consider the geopolitical realities, current parameters, and provide realistic p
       throw new Error("No response from OpenAI")
     }
 
-    // Parse the JSON response
+    // Clean and parse the JSON response
     let analysisResult
     try {
-      analysisResult = JSON.parse(response)
+      // Clean the response - extract JSON from the response
+      let cleanedResponse = response.trim()
+      
+      // Find the first { and last } to extract just the JSON
+      const firstBrace = cleanedResponse.indexOf('{')
+      const lastBrace = cleanedResponse.lastIndexOf('}')
+      
+      if (firstBrace !== -1 && lastBrace !== -1 && firstBrace < lastBrace) {
+        cleanedResponse = cleanedResponse.substring(firstBrace, lastBrace + 1)
+      }
+      
+      analysisResult = JSON.parse(cleanedResponse)
     } catch (parseError) {
       console.error("Failed to parse OpenAI response:", response)
+      console.error("Parse error details:", parseError)
       throw new Error("Invalid JSON response from OpenAI")
     }
 
@@ -146,7 +188,7 @@ Consider the geopolitical realities, current parameters, and provide realistic p
           "Prepare contingency plans for various scenarios",
           "Monitor public sentiment and maintain transparency"
         ],
-        summary: "Analysis temporarily unavailable. These are fallback recommendations based on general geopolitical principles."
+        summary: "**SCENARIO CONTEXT:** This analysis represents a fallback assessment due to temporary AI service limitations. The specific military conflict scenario requires detailed intelligence analysis that considers multiple strategic factors.\n\n**STRATEGIC IMPLICATIONS:** Without access to real-time geopolitical data, this assessment provides general strategic guidance. The conflict situation demands careful evaluation of regional power dynamics and international response mechanisms.\n\n**RISK ASSESSMENT:** Military conflicts of this nature typically involve escalation risks, economic disruption, and diplomatic challenges. Success depends on multilateral coordination and strategic resource allocation.\n\n**TACTICAL CONSIDERATIONS:** Military preparedness, alliance coordination, and diplomatic engagement remain critical factors. Intelligence gathering and strategic communication are essential for favorable outcomes.\n\n**RECOMMENDATIONS:** The provided recommendations represent established geopolitical best practices. For mission-critical decisions, consult with specialized military and diplomatic advisors familiar with current regional conditions."
       }
     })
   }

@@ -1,10 +1,12 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Users, Target, BarChart3, Play, FileText, AlertTriangle, Sword, Shield, RotateCcw, MessageCircle, Send, Check, ChevronsUpDown, Settings, Loader2, Award, Calendar, Clock, File, Copy } from "lucide-react"
+import { useRouter, useSearchParams } from "next/navigation"
+import { Users, Target, BarChart3, Play, FileText, AlertTriangle, Sword, Shield, RotateCcw, MessageCircle, Send, Check, ChevronsUpDown, Settings, Loader2, Award, Calendar, Clock, File, Copy, Lock } from "lucide-react"
 import Image from "next/image"
 import { useAction, useMutation, useQuery } from "convex/react"
 import { api } from "@/convex/_generated/api"
+import type { Id } from "@/convex/_generated/dataModel"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -22,9 +24,16 @@ import { FlagIcon } from "@/components/ui/flag-icon"
 import { useIsMobile } from "@/components/ui/use-mobile"
 import StarryBackground from "@/components/StarryBackground"
 import { AuthGate } from "@/components/auth-gate"
-import { ProfileMenu, type LoadedBriefing } from "@/components/profile-menu"
+import { ProfileMenu } from "@/components/profile-menu"
 
 function PoliticalAdvisor() {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const briefingIdParam = searchParams.get("briefing")
+  const requestedBriefing = useQuery(
+    api.briefings.get,
+    briefingIdParam ? { id: briefingIdParam as Id<"briefings"> } : "skip",
+  )
   const saveAnalysis = useMutation(api.analyses.save)
   const runAiAnalysis = useAction(api.ai.analyze)
   const runAiChat = useAction(api.ai.chat)
@@ -484,7 +493,7 @@ function PoliticalAdvisor() {
         throw new Error('No simulation results available for briefing')
       }
 
-      const { briefingId, treatiesAnalyzed, briefing, qa } = await generateBriefingAction({
+      const { briefingId, treatiesAnalyzed, briefing, qa, sources } = await generateBriefingAction({
         date: currentDate,
         scenario: scenarioDetails,
         simulationResults: {
@@ -507,7 +516,7 @@ function PoliticalAdvisor() {
 
       setCurrentProgressStep(5)
       setBriefingData(briefing)
-      setRagMetadata({ ragGenerated: treatiesAnalyzed > 0, treatiesAnalyzed, briefingId, qa })
+      setRagMetadata({ ragGenerated: treatiesAnalyzed > 0, treatiesAnalyzed, briefingId, qa, sources })
 
       const score = qa?.critique?.score
       const issuesCount = qa?.critique?.issues?.length ?? 0
@@ -599,6 +608,32 @@ function PoliticalAdvisor() {
     }
     loadCountries()
   }, [])
+
+  // Load a briefing referenced via ?briefing= query param (from /briefings page)
+  useEffect(() => {
+    if (!briefingIdParam) return
+    if (requestedBriefing === undefined) return // still loading
+    if (requestedBriefing === null) {
+      // Briefing not found (likely not owned by current user or deleted)
+      router.replace("/")
+      return
+    }
+    setBriefingData({
+      date: requestedBriefing.date,
+      title: requestedBriefing.title,
+      sections: requestedBriefing.sections,
+      recommendations: requestedBriefing.recommendations,
+      conclusion: requestedBriefing.conclusion,
+      finalRecommendation: requestedBriefing.finalRecommendation,
+      classification: requestedBriefing.classification,
+      author: requestedBriefing.author,
+      treatyReferences: requestedBriefing.treatyReferences,
+      disclaimer: requestedBriefing.disclaimer,
+    })
+    setActiveTab("results")
+    // Clear the query param so a refresh won't re-trigger this effect
+    router.replace("/")
+  }, [briefingIdParam, requestedBriefing, router])
 
   const conflictTypes = [
     { id: "territorial", name: "Territorial Military Conflict", icon: "🗺️" },
@@ -842,12 +877,7 @@ function PoliticalAdvisor() {
                 <p className="text-xs sm:text-sm text-dark-muted">Military Intelligence Briefing Platform</p>
               </div>
             </div>
-            <ProfileMenu
-              onLoadBriefing={(briefing: LoadedBriefing) => {
-                setBriefingData(briefing)
-                setActiveTab("results")
-              }}
-            />
+            <ProfileMenu />
           </div>
         </div>
       </header>
@@ -870,23 +900,33 @@ function PoliticalAdvisor() {
             <TabsTrigger
               value="results"
               disabled={!briefingData}
-              className="data-[state=active]:bg-flame data-[state=active]:text-white data-[state=active]:shadow-[0_0_18px_rgba(207,92,54,0.45)] text-dark-text text-xs sm:text-base disabled:opacity-50 disabled:cursor-not-allowed px-1 sm:px-3 rounded-lg transition-all"
+              className="group relative data-[state=active]:bg-flame data-[state=active]:text-white data-[state=active]:shadow-[0_0_18px_rgba(207,92,54,0.45)] text-dark-text text-xs sm:text-base disabled:opacity-50 disabled:cursor-not-allowed px-1 sm:px-3 rounded-lg transition-all"
             >
-              <div className="flex items-center justify-center gap-1 sm:gap-2">
+              <div className="flex items-center justify-center gap-1 sm:gap-2 transition-opacity group-disabled:group-hover:opacity-0">
                 <FileText className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className="hidden xs:inline sm:hidden">Briefing</span>
                 <span className="hidden sm:inline">Intelligence Briefing</span>
+              </div>
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center gap-1 sm:gap-2 opacity-0 transition-opacity group-disabled:group-hover:opacity-100">
+                <Lock className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Generate briefing first</span>
+                <span className="sm:hidden">Locked</span>
               </div>
             </TabsTrigger>
             <TabsTrigger
               value="chat"
               disabled={!briefingData}
-              className="data-[state=active]:bg-flame data-[state=active]:text-white data-[state=active]:shadow-[0_0_18px_rgba(207,92,54,0.45)] text-dark-text text-xs sm:text-base disabled:opacity-50 disabled:cursor-not-allowed px-1 sm:px-3 rounded-lg transition-all"
+              className="group relative data-[state=active]:bg-flame data-[state=active]:text-white data-[state=active]:shadow-[0_0_18px_rgba(207,92,54,0.45)] text-dark-text text-xs sm:text-base disabled:opacity-50 disabled:cursor-not-allowed px-1 sm:px-3 rounded-lg transition-all"
             >
-              <div className="flex items-center justify-center gap-1 sm:gap-2">
+              <div className="flex items-center justify-center gap-1 sm:gap-2 transition-opacity group-disabled:group-hover:opacity-0">
                 <Target className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className="hidden xs:inline sm:hidden">Sources</span>
                 <span className="hidden sm:inline">Intelligence Sources</span>
+              </div>
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center gap-1 sm:gap-2 opacity-0 transition-opacity group-disabled:group-hover:opacity-100">
+                <Lock className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Generate briefing first</span>
+                <span className="sm:hidden">Locked</span>
               </div>
             </TabsTrigger>
           </TabsList>
@@ -1484,119 +1524,268 @@ function PoliticalAdvisor() {
               <div className="flex items-center space-x-3 mb-6">
                 <Target className="w-6 h-6 text-flame" />
                 <h2 className="text-2xl font-bold text-dark-text">Intelligence Sources</h2>
+              </div>
+
+              {ragMetadata?.sources ? (
+                (() => {
+                  const s = ragMetadata.sources
+                  const sectionCount =
+                    (s.bases?.length ?? 0) +
+                    (s.weapons?.length ?? 0) +
+                    (s.treatyArticles?.length ?? 0) +
+                    (s.chokepoints?.length ?? 0) +
+                    (s.intelAgencies?.length ?? 0) +
+                    (s.sofUnits?.length ?? 0) +
+                    (s.defenseIndustries?.length ?? 0) +
+                    (s.subStateActors?.length ?? 0) +
+                    (s.historicalIncidents?.length ?? 0)
+
+                  if (sectionCount === 0) {
+                    return (
+                      <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
+                        <CardContent className="p-12 text-center">
+                          <p className="text-dark-muted">
+                            Briefing was generated but no structured sources were retrieved. Run <code className="text-flame">npx convex run seedActions:seedAll</code> to load the dataset.
+                          </p>
+                        </CardContent>
+                      </Card>
+                    )
+                  }
+
+                  const sectionHeader = (label: string, count: number) => (
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-lg font-bold text-dark-text">{label}</h3>
+                      <span className="text-xs text-dark-muted font-mono">{count} cited</span>
                     </div>
+                  )
 
-              {ragMetadata?.ragGenerated ? (
-                <div className="space-y-6">
-                  {/* Main Intelligence Analysis Card */}
-                  <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-lg font-bold text-dark-text">RAG Analysis Overview</h3>
-                    </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                        <div className="text-center p-4 bg-dark-border/20 rounded-lg">
-                          <div className="text-2xl font-bold text-flame">{ragMetadata.treatiesAnalyzed}</div>
-                          <div className="text-sm text-dark-muted mt-1">Treaties Analyzed</div>
-                          </div>
-                        <div className="text-center p-4 bg-dark-border/20 rounded-lg">
-                          <div className="text-sm font-bold text-flame">
-                            Faithfulness: {ragMetadata.ragasMetrics ? (ragMetadata.ragasMetrics.faithfulness * 100).toFixed(0) : 'N/A'}% 
-                            Relevancy: {ragMetadata.ragasMetrics ? (ragMetadata.ragasMetrics.answerRelevancy * 100).toFixed(0) : 'N/A'}%
-                        </div>
-                          <div className="text-sm text-dark-muted mt-1">RAGAS Metrics</div>
-                          </div>
-                        <div className="text-center p-4 bg-dark-border/20 rounded-lg">
-                          <div className="text-2xl font-bold text-flame">{(ragMetadata.processingTime / 1000).toFixed(1)}s</div>
-                          <div className="text-sm text-dark-muted mt-1">Processing Time</div>
-                    </div>
-                  </div>
-
-                      {/* AI Reasoning */}
-                      {ragMetadata.aiReasoning && (
-                        <div className="mb-6">
-                          <h4 className="text-md font-semibold text-dark-text mb-3">AI System Reasoning</h4>
-                          <div className="p-4 bg-dark-bg rounded-lg border border-dark-border">
-                            <p className="text-dark-muted text-sm leading-relaxed">{ragMetadata.aiReasoning}</p>
-                      </div>
-                    </div>
-                  )}
-
-                      {/* Legal Implications */}
-                      {ragMetadata.legalImplications && (
-                        <div className="mb-6">
-                          <h4 className="text-md font-semibold text-dark-text mb-3">Legal Implications</h4>
-                          <div className="p-4 bg-dark-bg rounded-lg border border-dark-border">
-                            <div 
-                              className="text-dark-muted text-sm leading-relaxed prose prose-sm prose-invert max-w-none"
-                              dangerouslySetInnerHTML={{
-                                __html: ragMetadata.legalImplications
-                                  .replace(/^### (.*$)/gm, '<h3 class="text-lg font-bold text-dark-text mb-2 mt-4">$1</h3>')
-                                  .replace(/^## (.*$)/gm, '<h2 class="text-xl font-bold text-dark-text mb-3 mt-4">$1</h2>')
-                                  .replace(/^# (.*$)/gm, '<h1 class="text-2xl font-bold text-dark-text mb-4 mt-4">$1</h1>')
-                                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                                  .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                                  .replace(/\n\n/g, '</p><p>')
-                                  .replace(/\n/g, '<br/>')
-                                  .replace(/^(.*)$/, '<p>$1</p>')
-                                  .replace(/<p><\/p>/g, '')
-                                  .replace(/^\d+\.\s/gm, '<strong>$&</strong>')
-                                  .replace(/^-\s/gm, '• ')
-                              }}
-                            />
-                </div>
-                        </div>
-                      )}
-              </CardContent>
-            </Card>
-
-                  {/* Retrieved Treaties */}
-                  {ragMetadata.retrievedTreaties && ragMetadata.retrievedTreaties.length > 0 && (
-                    <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
-                      <CardContent className="p-6">
-                        <h3 className="text-lg font-bold text-dark-text mb-4">Key Treaties Referenced</h3>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                          {ragMetadata.retrievedTreaties.map((treaty: any, index: number) => (
-                            <Card key={index} className="bg-dark-bg/50 backdrop-blur-sm border-dark-border/60 rounded-xl hover:border-flame/40 transition-colors">
-                      <CardContent className="p-4">
-                                <div className="flex items-start justify-between mb-2">
-                                  <h4 className="font-semibold text-dark-text text-sm leading-snug" title={treaty.title}>
-                                    {treaty.title}
-                                  </h4>
-
-                                </div>
-                                <p className="text-dark-muted text-xs mb-3 leading-relaxed">
-                                  <span className="font-medium">Relevance:</span> {treaty.relevance}
-                                </p>
-                                <div className="pt-2 border-t border-dark-border">
-                                  <a 
-                                    href={`https://www.google.com/search?q="${encodeURIComponent(treaty.title)}"+UN+treaty+filetype:pdf`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-flame hover:text-flame/80 text-xs font-medium underline flex items-center gap-1"
-                                  >
-                                    🔍 Search PDF
-                                  </a>
-                                </div>
-                      </CardContent>
-                    </Card>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  )}
-
-                  {/* AI Disclaimer for Legal Analysis */}
-                  <Card className="border-yellow-500/30 bg-yellow-500/10 mt-6">
-                    <CardContent className="p-4">
-                      <p className="text-yellow-400 text-sm leading-relaxed font-medium">
-                        ⚠️ <strong>IMPORTANT DISCLAIMER:</strong> This legal analysis is AI-generated content created for educational and simulation purposes only. This analysis should NOT be used as the basis for any real-world legal, military, diplomatic, or policy decisions. Any actual legal interpretation or strategic planning should involve consultation with qualified legal professionals, subject matter experts, and appropriate government authorities. The treaty interpretations and legal implications presented herein are hypothetical and do not reflect official government positions or legal opinions.
+                  return (
+                    <div className="space-y-6">
+                      <p className="text-sm text-dark-muted">
+                        These are the structured records the briefing was grounded against. Citations in recommendations should map to entries below.
                       </p>
-                    </CardContent>
-                  </Card>
 
-                </div>
+                      {s.treatyArticles?.length > 0 && (
+                        <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
+                          <CardContent className="p-6">
+                            {sectionHeader("Treaty articles", s.treatyArticles.length)}
+                            <div className="space-y-3">
+                              {s.treatyArticles.map((a: any, i: number) => (
+                                <div key={i} className="p-4 rounded-xl bg-dark-bg/50 border border-dark-border/60">
+                                  <div className="flex items-start justify-between gap-3 mb-2">
+                                    <h4 className="font-semibold text-dark-text text-sm">
+                                      {a.treatyShortName ?? a.treatyTitle} — Article {a.articleNumber}
+                                      {a.articleTitle ? <span className="text-dark-muted font-normal"> · {a.articleTitle}</span> : null}
+                                    </h4>
+                                    {(a.offensiveSignatory || a.defensiveSignatory) && (
+                                      <Badge variant="outline" className="border-flame/40 text-flame text-xs whitespace-nowrap">
+                                        offensive: {a.offensiveSignatory ?? "n/a"} · defensive: {a.defensiveSignatory ?? "n/a"}
+                                      </Badge>
+                                    )}
+                                  </div>
+                                  <p className="text-dark-muted text-xs leading-relaxed">{a.content}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
+
+                      {s.bases?.length > 0 && (
+                        <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
+                          <CardContent className="p-6">
+                            {sectionHeader("Military bases", s.bases.length)}
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                              {s.bases.map((b: any, i: number) => (
+                                <div key={i} className="p-4 rounded-xl bg-dark-bg/50 border border-dark-border/60">
+                                  <div className="flex items-start justify-between gap-2 mb-1">
+                                    <h4 className="font-semibold text-dark-text text-sm">{b.name}</h4>
+                                    <span className="text-xs text-flame font-mono whitespace-nowrap">{b.type}</span>
+                                  </div>
+                                  <p className="text-dark-muted text-xs mb-2">{b.location} · {b.region}</p>
+                                  <p className="text-dark-muted text-xs leading-relaxed mb-2">{b.role}</p>
+                                  {b.hostedSystems?.length > 0 && (
+                                    <p className="text-xs text-dark-muted">
+                                      <span className="font-medium text-dark-text">Hosted:</span> {b.hostedSystems.slice(0, 4).join(" · ")}
+                                    </p>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
+
+                      {s.weapons?.length > 0 && (
+                        <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
+                          <CardContent className="p-6">
+                            {sectionHeader("Weapon systems", s.weapons.length)}
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                              {s.weapons.map((w: any, i: number) => (
+                                <div key={i} className="p-4 rounded-xl bg-dark-bg/50 border border-dark-border/60">
+                                  <div className="flex items-start justify-between gap-2 mb-1">
+                                    <h4 className="font-semibold text-dark-text text-sm">{w.name}</h4>
+                                    <span className="text-xs text-flame font-mono whitespace-nowrap">{w.category}</span>
+                                  </div>
+                                  <p className="text-dark-muted text-xs mb-2">
+                                    Origin: {w.originCountryCode}
+                                    {w.rangeKm ? ` · range ${w.rangeKm} km` : ""}
+                                  </p>
+                                  {w.payload && (
+                                    <p className="text-xs text-dark-muted mb-1">
+                                      <span className="font-medium text-dark-text">Payload:</span> {w.payload}
+                                    </p>
+                                  )}
+                                  <p className="text-dark-muted text-xs leading-relaxed">{w.description}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
+
+                      {s.subStateActors?.length > 0 && (
+                        <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
+                          <CardContent className="p-6">
+                            {sectionHeader("Sub-state actors", s.subStateActors.length)}
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                              {s.subStateActors.map((a: any, i: number) => (
+                                <div key={i} className="p-4 rounded-xl bg-dark-bg/50 border border-dark-border/60">
+                                  <div className="flex items-start justify-between gap-2 mb-1">
+                                    <h4 className="font-semibold text-dark-text text-sm">{a.name}</h4>
+                                    <span className="text-xs text-flame font-mono whitespace-nowrap">{a.type}</span>
+                                  </div>
+                                  <p className="text-dark-muted text-xs mb-2">
+                                    {a.region}
+                                    {a.primarySponsorCountryCode ? ` · sponsor: ${a.primarySponsorCountryCode}` : ""}
+                                  </p>
+                                  <p className="text-dark-muted text-xs leading-relaxed mb-2">{a.description}</p>
+                                  {a.arsenal?.length > 0 && (
+                                    <p className="text-xs text-dark-muted">
+                                      <span className="font-medium text-dark-text">Arsenal:</span> {a.arsenal.slice(0, 3).join(" · ")}
+                                    </p>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
+
+                      {s.chokepoints?.length > 0 && (
+                        <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
+                          <CardContent className="p-6">
+                            {sectionHeader("Strategic chokepoints", s.chokepoints.length)}
+                            <div className="space-y-3">
+                              {s.chokepoints.map((c: any, i: number) => (
+                                <div key={i} className="p-4 rounded-xl bg-dark-bg/50 border border-dark-border/60">
+                                  <div className="flex items-start justify-between gap-2 mb-1">
+                                    <h4 className="font-semibold text-dark-text text-sm">{c.name}</h4>
+                                    <span className="text-xs text-flame font-mono whitespace-nowrap">{c.type}</span>
+                                  </div>
+                                  <p className="text-dark-muted text-xs mb-2">
+                                    {c.region} · borders {c.bordersCountryCodes.join(", ")}
+                                  </p>
+                                  <p className="text-dark-muted text-xs leading-relaxed">{c.significance}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
+
+                      {s.intelAgencies?.length > 0 && (
+                        <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
+                          <CardContent className="p-6">
+                            {sectionHeader("Intelligence agencies", s.intelAgencies.length)}
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                              {s.intelAgencies.map((a: any, i: number) => (
+                                <div key={i} className="p-4 rounded-xl bg-dark-bg/50 border border-dark-border/60">
+                                  <div className="flex items-start justify-between gap-2 mb-1">
+                                    <h4 className="font-semibold text-dark-text text-sm">{a.name}</h4>
+                                    <span className="text-xs text-flame font-mono whitespace-nowrap">{a.countryCode} · {a.type}</span>
+                                  </div>
+                                  <p className="text-dark-muted text-xs leading-relaxed">{a.mission}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
+
+                      {s.sofUnits?.length > 0 && (
+                        <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
+                          <CardContent className="p-6">
+                            {sectionHeader("Special operations units", s.sofUnits.length)}
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                              {s.sofUnits.map((u: any, i: number) => (
+                                <div key={i} className="p-4 rounded-xl bg-dark-bg/50 border border-dark-border/60">
+                                  <div className="flex items-start justify-between gap-2 mb-1">
+                                    <h4 className="font-semibold text-dark-text text-sm">{u.name}</h4>
+                                    <span className="text-xs text-flame font-mono whitespace-nowrap">{u.countryCode}</span>
+                                  </div>
+                                  <p className="text-dark-muted text-xs mb-1">{u.parentService}</p>
+                                  <p className="text-dark-muted text-xs leading-relaxed">{u.role}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
+
+                      {s.defenseIndustries?.length > 0 && (
+                        <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
+                          <CardContent className="p-6">
+                            {sectionHeader("Defense industries", s.defenseIndustries.length)}
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                              {s.defenseIndustries.map((d: any, i: number) => (
+                                <div key={i} className="p-4 rounded-xl bg-dark-bg/50 border border-dark-border/60">
+                                  <div className="flex items-start justify-between gap-2 mb-1">
+                                    <h4 className="font-semibold text-dark-text text-sm">{d.name}</h4>
+                                    <span className="text-xs text-flame font-mono whitespace-nowrap">{d.countryCode}</span>
+                                  </div>
+                                  <p className="text-dark-muted text-xs leading-relaxed mb-2">{d.notes}</p>
+                                  {d.keyProducts?.length > 0 && (
+                                    <p className="text-xs text-dark-muted">
+                                      <span className="font-medium text-dark-text">Products:</span> {d.keyProducts.slice(0, 4).join(" · ")}
+                                    </p>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
+
+                      {s.historicalIncidents?.length > 0 && (
+                        <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
+                          <CardContent className="p-6">
+                            {sectionHeader("Historical analogies", s.historicalIncidents.length)}
+                            <div className="space-y-3">
+                              {s.historicalIncidents.map((h: any, i: number) => (
+                                <div key={i} className="p-4 rounded-xl bg-dark-bg/50 border border-dark-border/60">
+                                  <div className="flex items-start justify-between gap-2 mb-1">
+                                    <h4 className="font-semibold text-dark-text text-sm">{h.name}</h4>
+                                    <span className="text-xs text-flame font-mono whitespace-nowrap">
+                                      {h.startDate}{h.endDate ? `–${h.endDate}` : ""}
+                                    </span>
+                                  </div>
+                                  <p className="text-dark-muted text-xs mb-2">{h.region} · {h.type}</p>
+                                  <p className="text-dark-muted text-xs leading-relaxed mb-2">{h.summary}</p>
+                                  {h.lessons?.length > 0 && (
+                                    <p className="text-xs text-dark-muted">
+                                      <span className="font-medium text-dark-text">Lessons:</span> {h.lessons.slice(0, 2).join(" · ")}
+                                    </p>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
+                    </div>
+                  )
+                })()
               ) : (
                 <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
                   <CardContent className="p-12 text-center">
@@ -1605,7 +1794,7 @@ function PoliticalAdvisor() {
                     </div>
                     <h3 className="text-xl font-semibold text-dark-text mb-2">No Intelligence Sources Available</h3>
                     <p className="text-dark-muted mb-6">
-                      Generate a briefing to view detailed intelligence sources and treaty analysis
+                      Generate a briefing to view the structured sources used to ground the analysis.
                     </p>
                     <Button
                       variant="outline"
@@ -1810,17 +1999,6 @@ function PoliticalAdvisor() {
                         Generated: {new Date().toLocaleTimeString()}
                       </p>
                                 </div>
-
-                    {/* AI Disclaimer */}
-                    {briefingData.disclaimer && (
-                      <div className="mt-6 pt-4 border-t border-dark-border">
-                        <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4">
-                          <p className="text-yellow-400 text-sm leading-relaxed font-medium">
-                            {briefingData.disclaimer}
-                          </p>
-                        </div>
-                      </div>
-                    )}
 
                     {/* Action Buttons */}
                     <div className="flex justify-center space-x-4 mt-8 pt-6 border-t border-dark-border">

@@ -493,6 +493,78 @@ export const generateBriefing = action({
         score: number;
       } | null;
     };
+    sources: {
+      bases: Array<{
+        name: string;
+        location: string;
+        region: string;
+        type: string;
+        hostCountryCode: string;
+        tenantCountryCodes: string[];
+        hostedSystems: string[];
+        role: string;
+      }>;
+      weapons: Array<{
+        name: string;
+        category: string;
+        originCountryCode: string;
+        rangeKm?: number;
+        payload?: string;
+        description: string;
+      }>;
+      treatyArticles: Array<{
+        treatyShortName?: string;
+        treatyTitle: string;
+        articleNumber: string;
+        articleTitle?: string;
+        content: string;
+        offensiveSignatory?: string;
+        defensiveSignatory?: string;
+        selectedSignatory?: string;
+      }>;
+      chokepoints: Array<{
+        name: string;
+        region: string;
+        type: string;
+        significance: string;
+        bordersCountryCodes: string[];
+      }>;
+      intelAgencies: Array<{
+        name: string;
+        countryCode: string;
+        type: string;
+        mission: string;
+      }>;
+      sofUnits: Array<{
+        name: string;
+        countryCode: string;
+        parentService: string;
+        role: string;
+      }>;
+      defenseIndustries: Array<{
+        name: string;
+        countryCode: string;
+        keyProducts: string[];
+        notes: string;
+      }>;
+      subStateActors: Array<{
+        name: string;
+        type: string;
+        region: string;
+        primarySponsorCountryCode?: string;
+        arsenal: string[];
+        description: string;
+      }>;
+      historicalIncidents: Array<{
+        name: string;
+        startDate: string;
+        endDate?: string;
+        region: string;
+        type: string;
+        summary: string;
+        lessons: string[];
+      }>;
+    };
     briefing: {
       date: string;
       title: string;
@@ -1202,6 +1274,78 @@ Criteria:
               score: critique.score,
             }
           : null,
+      },
+      sources: {
+        bases: relevantBases.map((b) => ({
+          name: b.name,
+          location: b.location,
+          region: b.region,
+          type: b.type,
+          hostCountryCode: b.hostCountryCode,
+          tenantCountryCodes: b.tenantCountryCodes,
+          hostedSystems: b.hostedSystems,
+          role: b.role,
+        })),
+        weapons: topPerspectiveWeapons.map((w) => ({
+          name: w.name,
+          category: w.category,
+          originCountryCode: w.originCountryCode,
+          rangeKm: w.rangeKm,
+          payload: w.payload,
+          description: w.description,
+        })),
+        treatyArticles: articles.map((a) => ({
+          treatyShortName: a.treatyShortName,
+          treatyTitle: a.treatyTitle,
+          articleNumber: a.articleNumber,
+          articleTitle: a.articleTitle,
+          content: a.content,
+          offensiveSignatory: a.offensiveSignatory,
+          defensiveSignatory: a.defensiveSignatory,
+          selectedSignatory: a.selectedSignatory,
+        })),
+        chokepoints: chokepointMatches.map((c) => ({
+          name: c.name,
+          region: c.region,
+          type: c.type,
+          significance: c.significance,
+          bordersCountryCodes: c.bordersCountryCodes,
+        })),
+        intelAgencies: relevantIntelAgencies.map((a) => ({
+          name: a.name,
+          countryCode: a.countryCode,
+          type: a.type,
+          mission: a.mission,
+        })),
+        sofUnits: relevantSofUnits.map((u) => ({
+          name: u.name,
+          countryCode: u.countryCode,
+          parentService: u.parentService,
+          role: u.role,
+        })),
+        defenseIndustries: topPerspectiveIndustries.map((d) => ({
+          name: d.name,
+          countryCode: d.countryCode,
+          keyProducts: d.keyProducts,
+          notes: d.notes,
+        })),
+        subStateActors: relevantSubStateActors.map((a) => ({
+          name: a.name,
+          type: a.type,
+          region: a.region,
+          primarySponsorCountryCode: a.primarySponsorCountryCode,
+          arsenal: a.arsenal,
+          description: a.description,
+        })),
+        historicalIncidents: historicalAnalogies.map((h) => ({
+          name: h.name,
+          startDate: h.startDate,
+          endDate: h.endDate,
+          region: h.region,
+          type: h.type,
+          summary: h.summary,
+          lessons: h.lessons,
+        })),
       },
       briefing: {
         date: args.date,

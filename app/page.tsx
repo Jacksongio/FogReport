@@ -484,7 +484,7 @@ function PoliticalAdvisor() {
         throw new Error('No simulation results available for briefing')
       }
 
-      const { briefingId, treatiesAnalyzed, briefing } = await generateBriefingAction({
+      const { briefingId, treatiesAnalyzed, briefing, qa } = await generateBriefingAction({
         date: currentDate,
         scenario: scenarioDetails,
         simulationResults: {
@@ -496,21 +496,27 @@ function PoliticalAdvisor() {
           recommendations: effectiveResults.recommendations ?? [],
         },
         selectedCountry: selectedCountryName,
+        selectedCountryCode: selectedCountry,
         offensiveCountry: offensiveCountryName,
+        offensiveCountryCode: offensiveCountry,
         defensiveCountry: defensiveCountryName,
+        defensiveCountryCode: defensiveCountry,
         severityLevel,
         timeFrame,
       })
 
       setCurrentProgressStep(5)
       setBriefingData(briefing)
-      setRagMetadata({ ragGenerated: treatiesAnalyzed > 0, treatiesAnalyzed, briefingId })
+      setRagMetadata({ ragGenerated: treatiesAnalyzed > 0, treatiesAnalyzed, briefingId, qa })
 
+      const score = qa?.critique?.score
+      const issuesCount = qa?.critique?.issues?.length ?? 0
+      const description = treatiesAnalyzed > 0
+        ? `Analyzed ${treatiesAnalyzed} treaties${score !== undefined ? ` · QA score ${score}/100${issuesCount ? ` (${issuesCount} issue${issuesCount === 1 ? "" : "s"} flagged)` : ""}` : ""}.`
+        : "Briefing generated without treaty grounding (treaties not yet ingested)."
       toast({
         title: treatiesAnalyzed > 0 ? "✅ Intelligence Briefing Complete" : "⚠️ Briefing Generated (no treaties)",
-        description: treatiesAnalyzed > 0
-          ? `Analyzed ${treatiesAnalyzed} treaties.`
-          : "Briefing generated without treaty grounding (treaties not yet ingested).",
+        description,
         variant: treatiesAnalyzed > 0 ? "default" : "destructive",
       })
     } catch (error) {
@@ -1639,49 +1645,36 @@ function PoliticalAdvisor() {
                       {/* Progress Steps */}
                       <div className="space-y-4 max-w-2xl mx-auto">
                         {[
-                          "Loading treaty database (643 documents)",
-                          "Processing scenario context and parameters", 
-                          "Generating semantic embeddings",
-                          "Retrieved relevant treaties",
-                          "Analyzing legal implications",
-                          "Generating strategic options"
+                          "Classifying threat scope and severity",
+                          "Loading country profiles, bases, and force posture",
+                          "Retrieving treaty articles and signatory status",
+                          "Cross-referencing sub-state actors and historical precedents",
+                          "Synthesizing intelligence briefing",
+                          "Validating citations and quality assurance",
                         ].map((stepName, index) => {
                           const isCompleted = currentProgressStep > index
                           const isActive = currentProgressStep === index
-                          const isPending = currentProgressStep < index
-                          
+
                           return (
-                            <div key={index} className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-500 ${
-                              isActive ? 'bg-flame/20 border border-flame/30' : 
+                            <div key={index} className={`flex items-center p-3 rounded-lg transition-all duration-500 ${
+                              isActive ? 'bg-flame/20 border border-flame/30' :
                               isCompleted ? 'bg-green-500/20 border border-green-500/30' :
                               'bg-dark-bg border border-dark-border'
                             }`}>
-                              <div className={`w-3 h-3 rounded-full transition-all duration-500 ${
-                                isActive ? 'animate-pulse bg-flame' :
-                                isCompleted ? 'bg-green-500' :
-                                'bg-dark-muted'
-                              }`}></div>
                               <span className={`font-medium transition-all duration-500 ${
                                 isActive ? 'text-flame' :
                                 isCompleted ? 'text-green-400' :
                                 'text-dark-muted'
                               }`}>
                                 {stepName}
-                          </span>
+                              </span>
                               {isActive && (
                                 <div className="ml-auto flex items-center space-x-2">
                                   <div className="w-4 h-4 border-2 border-flame border-t-transparent rounded-full animate-spin"></div>
                                   <span className="text-flame text-xs font-medium">Processing...</span>
-                        </div>
+                                </div>
                               )}
-                              {isCompleted && (
-                                <div className="ml-auto">
-                                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
-                                    <div className="w-2 h-2 text-white text-xs">✓</div>
-                          </div>
-                      </div>
-                              )}
-                        </div>
+                            </div>
                           )
                         })}
                       </div>

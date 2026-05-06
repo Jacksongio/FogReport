@@ -91,25 +91,47 @@ export default defineSchema({
     .index("by_user", ["userId"])
     .index("by_analysis", ["analysisId"]),
 
+  countryProfiles: defineTable({
+    code: v.string(),
+    name: v.string(),
+    region: v.string(),
+    nuclearStatus: v.string(),
+    militaryBudgetUsdBillions: v.optional(v.number()),
+    activeMilitaryPersonnel: v.optional(v.number()),
+    doctrine: v.optional(v.string()),
+    aircraft: v.array(v.string()),
+    missiles: v.array(v.string()),
+    naval: v.array(v.string()),
+    groundForces: v.array(v.string()),
+    bases: v.array(v.string()),
+    alliances: v.array(v.string()),
+    notableCapabilities: v.array(v.string()),
+  })
+    .index("by_code", ["code"])
+    .index("by_name", ["name"]),
+
   treaties: defineTable({
-    section: v.string(),
-    treatyType: v.string(),
+    slug: v.string(),
     title: v.string(),
+    shortName: v.optional(v.string()),
+    category: v.string(),
     adoptionDate: v.optional(v.string()),
     entryIntoForce: v.optional(v.string()),
-    parties: v.optional(v.string()),
-    description: v.optional(v.string()),
-    fullText: v.string(),
-  }).index("by_type", ["treatyType"]),
+    depositary: v.optional(v.string()),
+    summary: v.string(),
+    fullTextUrl: v.optional(v.string()),
+  })
+    .index("by_slug", ["slug"])
+    .index("by_category", ["category"]),
 
-  treatyChunks: defineTable({
+  treatyArticles: defineTable({
     treatyId: v.id("treaties"),
-    section: v.string(),
-    treatyType: v.string(),
-    title: v.string(),
-    parties: v.optional(v.string()),
-    chunkIndex: v.number(),
-    totalChunks: v.number(),
+    treatySlug: v.string(),
+    treatyTitle: v.string(),
+    treatyShortName: v.optional(v.string()),
+    category: v.string(),
+    articleNumber: v.string(),
+    articleTitle: v.optional(v.string()),
     content: v.string(),
     embedding: v.array(v.float64()),
   })
@@ -117,6 +139,156 @@ export default defineSchema({
     .vectorIndex("by_embedding", {
       vectorField: "embedding",
       dimensions: 1536,
-      filterFields: ["treatyType"],
+      filterFields: ["category"],
     }),
+
+  treatySignatories: defineTable({
+    treatyId: v.id("treaties"),
+    treatySlug: v.string(),
+    countryCode: v.string(),
+    status: v.string(),
+    date: v.optional(v.string()),
+  })
+    .index("by_treaty", ["treatyId"])
+    .index("by_country", ["countryCode"])
+    .index("by_treaty_country", ["treatyId", "countryCode"])
+    .index("by_slug_country", ["treatySlug", "countryCode"]),
+
+  militaryBases: defineTable({
+    slug: v.string(),
+    name: v.string(),
+    hostCountryCode: v.string(),
+    region: v.string(),
+    location: v.string(),
+    latitude: v.optional(v.number()),
+    longitude: v.optional(v.number()),
+    type: v.string(),
+    primaryServiceBranch: v.optional(v.string()),
+    tenantCountryCodes: v.array(v.string()),
+    hostedUnits: v.array(v.string()),
+    hostedSystems: v.array(v.string()),
+    role: v.string(),
+    notes: v.optional(v.string()),
+  })
+    .index("by_slug", ["slug"])
+    .index("by_host", ["hostCountryCode"])
+    .index("by_region", ["region"]),
+
+  strategicChokepoints: defineTable({
+    slug: v.string(),
+    name: v.string(),
+    region: v.string(),
+    type: v.string(),
+    widthKm: v.optional(v.number()),
+    annualTraffic: v.optional(v.string()),
+    bordersCountryCodes: v.array(v.string()),
+    controllingPowers: v.array(v.string()),
+    alternativeRoutes: v.array(v.string()),
+    significance: v.string(),
+    historicalIncidents: v.optional(v.array(v.string())),
+  })
+    .index("by_slug", ["slug"])
+    .index("by_region", ["region"]),
+
+  weaponSystems: defineTable({
+    slug: v.string(),
+    name: v.string(),
+    category: v.string(),
+    originCountryCode: v.string(),
+    yearIntroduced: v.optional(v.number()),
+    rangeKm: v.optional(v.number()),
+    speedMach: v.optional(v.number()),
+    payload: v.optional(v.string()),
+    operators: v.array(v.string()),
+    notableFeatures: v.optional(v.string()),
+    description: v.string(),
+  })
+    .index("by_slug", ["slug"])
+    .index("by_category", ["category"])
+    .index("by_origin", ["originCountryCode"])
+    .index("by_name", ["name"]),
+
+  defenseIndustries: defineTable({
+    slug: v.string(),
+    name: v.string(),
+    countryCode: v.string(),
+    headquarters: v.string(),
+    ownership: v.string(),
+    revenueUsdBillions: v.optional(v.number()),
+    keyProducts: v.array(v.string()),
+    majorCustomers: v.array(v.string()),
+    notes: v.string(),
+  })
+    .index("by_slug", ["slug"])
+    .index("by_country", ["countryCode"]),
+
+  intelligenceAgencies: defineTable({
+    slug: v.string(),
+    name: v.string(),
+    countryCode: v.string(),
+    type: v.string(),
+    foundedYear: v.optional(v.number()),
+    estimatedPersonnel: v.optional(v.number()),
+    headquarters: v.optional(v.string()),
+    mission: v.string(),
+    notableCapabilities: v.array(v.string()),
+    notableOperations: v.optional(v.array(v.string())),
+  })
+    .index("by_slug", ["slug"])
+    .index("by_country", ["countryCode"])
+    .index("by_type", ["type"]),
+
+  sofUnits: defineTable({
+    slug: v.string(),
+    name: v.string(),
+    countryCode: v.string(),
+    parentService: v.string(),
+    type: v.string(),
+    foundedYear: v.optional(v.number()),
+    estimatedStrength: v.optional(v.number()),
+    homeBase: v.optional(v.string()),
+    role: v.string(),
+    notableOperations: v.optional(v.array(v.string())),
+  })
+    .index("by_slug", ["slug"])
+    .index("by_country", ["countryCode"])
+    .index("by_type", ["type"]),
+
+  historicalIncidents: defineTable({
+    slug: v.string(),
+    name: v.string(),
+    startDate: v.string(),
+    endDate: v.optional(v.string()),
+    region: v.string(),
+    type: v.string(),
+    primaryParties: v.array(v.string()),
+    summary: v.string(),
+    keyEvents: v.array(v.string()),
+    outcome: v.string(),
+    lessons: v.array(v.string()),
+  })
+    .index("by_slug", ["slug"])
+    .index("by_region", ["region"])
+    .index("by_type", ["type"]),
+
+  subStateActors: defineTable({
+    slug: v.string(),
+    name: v.string(),
+    aliases: v.array(v.string()),
+    type: v.string(),
+    region: v.string(),
+    areaOfOperations: v.array(v.string()),
+    foundedYear: v.optional(v.number()),
+    estimatedStrength: v.optional(v.number()),
+    primarySponsorCountryCode: v.optional(v.string()),
+    ideology: v.optional(v.string()),
+    keyLeaders: v.optional(v.array(v.string())),
+    arsenal: v.array(v.string()),
+    notableOperations: v.optional(v.array(v.string())),
+    description: v.string(),
+  })
+    .index("by_slug", ["slug"])
+    .index("by_type", ["type"])
+    .index("by_region", ["region"])
+    .index("by_sponsor", ["primarySponsorCountryCode"]),
 });

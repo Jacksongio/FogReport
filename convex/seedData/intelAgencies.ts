@@ -1,0 +1,666 @@
+import type { IntelligenceAgency } from "./types";
+
+export const INTEL_AGENCIES: IntelligenceAgency[] = [
+  // ============ United States ============
+  {
+    slug: "us-cia",
+    name: "Central Intelligence Agency",
+    countryCode: "US",
+    type: "external_humint",
+    foundedYear: 1947,
+    estimatedPersonnel: 21000,
+    headquarters: "Langley, Virginia",
+    mission:
+      "Foreign HUMINT collection, all-source analysis, covert action under Title 50 authorities.",
+    notableCapabilities: [
+      "Directorate of Operations (clandestine HUMINT)",
+      "Directorate of Analysis",
+      "Special Activities Center (paramilitary)",
+      "Counterterrorism Center",
+      "China Mission Center (stood up 2021)",
+    ],
+    notableOperations: [
+      "Operation MERLIN (Iran)",
+      "Drone strike program oversight (counterterror)",
+      "Vienna Group case officer surge",
+    ],
+  },
+  {
+    slug: "us-nsa",
+    name: "National Security Agency",
+    countryCode: "US",
+    type: "sigint",
+    foundedYear: 1952,
+    estimatedPersonnel: 32000,
+    headquarters: "Fort Meade, Maryland",
+    mission:
+      "Signals intelligence collection, cryptologic services, and information assurance.",
+    notableCapabilities: [
+      "Tailored Access Operations (TAO)",
+      "Special Source Operations (cable taps via partnerships)",
+      "Five Eyes partnerships",
+      "Cybersecurity Directorate (defensive)",
+    ],
+    notableOperations: [
+      "PRISM / Upstream collection programs",
+      "Olympic Games (Stuxnet, with Israel)",
+    ],
+  },
+  {
+    slug: "us-dia",
+    name: "Defense Intelligence Agency",
+    countryCode: "US",
+    type: "military_intelligence",
+    foundedYear: 1961,
+    estimatedPersonnel: 16500,
+    headquarters: "Joint Base Anacostia-Bolling, Washington DC",
+    mission:
+      "All-source military intelligence supporting DoD and combatant commands; defense attache system.",
+    notableCapabilities: [
+      "Defense Clandestine Service (HUMINT)",
+      "Defense Attaché Service (135+ embassies)",
+      "Underground Targeting Group",
+    ],
+  },
+  {
+    slug: "us-nro",
+    name: "National Reconnaissance Office",
+    countryCode: "US",
+    type: "geospatial",
+    foundedYear: 1961,
+    headquarters: "Chantilly, Virginia",
+    mission:
+      "Designs, builds, and operates US reconnaissance satellites (existence declassified 1992).",
+    notableCapabilities: [
+      "Crystal / KH-11 imagery satellites",
+      "Topaz radar satellites",
+      "Trumpet SIGINT satellites",
+      "Proliferated Architecture (low-earth orbit constellation, partner with SDA)",
+    ],
+  },
+  {
+    slug: "us-nga",
+    name: "National Geospatial-Intelligence Agency",
+    countryCode: "US",
+    type: "geospatial",
+    foundedYear: 1996,
+    estimatedPersonnel: 14500,
+    headquarters: "Springfield, Virginia",
+    mission:
+      "Geospatial intelligence (GEOINT) and analytic exploitation of imagery and geodata.",
+    notableCapabilities: [
+      "Commercial GEOINT integration",
+      "Maxar and Planet partnerships",
+      "Maven AI tasking program (with DIU)",
+    ],
+  },
+  {
+    slug: "us-fbi-counterintel",
+    name: "Federal Bureau of Investigation (Counterintelligence Division)",
+    countryCode: "US",
+    type: "internal_security",
+    foundedYear: 1908,
+    headquarters: "Washington DC",
+    mission:
+      "Counterintelligence and counterterrorism within the United States; lead foreign-counterintel agency.",
+    notableCapabilities: [
+      "FISA Section 702 collection (with NSA)",
+      "Counterintelligence Strike Forces",
+      "China Initiative (now restructured)",
+    ],
+  },
+  {
+    slug: "us-cyber-command",
+    name: "United States Cyber Command",
+    countryCode: "US",
+    type: "cyber",
+    foundedYear: 2010,
+    estimatedPersonnel: 6000,
+    headquarters: "Fort Meade, Maryland",
+    mission:
+      "Plans and conducts offensive and defensive cyberspace operations; dual-hatted with NSA director.",
+    notableCapabilities: [
+      "Cyber Mission Force (133 teams)",
+      "Joint Force Headquarters - Cyber",
+      "Hunt Forward operations (with allies)",
+    ],
+  },
+  // ============ United Kingdom ============
+  {
+    slug: "uk-mi6-sis",
+    name: "Secret Intelligence Service (MI6)",
+    countryCode: "GB",
+    type: "external_humint",
+    foundedYear: 1909,
+    estimatedPersonnel: 3500,
+    headquarters: "Vauxhall Cross, London",
+    mission:
+      "Foreign HUMINT collection and covert action under Foreign Secretary authority.",
+    notableCapabilities: [
+      "Section CT (counterterror)",
+      "Joint MI6/GCHQ National Cyber Force",
+      "Five Eyes integration",
+    ],
+  },
+  {
+    slug: "uk-mi5",
+    name: "Security Service (MI5)",
+    countryCode: "GB",
+    type: "internal_security",
+    foundedYear: 1909,
+    estimatedPersonnel: 5000,
+    headquarters: "Thames House, London",
+    mission:
+      "Domestic security intelligence (counterterrorism, counterespionage, hostile state activity).",
+    notableCapabilities: [
+      "Joint Terrorism Analysis Centre (JTAC)",
+      "Hostile state interference investigations",
+    ],
+  },
+  {
+    slug: "uk-gchq",
+    name: "Government Communications Headquarters",
+    countryCode: "GB",
+    type: "sigint",
+    foundedYear: 1919,
+    estimatedPersonnel: 6500,
+    headquarters: "Cheltenham",
+    mission:
+      "UK signals intelligence, cybersecurity, and information assurance.",
+    notableCapabilities: [
+      "Tempora bulk cable interception",
+      "National Cyber Security Centre (NCSC)",
+      "Five Eyes SIGINT partner",
+    ],
+  },
+  {
+    slug: "uk-defence-intel",
+    name: "UK Defence Intelligence",
+    countryCode: "GB",
+    type: "military_intelligence",
+    headquarters: "Whitehall, London",
+    mission:
+      "Strategic military intelligence integrating MoD, single-service, and Joint Forces Intelligence Group.",
+    notableCapabilities: [
+      "Strategic assessment publication (DI Notes)",
+      "Daily Russia/Ukraine intelligence updates 2022-present",
+    ],
+  },
+  // ============ France ============
+  {
+    slug: "fr-dgse",
+    name: "Direction générale de la Sécurité extérieure",
+    countryCode: "FR",
+    type: "external_humint",
+    foundedYear: 1982,
+    estimatedPersonnel: 7000,
+    headquarters: "Boulevard Mortier, Paris",
+    mission:
+      "External intelligence and counterterrorism; both HUMINT and SIGINT under one roof.",
+    notableCapabilities: [
+      "Service Action (paramilitary)",
+      "Indigenous SIGINT collection from Kourou and overseas",
+      "Counterterrorism with DGSI",
+    ],
+  },
+  {
+    slug: "fr-dgsi",
+    name: "Direction générale de la Sécurité intérieure",
+    countryCode: "FR",
+    type: "internal_security",
+    foundedYear: 2014,
+    headquarters: "Levallois-Perret",
+    mission:
+      "Domestic security intelligence (counterterrorism, counterespionage, cyber).",
+    notableCapabilities: [
+      "Counterterrorism (lead following 2015 attacks)",
+      "Hostile state activity investigations",
+    ],
+  },
+  {
+    slug: "fr-drm",
+    name: "Direction du renseignement militaire",
+    countryCode: "FR",
+    type: "military_intelligence",
+    foundedYear: 1992,
+    headquarters: "Paris",
+    mission:
+      "French military intelligence supporting deployed forces and strategic planning.",
+    notableCapabilities: ["Helios 2 / CSO satellite imagery", "ROEM SIGINT"],
+  },
+  // ============ Germany ============
+  {
+    slug: "de-bnd",
+    name: "Bundesnachrichtendienst",
+    countryCode: "DE",
+    type: "external_humint",
+    foundedYear: 1956,
+    estimatedPersonnel: 6500,
+    headquarters: "Berlin (relocated from Pullach 2019)",
+    mission: "German foreign intelligence; HUMINT, SIGINT, and analysis.",
+    notableCapabilities: [
+      "Indigenous SIGINT (post-Snowden reforms)",
+      "Joint operations with Five Eyes partners",
+    ],
+  },
+  {
+    slug: "de-bfv",
+    name: "Bundesamt für Verfassungsschutz",
+    countryCode: "DE",
+    type: "internal_security",
+    foundedYear: 1950,
+    headquarters: "Cologne",
+    mission:
+      "Domestic security against threats to constitutional order (extremism, espionage, terrorism).",
+    notableCapabilities: [
+      "Counterintelligence vs. Russia and China",
+      "Right- and left-wing extremism monitoring",
+    ],
+  },
+  // ============ Russia ============
+  {
+    slug: "ru-svr",
+    name: "Sluzhba vneshney razvedki (SVR)",
+    countryCode: "RU",
+    type: "external_humint",
+    foundedYear: 1991,
+    headquarters: "Yasenevo, Moscow",
+    mission:
+      "Russian foreign intelligence; civilian HUMINT successor to KGB First Chief Directorate.",
+    notableCapabilities: [
+      "Illegals program (deep-cover non-official cover officers)",
+      "Cyber operations (APT29 / Cozy Bear attribution)",
+    ],
+    notableOperations: [
+      "2010 illegals network exposure (US arrests)",
+      "SolarWinds operation (APT29)",
+    ],
+  },
+  {
+    slug: "ru-fsb",
+    name: "Federal Security Service (FSB)",
+    countryCode: "RU",
+    type: "internal_security",
+    foundedYear: 1995,
+    estimatedPersonnel: 250000,
+    headquarters: "Lubyanka, Moscow",
+    mission:
+      "Russian internal security; counterintelligence, counterterrorism, and (post-2014) external operations in former Soviet space.",
+    notableCapabilities: [
+      "Border Service",
+      "Center 16 (SIGINT)",
+      "Center 18 (cyber)",
+    ],
+    notableOperations: [
+      "Skripal poisoning attribution (with GRU)",
+      "Ukraine occupation administration",
+    ],
+  },
+  {
+    slug: "ru-gru",
+    name: "Main Directorate (GRU / GU)",
+    countryCode: "RU",
+    type: "military_intelligence",
+    foundedYear: 1918,
+    headquarters: "Khoroshevskoye Shosse, Moscow",
+    mission:
+      "Russian military intelligence; HUMINT, SIGINT, GEOINT, and Spetsnaz.",
+    notableCapabilities: [
+      "Unit 26165 (cyber, Fancy Bear / APT28)",
+      "Unit 74455 (Sandworm)",
+      "Spetsnaz GRU brigades",
+      "29155 (assassination unit)",
+    ],
+    notableOperations: [
+      "DNC hack 2016",
+      "NotPetya 2017",
+      "Skripal 2018 (Salisbury)",
+      "Vrbětice depot explosion (CZ, 2014)",
+    ],
+  },
+  // ============ China ============
+  {
+    slug: "cn-mss",
+    name: "Ministry of State Security",
+    countryCode: "CN",
+    type: "consolidated",
+    foundedYear: 1983,
+    headquarters: "Beijing",
+    mission:
+      "Chinese civilian intelligence: foreign HUMINT, counterintelligence, internal security.",
+    notableCapabilities: [
+      "Bureau 11 (overseas operations)",
+      "APT41 / Double Dragon attribution",
+      "Talent recruitment programs (Thousand Talents)",
+    ],
+    notableOperations: [
+      "OPM hack 2015",
+      "Anthem health insurance breach 2015",
+      "Microsoft Exchange Server zero-day exploitation 2021 (Hafnium)",
+    ],
+  },
+  {
+    slug: "cn-pla-ssf",
+    name: "PLA Strategic Support Force / Aerospace Force / Cyberspace Force",
+    countryCode: "CN",
+    type: "cyber",
+    foundedYear: 2015,
+    headquarters: "Beijing",
+    mission:
+      "Restructured 2024 into Aerospace Force, Cyberspace Force, and Information Support Force; covers space, cyber, EW, and psyops.",
+    notableCapabilities: [
+      "Anti-satellite (ASAT) capabilities",
+      "Cyber units (61398, 61486)",
+      "BeiDou satellite navigation military operations",
+    ],
+  },
+  // ============ Israel ============
+  {
+    slug: "il-mossad",
+    name: "Mossad",
+    countryCode: "IL",
+    type: "external_humint",
+    foundedYear: 1949,
+    estimatedPersonnel: 7000,
+    headquarters: "Tel Aviv",
+    mission: "Israeli external intelligence and special operations.",
+    notableCapabilities: [
+      "Caesarea (special operations)",
+      "Junction (counterterrorism)",
+      "Tevel (foreign liaison)",
+    ],
+    notableOperations: [
+      "Iranian nuclear program disruption (Stuxnet co-development)",
+      "Eichmann capture 1960",
+      "Imad Mughniyeh operation 2008",
+    ],
+  },
+  {
+    slug: "il-aman-unit-8200",
+    name: "Israeli Military Intelligence (Aman) — Unit 8200",
+    countryCode: "IL",
+    type: "sigint",
+    foundedYear: 1952,
+    headquarters: "Glilot, Israel",
+    mission:
+      "IDF SIGINT and cyber intelligence; tier-1 cryptographic and offensive cyber capabilities.",
+    notableCapabilities: [
+      "Stuxnet co-development",
+      "Beirut SIGINT collection",
+      "Talent pipeline to Israeli cyber industry (Rafael, Check Point alumni)",
+    ],
+  },
+  {
+    slug: "il-shin-bet",
+    name: "Shin Bet (Shabak)",
+    countryCode: "IL",
+    type: "internal_security",
+    foundedYear: 1949,
+    headquarters: "Tel Aviv",
+    mission:
+      "Israeli internal security; counterterrorism, counterespionage, protection of officials.",
+    notableCapabilities: [
+      "Counter-Hamas / Palestinian Islamic Jihad operations",
+      "Personal protection of senior officials",
+    ],
+  },
+  // ============ Japan ============
+  {
+    slug: "jp-naicho",
+    name: "Cabinet Intelligence and Research Office (Naicho)",
+    countryCode: "JP",
+    type: "consolidated",
+    foundedYear: 1952,
+    headquarters: "Tokyo",
+    mission:
+      "Japan's premier civilian intelligence body; coordinates between ministries and reports to PM.",
+    notableCapabilities: [
+      "Foreign intelligence assessment",
+      "Counterintelligence coordination",
+    ],
+  },
+  {
+    slug: "jp-defense-intel",
+    name: "Defense Intelligence Headquarters (DIH)",
+    countryCode: "JP",
+    type: "military_intelligence",
+    foundedYear: 1997,
+    headquarters: "Ichigaya, Tokyo",
+    mission:
+      "JSDF strategic and tactical intelligence including SIGINT, GEOINT, and OSINT.",
+    notableCapabilities: [
+      "Imaging satellites (IGS series)",
+      "DPRK ballistic missile early warning",
+    ],
+  },
+  // ============ South Korea ============
+  {
+    slug: "kr-nis",
+    name: "National Intelligence Service",
+    countryCode: "KR",
+    type: "consolidated",
+    foundedYear: 1961,
+    headquarters: "Seoul",
+    mission:
+      "South Korean foreign intelligence, counterespionage, and DPRK monitoring.",
+    notableCapabilities: [
+      "DPRK source network",
+      "Joint operations with US (CIA, NSA)",
+    ],
+  },
+  {
+    slug: "kr-dssc",
+    name: "Defense Counterintelligence Command (DSSC)",
+    countryCode: "KR",
+    type: "military_intelligence",
+    headquarters: "Gwacheon",
+    mission: "ROK military counterintelligence and security.",
+    notableCapabilities: [
+      "Counter-DPRK military espionage",
+      "Defense industry security",
+    ],
+  },
+  // ============ India ============
+  {
+    slug: "in-raw",
+    name: "Research and Analysis Wing",
+    countryCode: "IN",
+    type: "external_humint",
+    foundedYear: 1968,
+    headquarters: "New Delhi",
+    mission: "India's external intelligence agency.",
+    notableCapabilities: [
+      "Pakistan and PRC HUMINT",
+      "Counterterrorism (with IB)",
+      "Aviation Research Centre (ARC, GEOINT)",
+    ],
+  },
+  {
+    slug: "in-ib",
+    name: "Intelligence Bureau (IB)",
+    countryCode: "IN",
+    type: "internal_security",
+    foundedYear: 1887,
+    headquarters: "New Delhi",
+    mission: "India's internal security and counterintelligence.",
+    notableCapabilities: ["Counterterrorism", "VIP security threat assessment"],
+  },
+  {
+    slug: "in-nta",
+    name: "National Technical Research Organisation (NTRO)",
+    countryCode: "IN",
+    type: "sigint",
+    foundedYear: 2004,
+    headquarters: "New Delhi",
+    mission: "Indian SIGINT, cyber, and technical intelligence.",
+    notableCapabilities: [
+      "Cyber intelligence",
+      "Imaging satellite tasking (with ARC)",
+    ],
+  },
+  // ============ Pakistan ============
+  {
+    slug: "pk-isi",
+    name: "Inter-Services Intelligence",
+    countryCode: "PK",
+    type: "consolidated",
+    foundedYear: 1948,
+    headquarters: "Aabpara, Islamabad",
+    mission:
+      "Pakistan's largest intelligence service; foreign and domestic, HUMINT and SIGINT.",
+    notableCapabilities: [
+      "Indian SUBCON HUMINT",
+      "Afghan operations (Taliban liaison)",
+      "Strategic Plans Division coordination (nuclear)",
+    ],
+    notableOperations: [
+      "Taliban support 1994-2001 and after",
+      "Mumbai 2008 attribution allegations",
+    ],
+  },
+  // ============ Iran ============
+  {
+    slug: "ir-mois",
+    name: "Ministry of Intelligence (MOIS / VAJA)",
+    countryCode: "IR",
+    type: "consolidated",
+    foundedYear: 1984,
+    headquarters: "Tehran",
+    mission:
+      "Civilian intelligence and counterintelligence; rivals IRGC Intelligence Organization.",
+    notableCapabilities: [
+      "Diplomatic-cover HUMINT",
+      "APT34 / OilRig cyber attribution",
+    ],
+    notableOperations: [
+      "Sahand operation (Vienna, 2018 plot)",
+      "Cyber operations against Albania (2022)",
+    ],
+  },
+  {
+    slug: "ir-irgc-quds-intel",
+    name: "IRGC Intelligence Organization",
+    countryCode: "IR",
+    type: "consolidated",
+    foundedYear: 2009,
+    headquarters: "Tehran",
+    mission:
+      "Hardline IRGC intelligence arm; conducts operations parallel to MOIS.",
+    notableCapabilities: [
+      "Quds Force liaison (Soleimani-era networks)",
+      "Counterintelligence vs. dissidents and journalists",
+    ],
+  },
+  // ============ DPRK ============
+  {
+    slug: "kp-rgb",
+    name: "Reconnaissance General Bureau",
+    countryCode: "KP",
+    type: "consolidated",
+    foundedYear: 2009,
+    headquarters: "Pyongyang",
+    mission: "DPRK foreign intelligence, special operations, and cyber.",
+    notableCapabilities: [
+      "Bureau 121 (cyber)",
+      "Lazarus Group (financial cybercrime)",
+      "Bureau 39 (sanctions evasion)",
+    ],
+    notableOperations: [
+      "Sony Pictures hack 2014",
+      "Bangladesh Bank heist 2016 (~$81M)",
+      "WannaCry 2017",
+    ],
+  },
+  // ============ Türkiye ============
+  {
+    slug: "tr-mit",
+    name: "Millî İstihbarat Teşkilatı (MİT)",
+    countryCode: "TR",
+    type: "consolidated",
+    foundedYear: 1965,
+    headquarters: "Ankara",
+    mission:
+      "Turkish national intelligence; reports directly to the President since 2017.",
+    notableCapabilities: ["Counter-PKK / FETO operations", "Syria operations"],
+  },
+  // ============ Saudi Arabia ============
+  {
+    slug: "sa-gid",
+    name: "General Intelligence Directorate (Al-Mukhabarat Al-A'amah)",
+    countryCode: "SA",
+    type: "external_humint",
+    headquarters: "Riyadh",
+    mission: "Saudi external intelligence service.",
+    notableCapabilities: [
+      "Counter-Iran HUMINT",
+      "Counterterrorism (Al-Qaeda, ISIS)",
+    ],
+  },
+  // ============ Australia ============
+  {
+    slug: "au-asis",
+    name: "Australian Secret Intelligence Service",
+    countryCode: "AU",
+    type: "external_humint",
+    foundedYear: 1952,
+    headquarters: "Canberra",
+    mission: "Australia's foreign HUMINT collection service.",
+    notableCapabilities: [
+      "Indo-Pacific HUMINT",
+      "Five Eyes HUMINT integration",
+    ],
+  },
+  {
+    slug: "au-asd",
+    name: "Australian Signals Directorate",
+    countryCode: "AU",
+    type: "sigint",
+    foundedYear: 1947,
+    headquarters: "Canberra",
+    mission: "Australian SIGINT and cybersecurity (responsible for ACSC).",
+    notableCapabilities: [
+      "REDSPICE program (cyber expansion)",
+      "Pine Gap joint operations",
+      "Five Eyes SIGINT partner",
+    ],
+  },
+  {
+    slug: "au-asio",
+    name: "Australian Security Intelligence Organisation",
+    countryCode: "AU",
+    type: "internal_security",
+    foundedYear: 1949,
+    headquarters: "Canberra",
+    mission: "Australia's domestic security intelligence service.",
+    notableCapabilities: [
+      "Foreign interference investigations (counter-PRC)",
+      "Counterterrorism",
+    ],
+  },
+  // ============ Canada ============
+  {
+    slug: "ca-csis",
+    name: "Canadian Security Intelligence Service",
+    countryCode: "CA",
+    type: "internal_security",
+    foundedYear: 1984,
+    headquarters: "Ottawa",
+    mission: "Canada's primary national intelligence service.",
+    notableCapabilities: [
+      "Counter-PRC interference investigations",
+      "Counter-Iran proxy investigations",
+    ],
+  },
+  {
+    slug: "ca-cse",
+    name: "Communications Security Establishment",
+    countryCode: "CA",
+    type: "sigint",
+    headquarters: "Ottawa",
+    mission: "Canadian SIGINT and cybersecurity authority.",
+    notableCapabilities: [
+      "Five Eyes SIGINT partner",
+      "Canadian Centre for Cyber Security",
+    ],
+  },
+];

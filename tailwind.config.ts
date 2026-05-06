@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 // all in fixtures is set to tailwind v3 as interims solutions
 
@@ -12,12 +12,12 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      'xs': '475px',
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px',
+      xs: "475px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
     },
     extend: {
       colors: {
@@ -113,11 +113,12 @@ const config: Config = {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "custom-gradient": "linear-gradient(135deg, #000000, #cf5c36, #eee5e9, #7c7c7c, #efc88b)",
+        "custom-gradient":
+          "linear-gradient(135deg, #000000, #cf5c36, #eee5e9, #7c7c7c, #efc88b)",
         "dark-gradient": "linear-gradient(135deg, #0a0a0a, #1a1a1a, #2a2a2a)",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
-export default config
+};
+export default config;

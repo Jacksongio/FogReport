@@ -2,6 +2,7 @@ import type React from "react";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ConvexClientProvider } from "@/components/convex-provider";
@@ -135,6 +136,7 @@ export default function RootLayout({
             {children}
             <Toaster />
           </ConvexClientProvider>
+          <Analytics />
         </body>
       </html>
     </ConvexAuthNextjsServerProvider>

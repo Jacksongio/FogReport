@@ -10,10 +10,33 @@ export const weaponsA: WeaponSystem[] = [
     yearIntroduced: 2016,
     rangeKm: 2200,
     speedMach: 1.6,
-    payload: "Up to 8.1 t internal/external; AIM-120, AIM-9X, JSM, B61-12, Storm Shadow (planned)",
-    operators: ["US", "GB", "IT", "NL", "NO", "DK", "BE", "AU", "JP", "KR", "IL", "PL", "FI", "CA", "DE", "GR", "RO", "CZ", "SG"],
-    notableFeatures: "All-aspect VLO; sensor fusion; F-35I 'Adir' configured for nuclear delivery in IL",
-    description: "Conventional-takeoff variant of the Joint Strike Fighter. Backbone of the Western fifth-generation fleet.",
+    payload:
+      "Up to 8.1 t internal/external; AIM-120, AIM-9X, JSM, B61-12, Storm Shadow (planned)",
+    operators: [
+      "US",
+      "GB",
+      "IT",
+      "NL",
+      "NO",
+      "DK",
+      "BE",
+      "AU",
+      "JP",
+      "KR",
+      "IL",
+      "PL",
+      "FI",
+      "CA",
+      "DE",
+      "GR",
+      "RO",
+      "CZ",
+      "SG",
+    ],
+    notableFeatures:
+      "All-aspect VLO; sensor fusion; F-35I 'Adir' configured for nuclear delivery in IL",
+    description:
+      "Conventional-takeoff variant of the Joint Strike Fighter. Backbone of the Western fifth-generation fleet.",
   },
   {
     slug: "f-35b",
@@ -25,8 +48,10 @@ export const weaponsA: WeaponSystem[] = [
     speedMach: 1.6,
     payload: "Up to 6.8 t (STOVL constrained)",
     operators: ["US", "GB", "IT", "JP", "SG"],
-    notableFeatures: "STOVL capability for amphibious assault ships and short-deck carriers",
-    description: "Short-takeoff/vertical-landing F-35 variant. Operates from Queen Elizabeth, Cavour, Izumo/Kaga, Trieste, and Wasp/America-class.",
+    notableFeatures:
+      "STOVL capability for amphibious assault ships and short-deck carriers",
+    description:
+      "Short-takeoff/vertical-landing F-35 variant. Operates from Queen Elizabeth, Cavour, Izumo/Kaga, Trieste, and Wasp/America-class.",
   },
   {
     slug: "f-35c",
@@ -38,8 +63,10 @@ export const weaponsA: WeaponSystem[] = [
     speedMach: 1.6,
     payload: "Up to 8.1 t",
     operators: ["US"],
-    notableFeatures: "Carrier-based variant with larger wing and reinforced gear",
-    description: "CATOBAR-launched fifth-generation fighter for US Navy supercarriers.",
+    notableFeatures:
+      "Carrier-based variant with larger wing and reinforced gear",
+    description:
+      "CATOBAR-launched fifth-generation fighter for US Navy supercarriers.",
   },
   {
     slug: "f-22",
@@ -52,7 +79,8 @@ export const weaponsA: WeaponSystem[] = [
     payload: "AIM-120D, AIM-9X, JDAM",
     operators: ["US"],
     notableFeatures: "Supercruise; thrust-vectoring; air-superiority focus",
-    description: "Premier Western air-superiority fighter; production curtailed at 187 airframes.",
+    description:
+      "Premier Western air-superiority fighter; production curtailed at 187 airframes.",
   },
   {
     slug: "su-57",
@@ -64,8 +92,10 @@ export const weaponsA: WeaponSystem[] = [
     speedMach: 2.0,
     payload: "Internal R-77M, Kh-59MK2, Kh-69; external pylons available",
     operators: ["RU"],
-    notableFeatures: "Russia's first fifth-gen fighter; limited series production",
-    description: "Russian fifth-generation multirole fighter. Combat-debuted in Ukraine in 2024 in stand-off strike role.",
+    notableFeatures:
+      "Russia's first fifth-gen fighter; limited series production",
+    description:
+      "Russian fifth-generation multirole fighter. Combat-debuted in Ukraine in 2024 in stand-off strike role.",
   },
   {
     slug: "j-20",
@@ -77,8 +107,10 @@ export const weaponsA: WeaponSystem[] = [
     speedMach: 2.0,
     payload: "PL-15 BVR, PL-10 SRAAM, internal weapons bays",
     operators: ["CN"],
-    notableFeatures: "Largest fifth-gen fighter; long-range air superiority over Pacific",
-    description: "PLA Air Force's premier stealth fighter; operational fleet over 200 airframes.",
+    notableFeatures:
+      "Largest fifth-gen fighter; long-range air superiority over Pacific",
+    description:
+      "PLA Air Force's premier stealth fighter; operational fleet over 200 airframes.",
   },
   // 4.5-gen and key 4-gen fighters
   {
@@ -92,7 +124,8 @@ export const weaponsA: WeaponSystem[] = [
     payload: "Meteor, MICA, SCALP, Exocet AM39, ASMP-A nuclear ALCM",
     operators: ["FR", "EG", "QA", "IN", "GR", "HR", "AE", "ID", "RS"],
     notableFeatures: "Sole French nuclear-delivery fighter; combat-experienced",
-    description: "French omnirole fighter; performs nuclear-deterrent role with ASMP-A on French air component.",
+    description:
+      "French omnirole fighter; performs nuclear-deterrent role with ASMP-A on French air component.",
   },
   {
     slug: "eurofighter-typhoon",
@@ -105,7 +138,8 @@ export const weaponsA: WeaponSystem[] = [
     payload: "Meteor, ASRAAM, Storm Shadow, Brimstone, Paveway",
     operators: ["GB", "DE", "IT", "ES", "AT", "SA", "OM", "KW", "QA"],
     notableFeatures: "Twin-engine BVR-optimized 4.5-gen fighter",
-    description: "Quadrinational European air-superiority fighter; backbone of NATO QRA in central and southern Europe.",
+    description:
+      "Quadrinational European air-superiority fighter; backbone of NATO QRA in central and southern Europe.",
   },
   {
     slug: "f-15ex",
@@ -117,8 +151,10 @@ export const weaponsA: WeaponSystem[] = [
     speedMach: 2.5,
     payload: "Up to 13.4 t including hypersonic AGM-183A ARRW",
     operators: ["US"],
-    notableFeatures: "Largest payload of any US fighter; AESA radar; designed for stand-off carriers and missile truck role",
-    description: "Latest Eagle variant replacing F-15C; carries AGM-183A ARRW hypersonic in air-launch role.",
+    notableFeatures:
+      "Largest payload of any US fighter; AESA radar; designed for stand-off carriers and missile truck role",
+    description:
+      "Latest Eagle variant replacing F-15C; carries AGM-183A ARRW hypersonic in air-launch role.",
   },
   {
     slug: "f-18ef-superhornet",
@@ -130,8 +166,10 @@ export const weaponsA: WeaponSystem[] = [
     speedMach: 1.8,
     payload: "AIM-120, AIM-9X, JASSM, LRASM, Harpoon, JDAM",
     operators: ["US", "AU", "KW"],
-    notableFeatures: "Carrier-based multirole strike fighter with growing LRASM long-range anti-ship reach",
-    description: "Backbone of US carrier air wings; will fly alongside F-35C through 2030s.",
+    notableFeatures:
+      "Carrier-based multirole strike fighter with growing LRASM long-range anti-ship reach",
+    description:
+      "Backbone of US carrier air wings; will fly alongside F-35C through 2030s.",
   },
   // Bombers
   {
@@ -144,7 +182,8 @@ export const weaponsA: WeaponSystem[] = [
     payload: "B61-12 / B83-1 nuclear; JASSM-ER, GBU-57 MOP",
     operators: ["US"],
     notableFeatures: "Sole flying-wing all-aspect VLO bomber",
-    description: "Strategic stealth bomber; only platform certified for the GBU-57 Massive Ordnance Penetrator.",
+    description:
+      "Strategic stealth bomber; only platform certified for the GBU-57 Massive Ordnance Penetrator.",
   },
   {
     slug: "b-21",
@@ -155,7 +194,8 @@ export const weaponsA: WeaponSystem[] = [
     payload: "Conventional and nuclear (when certified)",
     operators: ["US"],
     notableFeatures: "Sixth-gen stealth flying-wing; networked with NGAD",
-    description: "Next-generation strategic stealth bomber replacing B-2 and complementing B-52.",
+    description:
+      "Next-generation strategic stealth bomber replacing B-2 and complementing B-52.",
   },
   {
     slug: "b-52h",
@@ -167,7 +207,8 @@ export const weaponsA: WeaponSystem[] = [
     payload: "Up to 31.5 t conventional / nuclear ALCM-A / W80 warheads",
     operators: ["US"],
     notableFeatures: "Long-life airframe through 2050s; AGM-183 ARRW host",
-    description: "Standoff long-range bomber and BTF rotational platform across Europe, Indo-Pacific, and Diego Garcia.",
+    description:
+      "Standoff long-range bomber and BTF rotational platform across Europe, Indo-Pacific, and Diego Garcia.",
   },
   {
     slug: "tu-160",
@@ -179,8 +220,10 @@ export const weaponsA: WeaponSystem[] = [
     speedMach: 2.05,
     payload: "Kh-101 / Kh-102 ALCMs; Kh-555",
     operators: ["RU"],
-    notableFeatures: "Variable-geometry wings; largest combat aircraft in service",
-    description: "Russian strategic bomber; primary platform for Kh-101 strikes in Ukraine.",
+    notableFeatures:
+      "Variable-geometry wings; largest combat aircraft in service",
+    description:
+      "Russian strategic bomber; primary platform for Kh-101 strikes in Ukraine.",
   },
   {
     slug: "tu-95ms",
@@ -191,8 +234,10 @@ export const weaponsA: WeaponSystem[] = [
     rangeKm: 15000,
     payload: "Kh-101 / Kh-102 ALCMs",
     operators: ["RU"],
-    notableFeatures: "Turboprop strategic platform; long-loiter cruise-missile carrier",
-    description: "Russian long-range turboprop bomber; primary cruise missile carrier alongside Tu-160.",
+    notableFeatures:
+      "Turboprop strategic platform; long-loiter cruise-missile carrier",
+    description:
+      "Russian long-range turboprop bomber; primary cruise missile carrier alongside Tu-160.",
   },
   {
     slug: "h-6k",
@@ -203,8 +248,10 @@ export const weaponsA: WeaponSystem[] = [
     rangeKm: 6000,
     payload: "CJ-10 / CJ-100 / KD-20 ALCMs; air-launched ballistic (H-6N)",
     operators: ["CN"],
-    notableFeatures: "H-6N variant carries air-launched ballistic missile (CH-AS-X-13)",
-    description: "PLA Air Force long-range cruise-missile carrier; backbone of stand-off strike against Western Pacific targets.",
+    notableFeatures:
+      "H-6N variant carries air-launched ballistic missile (CH-AS-X-13)",
+    description:
+      "PLA Air Force long-range cruise-missile carrier; backbone of stand-off strike against Western Pacific targets.",
   },
   // Cruise missiles
   {
@@ -217,8 +264,10 @@ export const weaponsA: WeaponSystem[] = [
     speedMach: 0.74,
     payload: "450 kg conventional unitary or submunition (now retired)",
     operators: ["US", "GB", "AU", "JP", "NL"],
-    notableFeatures: "Block Va Maritime Strike Tomahawk; Block Vb upgraded warhead",
-    description: "US standard sub-/ship-launched land-attack cruise missile; Block V adds anti-ship capability.",
+    notableFeatures:
+      "Block Va Maritime Strike Tomahawk; Block Vb upgraded warhead",
+    description:
+      "US standard sub-/ship-launched land-attack cruise missile; Block V adds anti-ship capability.",
   },
   {
     slug: "jassm-er",
@@ -230,7 +279,8 @@ export const weaponsA: WeaponSystem[] = [
     payload: "450 kg unitary penetrator",
     operators: ["US", "AU", "FI", "NL", "PL", "JP"],
     notableFeatures: "Stealth, terrain-matching, GPS/INS guidance",
-    description: "Air-launched stealthy stand-off land-attack cruise missile family.",
+    description:
+      "Air-launched stealthy stand-off land-attack cruise missile family.",
   },
   {
     slug: "lrasm",
@@ -242,7 +292,8 @@ export const weaponsA: WeaponSystem[] = [
     payload: "450 kg",
     operators: ["US", "AU"],
     notableFeatures: "Sensor-fused anti-ship; passive RF/IR seeker",
-    description: "Long-Range Anti-Ship Missile derived from JASSM-ER; deployed on B-1B and F/A-18E/F.",
+    description:
+      "Long-Range Anti-Ship Missile derived from JASSM-ER; deployed on B-1B and F/A-18E/F.",
   },
   {
     slug: "storm-shadow",
@@ -266,7 +317,8 @@ export const weaponsA: WeaponSystem[] = [
     payload: "Conventional or low-yield nuclear",
     operators: ["RU", "IN (BrahMos co-development)"],
     notableFeatures: "Family includes anti-ship and land-attack variants",
-    description: "Russian sea-launched land-attack and anti-ship cruise missile family. Used heavily against Ukraine since 2022.",
+    description:
+      "Russian sea-launched land-attack and anti-ship cruise missile family. Used heavily against Ukraine since 2022.",
   },
   {
     slug: "kh-101",
@@ -278,7 +330,8 @@ export const weaponsA: WeaponSystem[] = [
     payload: "Kh-102 carries nuclear warhead",
     operators: ["RU"],
     notableFeatures: "Air-launched stealth profile; reduced RCS",
-    description: "Russian air-launched long-range cruise missile family launched from Tu-95MS and Tu-160.",
+    description:
+      "Russian air-launched long-range cruise missile family launched from Tu-95MS and Tu-160.",
   },
   {
     slug: "kinzhal",
@@ -290,8 +343,10 @@ export const weaponsA: WeaponSystem[] = [
     speedMach: 10,
     payload: "500 kg conventional or nuclear",
     operators: ["RU"],
-    notableFeatures: "Air-launched aero-ballistic; carried by MiG-31K and Tu-22M3",
-    description: "Russian air-launched hypersonic ballistic missile; intercepted by Ukrainian Patriot in 2023.",
+    notableFeatures:
+      "Air-launched aero-ballistic; carried by MiG-31K and Tu-22M3",
+    description:
+      "Russian air-launched hypersonic ballistic missile; intercepted by Ukrainian Patriot in 2023.",
   },
   {
     slug: "avangard",
@@ -303,7 +358,8 @@ export const weaponsA: WeaponSystem[] = [
     payload: "Nuclear (~2 MT yield reported)",
     operators: ["RU"],
     notableFeatures: "Hypersonic glide vehicle on UR-100UTTKh / Sarmat ICBM",
-    description: "Russian boost-glide vehicle; classified as a strategic asset under New START.",
+    description:
+      "Russian boost-glide vehicle; classified as a strategic asset under New START.",
   },
   {
     slug: "zircon",
@@ -316,7 +372,8 @@ export const weaponsA: WeaponSystem[] = [
     payload: "Conventional",
     operators: ["RU"],
     notableFeatures: "Sea-launched scramjet hypersonic cruise missile",
-    description: "Russian hypersonic anti-ship and land-attack cruise missile fielded on Yasen-M and Admiral Gorshkov.",
+    description:
+      "Russian hypersonic anti-ship and land-attack cruise missile fielded on Yasen-M and Admiral Gorshkov.",
   },
   {
     slug: "df-21d",
@@ -327,8 +384,10 @@ export const weaponsA: WeaponSystem[] = [
     rangeKm: 1500,
     payload: "Maneuvering re-entry vehicle (MaRV), conventional",
     operators: ["CN"],
-    notableFeatures: "First operational anti-ship ballistic missile ('carrier killer')",
-    description: "PLA Rocket Force road-mobile MRBM with anti-ship variant aimed at US carrier strike groups.",
+    notableFeatures:
+      "First operational anti-ship ballistic missile ('carrier killer')",
+    description:
+      "PLA Rocket Force road-mobile MRBM with anti-ship variant aimed at US carrier strike groups.",
   },
   {
     slug: "df-26",
@@ -340,7 +399,8 @@ export const weaponsA: WeaponSystem[] = [
     payload: "Conventional or nuclear; anti-ship variant",
     operators: ["CN"],
     notableFeatures: "'Guam killer'; range to threaten US Pacific bases",
-    description: "Dual-capable PLARF intermediate-range ballistic missile threatening US Pacific bases and naval assets.",
+    description:
+      "Dual-capable PLARF intermediate-range ballistic missile threatening US Pacific bases and naval assets.",
   },
   {
     slug: "df-17",
@@ -365,8 +425,10 @@ export const weaponsA: WeaponSystem[] = [
     speedMach: 3.0,
     payload: "300 kg conventional",
     operators: ["IN", "PH"],
-    notableFeatures: "Indo-Russian supersonic cruise missile; air, ship, sub, and land variants; first export sale to Philippines",
-    description: "Versatile supersonic cruise missile family; recently exported to the Philippines for shore-based anti-ship role.",
+    notableFeatures:
+      "Indo-Russian supersonic cruise missile; air, ship, sub, and land variants; first export sale to Philippines",
+    description:
+      "Versatile supersonic cruise missile family; recently exported to the Philippines for shore-based anti-ship role.",
   },
   // Air defense systems
   {
@@ -377,9 +439,26 @@ export const weaponsA: WeaponSystem[] = [
     yearIntroduced: 2015,
     rangeKm: 35,
     payload: "Hit-to-kill interceptor",
-    operators: ["US", "DE", "NL", "JP", "KR", "SA", "AE", "TW", "PL", "RO", "SE", "ES", "GR", "QA", "BH"],
+    operators: [
+      "US",
+      "DE",
+      "NL",
+      "JP",
+      "KR",
+      "SA",
+      "AE",
+      "TW",
+      "PL",
+      "RO",
+      "SE",
+      "ES",
+      "GR",
+      "QA",
+      "BH",
+    ],
     notableFeatures: "Hit-to-kill against TBMs, cruise missiles, and aircraft",
-    description: "US-led Patriot upgrade; backbone of Western lower-tier ballistic-missile defense.",
+    description:
+      "US-led Patriot upgrade; backbone of Western lower-tier ballistic-missile defense.",
   },
   {
     slug: "thaad",
@@ -391,7 +470,8 @@ export const weaponsA: WeaponSystem[] = [
     payload: "Hit-to-kill (kinetic kill vehicle)",
     operators: ["US", "AE", "SA", "KR (Seongju)"],
     notableFeatures: "Endo/exoatmospheric hit-to-kill against MRBMs/IRBMs",
-    description: "US area BMD against medium- and intermediate-range ballistic missiles.",
+    description:
+      "US area BMD against medium- and intermediate-range ballistic missiles.",
   },
   {
     slug: "aegis-bmd-sm3",
@@ -400,8 +480,10 @@ export const weaponsA: WeaponSystem[] = [
     originCountryCode: "US",
     rangeKm: 2500,
     operators: ["US", "JP", "KR", "ES (host Aegis BMD ships)"],
-    notableFeatures: "Sea- and land-based; SM-3 Block IIA tested against ICBM in 2020",
-    description: "Naval and Aegis Ashore BMD using SPY-1/-6 radar and SM-3 family interceptors.",
+    notableFeatures:
+      "Sea- and land-based; SM-3 Block IIA tested against ICBM in 2020",
+    description:
+      "Naval and Aegis Ashore BMD using SPY-1/-6 radar and SM-3 family interceptors.",
   },
   {
     slug: "iron-dome",
@@ -411,9 +493,17 @@ export const weaponsA: WeaponSystem[] = [
     yearIntroduced: 2011,
     rangeKm: 70,
     payload: "Tamir interceptor",
-    operators: ["IL", "US (procurement)", "AZ", "RO (procurement)", "SG (procurement)"],
-    notableFeatures: "Counter-rocket / artillery / mortar; high engagement rates demonstrated",
-    description: "Israeli short-range air defense system; high-volume defense against rockets and artillery.",
+    operators: [
+      "IL",
+      "US (procurement)",
+      "AZ",
+      "RO (procurement)",
+      "SG (procurement)",
+    ],
+    notableFeatures:
+      "Counter-rocket / artillery / mortar; high engagement rates demonstrated",
+    description:
+      "Israeli short-range air defense system; high-volume defense against rockets and artillery.",
   },
   {
     slug: "davids-sling",
@@ -435,7 +525,8 @@ export const weaponsA: WeaponSystem[] = [
     rangeKm: 2400,
     operators: ["IL", "DE (procurement)"],
     notableFeatures: "Exoatmospheric hit-to-kill against IRBMs",
-    description: "Israeli upper-tier ballistic-missile interceptor; selected by Germany for European Sky Shield.",
+    description:
+      "Israeli upper-tier ballistic-missile interceptor; selected by Germany for European Sky Shield.",
   },
   {
     slug: "s-400",
@@ -445,8 +536,10 @@ export const weaponsA: WeaponSystem[] = [
     yearIntroduced: 2007,
     rangeKm: 400,
     operators: ["RU", "CN", "TR", "IN", "BY"],
-    notableFeatures: "40N6E missile claimed 400 km; layered with shorter-range 48N6 and 9M96",
-    description: "Russian long-range SAM family; sale to Türkiye triggered US F-35 expulsion.",
+    notableFeatures:
+      "40N6E missile claimed 400 km; layered with shorter-range 48N6 and 9M96",
+    description:
+      "Russian long-range SAM family; sale to Türkiye triggered US F-35 expulsion.",
   },
   {
     slug: "s-500",
@@ -457,7 +550,8 @@ export const weaponsA: WeaponSystem[] = [
     rangeKm: 600,
     operators: ["RU"],
     notableFeatures: "Anti-IRBM and anti-LEO satellite engagement claimed",
-    description: "Russian next-generation air and space defense system; small numbers fielded.",
+    description:
+      "Russian next-generation air and space defense system; small numbers fielded.",
   },
   {
     slug: "hq-9",
@@ -468,7 +562,8 @@ export const weaponsA: WeaponSystem[] = [
     rangeKm: 250,
     operators: ["CN", "PK", "TM", "RS"],
     notableFeatures: "Chinese long-range SAM; deployed on Spratly outposts",
-    description: "PLAN/PLAGF long-range SAM; fielded on Type 052D destroyers and South China Sea reefs.",
+    description:
+      "PLAN/PLAGF long-range SAM; fielded on Type 052D destroyers and South China Sea reefs.",
   },
   {
     slug: "nasams",
@@ -478,8 +573,23 @@ export const weaponsA: WeaponSystem[] = [
     yearIntroduced: 1998,
     rangeKm: 50,
     payload: "AIM-120 AMRAAM, AIM-9X, AIM-120-ER",
-    operators: ["NO", "US", "FI", "ES", "NL", "LT", "OM", "AU", "QA", "ID", "UA", "HU"],
-    notableFeatures: "Distributed networked launcher concept; co-developed by Kongsberg and Raytheon",
-    description: "Norwegian/US medium-range air defense system providing layered defense for the National Capital Region (US) and frontline NATO/Ukraine deployments.",
+    operators: [
+      "NO",
+      "US",
+      "FI",
+      "ES",
+      "NL",
+      "LT",
+      "OM",
+      "AU",
+      "QA",
+      "ID",
+      "UA",
+      "HU",
+    ],
+    notableFeatures:
+      "Distributed networked launcher concept; co-developed by Kongsberg and Raytheon",
+    description:
+      "Norwegian/US medium-range air defense system providing layered defense for the National Capital Region (US) and frontline NATO/Ukraine deployments.",
   },
 ];

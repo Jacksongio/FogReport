@@ -120,7 +120,10 @@ export const fetchSignatoriesForTreaty = internalQuery({
 
 export const fetchCountrySignatories = internalQuery({
   args: { countryCode: v.string() },
-  handler: async (ctx, { countryCode }): Promise<Doc<"treatySignatories">[]> => {
+  handler: async (
+    ctx,
+    { countryCode },
+  ): Promise<Doc<"treatySignatories">[]> => {
     return await ctx.db
       .query("treatySignatories")
       .withIndex("by_country", (q) => q.eq("countryCode", countryCode))
@@ -424,10 +427,7 @@ export const insertHistoricalIncident = internalMutation({
 
 export const fetchHistoricalIncidents = internalQuery({
   args: { region: v.optional(v.string()) },
-  handler: async (
-    ctx,
-    { region },
-  ): Promise<Doc<"historicalIncidents">[]> => {
+  handler: async (ctx, { region }): Promise<Doc<"historicalIncidents">[]> => {
     if (region) {
       return await ctx.db
         .query("historicalIncidents")

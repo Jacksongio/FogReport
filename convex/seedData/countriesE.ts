@@ -110,11 +110,7 @@ export const countriesE: CountryProfile[] = [
       "M109A5 SP howitzer",
       "Jagdkommando special forces",
     ],
-    bases: [
-      "Hörsching Air Base",
-      "Zeltweg Air Base",
-      "Wiener Neustadt",
-    ],
+    bases: ["Hörsching Air Base", "Zeltweg Air Base", "Wiener Neustadt"],
     alliances: [
       "EU Article 42.7 (neutral participation)",
       "European Sky Shield Initiative",
@@ -140,12 +136,7 @@ export const countriesE: CountryProfile[] = [
       "F-35A Lightning II (procurement)",
       "C-295M",
     ],
-    missiles: [
-      "AIM-120C AMRAAM",
-      "AIM-9X",
-      "RBS-70",
-      "Spyder (procurement)",
-    ],
+    missiles: ["AIM-120C AMRAAM", "AIM-9X", "RBS-70", "Spyder (procurement)"],
     naval: [],
     groundForces: [
       "Leopard 2A4 (donations from Germany)",
@@ -159,11 +150,7 @@ export const countriesE: CountryProfile[] = [
       "Náměšť Air Base (helicopters)",
       "Vyškov training area",
     ],
-    alliances: [
-      "NATO Article 5",
-      "EU Article 42.7",
-      "Visegrád Group (V4)",
-    ],
+    alliances: ["NATO Article 5", "EU Article 42.7", "Visegrád Group (V4)"],
     notableCapabilities: [
       "Major arms donor to Ukraine (T-72, BMP-1, MiG-21)",
       "NATO CBRN Joint Centre of Excellence (Vyškov)",
@@ -198,11 +185,7 @@ export const countriesE: CountryProfile[] = [
       "Pápa Air Base (NATO C-17 SAC)",
       "Szolnok",
     ],
-    alliances: [
-      "NATO Article 5",
-      "EU Article 42.7",
-      "Visegrád Group",
-    ],
+    alliances: ["NATO Article 5", "EU Article 42.7", "Visegrád Group"],
     notableCapabilities: [
       "Hosts NATO Strategic Airlift Capability (SAC) at Pápa",
       "Lynx IFV co-production with Rheinmetall (Zalaegerszeg)",
@@ -249,11 +232,7 @@ export const countriesE: CountryProfile[] = [
       "Deveselu Aegis Ashore site",
       "Constanța Naval Base",
     ],
-    alliances: [
-      "NATO Article 5",
-      "EU Article 42.7",
-      "Bucharest Nine (B9)",
-    ],
+    alliances: ["NATO Article 5", "EU Article 42.7", "Bucharest Nine (B9)"],
     notableCapabilities: [
       "Hosts Aegis Ashore at Deveselu",
       "M.K. Air Base expanding to NATO largest in Europe",
@@ -295,10 +274,7 @@ export const countriesE: CountryProfile[] = [
       "Lisbon Naval Base / Alfeite",
       "Madeira",
     ],
-    alliances: [
-      "NATO Article 5 (founding member)",
-      "EU Article 42.7",
-    ],
+    alliances: ["NATO Article 5 (founding member)", "EU Article 42.7"],
     notableCapabilities: [
       "Lajes Field Atlantic transit hub",
       "Atlantic SAR coverage",
@@ -321,10 +297,7 @@ export const countriesE: CountryProfile[] = [
       "C-295 (procurement)",
     ],
     missiles: ["RBS 70 NG"],
-    naval: [
-      "Samuel Beckett-class OPV",
-      "Eithne / Roisin (legacy)",
-    ],
+    naval: ["Samuel Beckett-class OPV", "Eithne / Roisin (legacy)"],
     groundForces: [
       "MOWAG Piranha III H 8x8",
       "AML / FV101 Scorpion (legacy)",
@@ -386,10 +359,7 @@ export const countriesE: CountryProfile[] = [
       "Lumut Naval Base",
       "Sandakan, Sabah (eastern flank)",
     ],
-    alliances: [
-      "Five Power Defence Arrangements",
-      "ASEAN",
-    ],
+    alliances: ["Five Power Defence Arrangements", "ASEAN"],
     notableCapabilities: [
       "Strait of Malacca chokepoint sovereignty",
       "Mixed Russian/Western/Korean fleet",

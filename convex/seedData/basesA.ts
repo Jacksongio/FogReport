@@ -12,10 +12,19 @@ export const basesA: MilitaryBase[] = [
     type: "naval",
     primaryServiceBranch: "US Navy",
     tenantCountryCodes: ["US"],
-    hostedUnits: ["US Fleet Forces Command", "US 2nd Fleet", "Carrier Strike Group 8"],
-    hostedSystems: ["Nimitz / Ford-class carriers", "Arleigh Burke-class DDGs", "Virginia-class SSNs"],
+    hostedUnits: [
+      "US Fleet Forces Command",
+      "US 2nd Fleet",
+      "Carrier Strike Group 8",
+    ],
+    hostedSystems: [
+      "Nimitz / Ford-class carriers",
+      "Arleigh Burke-class DDGs",
+      "Virginia-class SSNs",
+    ],
     role: "World's largest naval base; principal homeport of the Atlantic Fleet and command hub for Atlantic carrier strike group operations.",
-    notes: "Hosts Naval Air Station Oceana for F/A-18E/F and F-35C training-coast deployments.",
+    notes:
+      "Hosts Naval Air Station Oceana for F/A-18E/F and F-35C training-coast deployments.",
   },
   {
     slug: "us-naval-base-san-diego",
@@ -28,8 +37,16 @@ export const basesA: MilitaryBase[] = [
     type: "naval",
     primaryServiceBranch: "US Navy",
     tenantCountryCodes: ["US"],
-    hostedUnits: ["US 3rd Fleet (San Diego HQ)", "Naval Surface Forces Pacific"],
-    hostedSystems: ["Arleigh Burke DDGs", "Ticonderoga CGs", "Independence-class LCS", "Wasp/America-class LHDs"],
+    hostedUnits: [
+      "US 3rd Fleet (San Diego HQ)",
+      "Naval Surface Forces Pacific",
+    ],
+    hostedSystems: [
+      "Arleigh Burke DDGs",
+      "Ticonderoga CGs",
+      "Independence-class LCS",
+      "Wasp/America-class LHDs",
+    ],
     role: "Principal Pacific homeport for surface combatants and amphibious ready groups.",
   },
   {
@@ -79,7 +96,11 @@ export const basesA: MilitaryBase[] = [
       "Pacific Air Forces (PACAF)",
       "15th Wing",
     ],
-    hostedSystems: ["Virginia / Los Angeles SSNs", "F-22A Raptor (Hawaii Air Guard)", "C-17A Globemaster III"],
+    hostedSystems: [
+      "Virginia / Los Angeles SSNs",
+      "F-22A Raptor (Hawaii Air Guard)",
+      "C-17A Globemaster III",
+    ],
     role: "Forward HQ for Indo-Pacific naval and air operations; home of Pacific Fleet command and Indo-Pacific Command-aligned forces.",
   },
   {
@@ -94,7 +115,12 @@ export const basesA: MilitaryBase[] = [
     primaryServiceBranch: "US Air Force",
     tenantCountryCodes: ["US"],
     hostedUnits: ["36th Wing", "Pacific Air Forces"],
-    hostedSystems: ["B-52H Stratofortress (rotational BTF)", "B-1B Lancer (rotational)", "B-2 Spirit (rotational)", "RQ-4 Global Hawk"],
+    hostedSystems: [
+      "B-52H Stratofortress (rotational BTF)",
+      "B-1B Lancer (rotational)",
+      "B-2 Spirit (rotational)",
+      "RQ-4 Global Hawk",
+    ],
     role: "Continuous Bomber Presence and rotational bomber task force hub for the Western Pacific.",
   },
   {
@@ -122,7 +148,10 @@ export const basesA: MilitaryBase[] = [
     primaryServiceBranch: "US Navy",
     tenantCountryCodes: ["US"],
     hostedUnits: ["US 7th Fleet HQ", "Carrier Strike Group 5"],
-    hostedSystems: ["USS Ronald Reagan (CVN-76) / USS George Washington (CVN-73)", "Aegis DDGs / CGs"],
+    hostedSystems: [
+      "USS Ronald Reagan (CVN-76) / USS George Washington (CVN-73)",
+      "Aegis DDGs / CGs",
+    ],
     role: "Only forward-deployed US carrier strike group homeport; nerve center of Pacific Fleet forward operations.",
   },
   {
@@ -137,7 +166,11 @@ export const basesA: MilitaryBase[] = [
     primaryServiceBranch: "US Air Force",
     tenantCountryCodes: ["US"],
     hostedUnits: ["18th Wing", "Pacific Air Forces"],
-    hostedSystems: ["F-15C Eagle (retiring; rotational F-22 / F-35 / F-15EX)", "KC-135R Stratotanker", "RC-135V/W Rivet Joint"],
+    hostedSystems: [
+      "F-15C Eagle (retiring; rotational F-22 / F-35 / F-15EX)",
+      "KC-135R Stratotanker",
+      "RC-135V/W Rivet Joint",
+    ],
     role: "Largest US Air Force base in the Pacific; primary fighter and ISR hub closest to Taiwan and the Korean peninsula.",
   },
   {
@@ -166,7 +199,11 @@ export const basesA: MilitaryBase[] = [
     type: "air",
     primaryServiceBranch: "US Air Force",
     tenantCountryCodes: ["US"],
-    hostedUnits: ["US Forces Japan HQ", "5th Air Force HQ", "374th Airlift Wing"],
+    hostedUnits: [
+      "US Forces Japan HQ",
+      "5th Air Force HQ",
+      "374th Airlift Wing",
+    ],
     hostedSystems: ["C-130J Super Hercules", "CV-22B Osprey", "C-12J"],
     role: "USFJ headquarters; airlift hub for Japan and the western Pacific.",
   },
@@ -181,7 +218,10 @@ export const basesA: MilitaryBase[] = [
     type: "air",
     primaryServiceBranch: "US Marine Corps",
     tenantCountryCodes: ["US", "JP"],
-    hostedUnits: ["1st Marine Aircraft Wing forward elements", "Carrier Air Wing 5 (when ashore)"],
+    hostedUnits: [
+      "1st Marine Aircraft Wing forward elements",
+      "Carrier Air Wing 5 (when ashore)",
+    ],
     hostedSystems: ["F-35B Lightning II", "F/A-18 Hornet", "EA-18G Growler"],
     role: "Forward Marine and Navy fixed-wing hub supporting carrier air wing operations from Japan.",
   },
@@ -196,7 +236,11 @@ export const basesA: MilitaryBase[] = [
     type: "joint",
     primaryServiceBranch: "US Army",
     tenantCountryCodes: ["US"],
-    hostedUnits: ["Eighth Army HQ", "United States Forces Korea HQ", "ROK-US Combined Forces Command"],
+    hostedUnits: [
+      "Eighth Army HQ",
+      "United States Forces Korea HQ",
+      "ROK-US Combined Forces Command",
+    ],
     hostedSystems: ["AH-64E Apache", "MQ-1C Gray Eagle"],
     role: "Largest overseas US Army installation; consolidated USFK headquarters since 2018.",
   },
@@ -239,7 +283,11 @@ export const basesA: MilitaryBase[] = [
     type: "air",
     primaryServiceBranch: "US Air Force",
     tenantCountryCodes: ["US"],
-    hostedUnits: ["US Air Forces in Europe-Air Forces Africa HQ", "Allied Air Command", "86th Airlift Wing"],
+    hostedUnits: [
+      "US Air Forces in Europe-Air Forces Africa HQ",
+      "Allied Air Command",
+      "86th Airlift Wing",
+    ],
     hostedSystems: ["C-130J Super Hercules", "C-21A Learjet"],
     role: "USAFE-AFAFRICA headquarters; principal Atlantic-Europe airlift hub and AOR command node.",
   },
@@ -253,7 +301,10 @@ export const basesA: MilitaryBase[] = [
     primaryServiceBranch: "US Air Force",
     tenantCountryCodes: ["US"],
     hostedUnits: ["52nd Fighter Wing"],
-    hostedSystems: ["F-16CM Fighting Falcon (SEAD)", "F-35A (replacing F-16 from 2025)"],
+    hostedSystems: [
+      "F-16CM Fighting Falcon (SEAD)",
+      "F-35A (replacing F-16 from 2025)",
+    ],
     role: "Forward USAFE fighter base; SEAD/DEAD wing for European theater.",
   },
   {
@@ -266,7 +317,11 @@ export const basesA: MilitaryBase[] = [
     primaryServiceBranch: "Luftwaffe",
     tenantCountryCodes: ["US", "DE"],
     hostedUnits: ["Tactical Air Wing 33", "USAF Munitions Support Squadron"],
-    hostedSystems: ["Tornado IDS (DCA, retiring)", "F-35A (incoming)", "B61-12 (US weapons under nuclear sharing)"],
+    hostedSystems: [
+      "Tornado IDS (DCA, retiring)",
+      "F-35A (incoming)",
+      "B61-12 (US weapons under nuclear sharing)",
+    ],
     role: "German DCA host for US B61 weapons under NATO nuclear sharing arrangement.",
   },
   {
@@ -280,7 +335,10 @@ export const basesA: MilitaryBase[] = [
     type: "naval",
     primaryServiceBranch: "Spanish Navy / US Navy",
     tenantCountryCodes: ["US", "ES"],
-    hostedUnits: ["Forward-Deployed Naval Forces Europe", "Destroyer Squadron 60"],
+    hostedUnits: [
+      "Forward-Deployed Naval Forces Europe",
+      "Destroyer Squadron 60",
+    ],
     hostedSystems: ["Arleigh Burke DDGs (Aegis BMD)"],
     role: "Forward Aegis BMD destroyer homeport supporting NATO European Phased Adaptive Approach.",
   },
@@ -323,8 +381,15 @@ export const basesA: MilitaryBase[] = [
     type: "air",
     primaryServiceBranch: "Qatar Emiri Air Force / US Air Force",
     tenantCountryCodes: ["US", "QA", "GB"],
-    hostedUnits: ["US Air Forces Central forward HQ", "Combined Air Operations Center"],
-    hostedSystems: ["KC-135 / KC-46 tankers", "RC-135 ISR", "rotational fighters and bombers"],
+    hostedUnits: [
+      "US Air Forces Central forward HQ",
+      "Combined Air Operations Center",
+    ],
+    hostedSystems: [
+      "KC-135 / KC-46 tankers",
+      "RC-135 ISR",
+      "rotational fighters and bombers",
+    ],
     role: "AFCENT forward HQ and CAOC controlling air operations across the Middle East and Central Asia.",
   },
   {
@@ -336,8 +401,16 @@ export const basesA: MilitaryBase[] = [
     type: "air",
     primaryServiceBranch: "UAE Air Force / US Air Force",
     tenantCountryCodes: ["US", "AE", "FR"],
-    hostedUnits: ["380th Air Expeditionary Wing", "French Air and Space Force detachment"],
-    hostedSystems: ["F-22A Raptor (rotational)", "F-35A (rotational)", "KC-10 / KC-46 tankers", "RQ-4 Global Hawk"],
+    hostedUnits: [
+      "380th Air Expeditionary Wing",
+      "French Air and Space Force detachment",
+    ],
+    hostedSystems: [
+      "F-22A Raptor (rotational)",
+      "F-35A (rotational)",
+      "KC-10 / KC-46 tankers",
+      "RQ-4 Global Hawk",
+    ],
     role: "Major Gulf air hub for US/coalition air policing and ISR; hosts French Rafale detachment.",
   },
   {
@@ -380,7 +453,11 @@ export const basesA: MilitaryBase[] = [
     primaryServiceBranch: "US Navy / Royal Navy",
     tenantCountryCodes: ["US", "GB"],
     hostedUnits: ["Maritime Prepositioning Ships Squadron 2"],
-    hostedSystems: ["B-2 Spirit (rotational)", "B-1B Lancer (rotational)", "P-8A Poseidon"],
+    hostedSystems: [
+      "B-2 Spirit (rotational)",
+      "B-1B Lancer (rotational)",
+      "P-8A Poseidon",
+    ],
     role: "Strategic Indian Ocean basing for prepositioning, bomber rotations, and maritime ISR.",
   },
   {
@@ -395,7 +472,10 @@ export const basesA: MilitaryBase[] = [
     primaryServiceBranch: "US Space Force",
     tenantCountryCodes: ["US", "DK"],
     hostedUnits: ["821st Space Base Group"],
-    hostedSystems: ["Upgraded Early Warning Radar (UEWR)", "Space surveillance sensors"],
+    hostedSystems: [
+      "Upgraded Early Warning Radar (UEWR)",
+      "Space surveillance sensors",
+    ],
     role: "Northernmost US installation; missile warning, space surveillance, and Arctic surveillance node.",
   },
   {
@@ -408,7 +488,11 @@ export const basesA: MilitaryBase[] = [
     primaryServiceBranch: "Royal Air Force",
     tenantCountryCodes: ["GB", "US"],
     hostedUnits: ["501st Combat Support Wing detachment"],
-    hostedSystems: ["B-52H Stratofortress (rotational BTF)", "B-1B (rotational)", "B-2 Spirit (rotational)"],
+    hostedSystems: [
+      "B-52H Stratofortress (rotational BTF)",
+      "B-1B (rotational)",
+      "B-2 Spirit (rotational)",
+    ],
     role: "Standing forward operating site for US strategic bombers in Europe.",
   },
   {
@@ -421,7 +505,11 @@ export const basesA: MilitaryBase[] = [
     primaryServiceBranch: "Royal Air Force / US Air Force",
     tenantCountryCodes: ["US", "GB"],
     hostedUnits: ["100th Air Refueling Wing", "352nd Special Operations Wing"],
-    hostedSystems: ["KC-135 Stratotanker", "CV-22B Osprey", "MC-130J Commando II"],
+    hostedSystems: [
+      "KC-135 Stratotanker",
+      "CV-22B Osprey",
+      "MC-130J Commando II",
+    ],
     role: "European air-refueling and SOF aviation hub.",
   },
   {
@@ -434,7 +522,11 @@ export const basesA: MilitaryBase[] = [
     primaryServiceBranch: "Royal Air Force / US Air Force",
     tenantCountryCodes: ["US", "GB"],
     hostedUnits: ["48th Fighter Wing"],
-    hostedSystems: ["F-15E Strike Eagle", "F-35A Lightning II", "F-15EX Eagle II (replacing F-15C)"],
+    hostedSystems: [
+      "F-15E Strike Eagle",
+      "F-35A Lightning II",
+      "F-15EX Eagle II (replacing F-15C)",
+    ],
     role: "Europe's only USAF F-35A wing; principal NATO fast-jet base in the UK.",
   },
 ];

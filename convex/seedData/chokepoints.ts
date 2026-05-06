@@ -29,9 +29,15 @@ export const CHOKEPOINTS: StrategicChokepoint[] = [
     region: "Middle East / Africa",
     type: "strait",
     widthKm: 29,
-    annualTraffic: "~9-10% of seaborne oil and ~12% of world trade transits via Suez/Bab el-Mandeb",
+    annualTraffic:
+      "~9-10% of seaborne oil and ~12% of world trade transits via Suez/Bab el-Mandeb",
     bordersCountryCodes: ["YE", "DJ", "ER"],
-    controllingPowers: ["US (CTF-153)", "FR", "CN (Djibouti)", "Houthi forces (north shore)"],
+    controllingPowers: [
+      "US (CTF-153)",
+      "FR",
+      "CN (Djibouti)",
+      "Houthi forces (north shore)",
+    ],
     alternativeRoutes: ["Cape of Good Hope (adds ~10-14 days transit)"],
     significance:
       "Choke between Red Sea and Gulf of Aden; entrance to the Suez Canal route. Houthi anti-ship missile and UAV campaign since late 2023 has materially diverted global shipping to the Cape route.",

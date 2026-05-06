@@ -113,11 +113,7 @@ export const countriesB: CountryProfile[] = [
       "La Spezia Naval Base",
       "Taranto Naval Base",
     ],
-    alliances: [
-      "NATO Article 5",
-      "EU Article 42.7",
-      "Quint",
-    ],
+    alliances: ["NATO Article 5", "EU Article 42.7", "Quint"],
     notableCapabilities: [
       "DCA nuclear sharing role at Ghedi",
       "Two flat-deck STOVL ships with F-35B",
@@ -167,10 +163,7 @@ export const countriesB: CountryProfile[] = [
       "Zaragoza Air Base",
       "Albacete (Tactical Leadership Programme)",
     ],
-    alliances: [
-      "NATO Article 5",
-      "EU Article 42.7",
-    ],
+    alliances: ["NATO Article 5", "EU Article 42.7"],
     notableCapabilities: [
       "Hosts forward-deployed US Aegis BMD destroyers at Rota",
       "STOVL operations from Juan Carlos I",
@@ -279,10 +272,7 @@ export const countriesB: CountryProfile[] = [
       "Camp TURKSOM, Mogadishu, Somalia",
       "Bashiqa, Iraq",
     ],
-    alliances: [
-      "NATO Article 5",
-      "Organization of Turkic States",
-    ],
+    alliances: ["NATO Article 5", "Organization of Turkic States"],
     notableCapabilities: [
       "World leader in armed UCAV exports (TB2)",
       "Indigenous LHD with UCAV air wing",

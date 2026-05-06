@@ -41,8 +41,12 @@ export const subStateActorsA: SubStateActor[] = [
     foundedYear: 1987,
     estimatedStrength: 30000,
     primarySponsorCountryCode: "IR",
-    ideology: "Sunni Islamist; Muslim Brotherhood-derived; rejection of Israeli statehood",
-    keyLeaders: ["Yahya Sinwar (killed Oct 2024)", "Khaled Mashal (political bureau)"],
+    ideology:
+      "Sunni Islamist; Muslim Brotherhood-derived; rejection of Israeli statehood",
+    keyLeaders: [
+      "Yahya Sinwar (killed Oct 2024)",
+      "Khaled Mashal (political bureau)",
+    ],
     arsenal: [
       "Qassam rocket family",
       "M-75 / M-90 / Fajr-5 derivatives",
@@ -166,7 +170,8 @@ export const subStateActorsA: SubStateActor[] = [
     foundedYear: 2014,
     estimatedStrength: 230000,
     primarySponsorCountryCode: "IQ",
-    ideology: "Heterogeneous; predominantly Shia with Sunni and Christian units",
+    ideology:
+      "Heterogeneous; predominantly Shia with Sunni and Christian units",
     arsenal: [
       "Iraqi state-issued small arms and armor",
       "Iranian-supplied rockets and ATGMs (varied by faction)",
@@ -215,7 +220,11 @@ export const subStateActorsA: SubStateActor[] = [
     estimatedStrength: 30000,
     ideology: "Sunni Islamist (formerly al-Qaeda affiliated)",
     keyLeaders: ["Abu Mohammad al-Jolani"],
-    arsenal: ["Captured Syrian Army equipment", "Locally-produced rockets and IEDs", "UAVs"],
+    arsenal: [
+      "Captured Syrian Army equipment",
+      "Locally-produced rockets and IEDs",
+      "UAVs",
+    ],
     description:
       "Dominant armed group in northwest Syria's Idlib pocket. Originated as Jabhat al-Nusra (al-Qaeda Syria affiliate); broke from al-Qaeda 2016. US-designated FTO since 2018.",
   },
@@ -225,12 +234,19 @@ export const subStateActorsA: SubStateActor[] = [
     aliases: ["SDF", "QSD"],
     type: "paramilitary",
     region: "Middle East",
-    areaOfOperations: ["Northeast Syria (Autonomous Administration of NES / Rojava)"],
+    areaOfOperations: [
+      "Northeast Syria (Autonomous Administration of NES / Rojava)",
+    ],
     foundedYear: 2015,
     estimatedStrength: 100000,
     primarySponsorCountryCode: "US",
-    ideology: "Heterogeneous; YPG-led with Arab and Christian components; democratic confederalism",
-    arsenal: ["Coalition-supplied small arms", "Captured ISIS equipment", "ATGMs"],
+    ideology:
+      "Heterogeneous; YPG-led with Arab and Christian components; democratic confederalism",
+    arsenal: [
+      "Coalition-supplied small arms",
+      "Captured ISIS equipment",
+      "ATGMs",
+    ],
     notableOperations: [
       "Anti-ISIS campaign 2015-2019 (Battle of Raqqa, Battle of Baghuz)",
       "Defense vs. Turkish incursions",
@@ -246,11 +262,21 @@ export const subStateActorsA: SubStateActor[] = [
     aliases: ["al-Shabaab", "HSM"],
     type: "militant_group",
     region: "Africa",
-    areaOfOperations: ["Somalia (rural south-central)", "Kenya border", "Ethiopia border"],
+    areaOfOperations: [
+      "Somalia (rural south-central)",
+      "Kenya border",
+      "Ethiopia border",
+    ],
     foundedYear: 2006,
     estimatedStrength: 7000,
     ideology: "Sunni Islamist (al-Qaeda affiliate since 2012)",
-    arsenal: ["Captured small arms", "VBIEDs", "IEDs", "Mortars", "ZU-23-2 anti-aircraft"],
+    arsenal: [
+      "Captured small arms",
+      "VBIEDs",
+      "IEDs",
+      "Mortars",
+      "ZU-23-2 anti-aircraft",
+    ],
     notableOperations: [
       "Westgate Mall attack 2013 (Nairobi)",
       "Garissa University attack 2015",
@@ -265,7 +291,10 @@ export const subStateActorsA: SubStateActor[] = [
     aliases: ["Jama'atu Ahlis Sunna Lidda'awati wal-Jihad", "JAS"],
     type: "militant_group",
     region: "Africa",
-    areaOfOperations: ["Northeastern Nigeria", "Lake Chad Basin (Cameroon, Chad, Niger)"],
+    areaOfOperations: [
+      "Northeastern Nigeria",
+      "Lake Chad Basin (Cameroon, Chad, Niger)",
+    ],
     foundedYear: 2002,
     estimatedStrength: 4000,
     ideology: "Sunni Islamist",
@@ -287,7 +316,11 @@ export const subStateActorsA: SubStateActor[] = [
     foundedYear: 2015,
     estimatedStrength: 5000,
     ideology: "Sunni Islamist (Islamic State affiliate)",
-    arsenal: ["Captured small arms", "VBIEDs", "Heavy weapons captured from NA"],
+    arsenal: [
+      "Captured small arms",
+      "VBIEDs",
+      "Heavy weapons captured from NA",
+    ],
     description:
       "Splinter from Boko Haram; Islamic State affiliate. Has overtaken Boko Haram as the dominant Sunni Islamist threat in Lake Chad Basin since 2019.",
   },
@@ -297,11 +330,21 @@ export const subStateActorsA: SubStateActor[] = [
     aliases: ["JNIM", "Group for the Support of Islam and Muslims"],
     type: "militant_group",
     region: "Africa",
-    areaOfOperations: ["Mali", "Burkina Faso", "Niger", "Côte d'Ivoire / Benin border"],
+    areaOfOperations: [
+      "Mali",
+      "Burkina Faso",
+      "Niger",
+      "Côte d'Ivoire / Benin border",
+    ],
     foundedYear: 2017,
     estimatedStrength: 6000,
     ideology: "Sunni Islamist (al-Qaeda affiliate)",
-    arsenal: ["Captured small arms", "Toyota technical pickups", "IEDs", "Captured Russian/Chinese arms"],
+    arsenal: [
+      "Captured small arms",
+      "Toyota technical pickups",
+      "IEDs",
+      "Captured Russian/Chinese arms",
+    ],
     description:
       "Al-Qaeda's Sahel umbrella formed by merger of Ansar Dine, AQIM-Sahara, MUJAO, and Macina Liberation Front. Dominant insurgent force in central Sahel.",
   },
@@ -311,7 +354,11 @@ export const subStateActorsA: SubStateActor[] = [
     aliases: ["ISGS", "ISSP", "Islamic State in the Greater Sahara"],
     type: "militant_group",
     region: "Africa",
-    areaOfOperations: ["Mali", "Burkina Faso", "Niger (Liptako-Gourma tri-border)"],
+    areaOfOperations: [
+      "Mali",
+      "Burkina Faso",
+      "Niger (Liptako-Gourma tri-border)",
+    ],
     foundedYear: 2015,
     estimatedStrength: 2000,
     ideology: "Sunni Islamist (Islamic State affiliate)",
@@ -387,7 +434,10 @@ export const subStateActorsA: SubStateActor[] = [
     estimatedStrength: 8000,
     primarySponsorCountryCode: "RW",
     ideology: "Tutsi nationalism; protection of Congolese Tutsis (claimed)",
-    arsenal: ["Captured FARDC equipment", "Reportedly Rwandan-supplied advanced systems"],
+    arsenal: [
+      "Captured FARDC equipment",
+      "Reportedly Rwandan-supplied advanced systems",
+    ],
     description:
       "Tutsi-led rebel group active in eastern DRC; UN Group of Experts reports document Rwandan support. Subject of EAC and SADC deployments.",
   },
@@ -414,7 +464,8 @@ export const subStateActorsA: SubStateActor[] = [
     areaOfOperations: ["Eastern DRC"],
     foundedYear: 2000,
     estimatedStrength: 600,
-    ideology: "Hutu nationalism; descended from former Rwandan Armed Forces (FAR) and Interahamwe",
+    ideology:
+      "Hutu nationalism; descended from former Rwandan Armed Forces (FAR) and Interahamwe",
     arsenal: ["Captured small arms"],
     description:
       "Hutu-extremist armed group in eastern DRC composed partly of veterans of the 1994 Rwandan genocide. Cited by Rwanda as justification for its eastern DRC posture.",
@@ -430,10 +481,12 @@ export const subStateActorsA: SubStateActor[] = [
     estimatedStrength: 100000,
     ideology: "Tribal-based; political-economic interests of leadership",
     keyLeaders: ["Mohamed Hamdan 'Hemedti' Dagalo"],
-    arsenal: ["Toyota technicals (~10,000)", "Captured Sudanese army equipment", "UAE-supplied weapons (alleged)"],
-    notableOperations: [
-      "Sudanese civil war 2023-present (vs. SAF)",
+    arsenal: [
+      "Toyota technicals (~10,000)",
+      "Captured Sudanese army equipment",
+      "UAE-supplied weapons (alleged)",
     ],
+    notableOperations: ["Sudanese civil war 2023-present (vs. SAF)"],
     description:
       "Sudanese paramilitary force grown from the Janjaweed; principal combatant against the Sudanese Armed Forces in the 2023-present civil war.",
   },
@@ -449,7 +502,10 @@ export const subStateActorsA: SubStateActor[] = [
     primarySponsorCountryCode: "RW",
     ideology: "Tutsi nationalism + heterogeneous opposition coalition",
     keyLeaders: ["Corneille Nangaa (political leadership)"],
-    arsenal: ["Captured FARDC equipment", "Rwandan-supplied advanced weapons (alleged)"],
+    arsenal: [
+      "Captured FARDC equipment",
+      "Rwandan-supplied advanced weapons (alleged)",
+    ],
     description:
       "Political-military alliance encompassing M23 and other anti-Kinshasa armed factions; captured Goma and Bukavu in early 2025.",
   },
@@ -459,12 +515,23 @@ export const subStateActorsA: SubStateActor[] = [
     aliases: ["Russia Africa Corps", "Wagner successor structure"],
     type: "private_military_company",
     region: "Africa",
-    areaOfOperations: ["Mali", "Burkina Faso", "Central African Republic", "Libya", "Sudan"],
+    areaOfOperations: [
+      "Mali",
+      "Burkina Faso",
+      "Central African Republic",
+      "Libya",
+      "Sudan",
+    ],
     foundedYear: 2024,
     estimatedStrength: 15000,
     primarySponsorCountryCode: "RU",
     ideology: "Russian state interests",
-    arsenal: ["Russian small arms", "BMP-1/2 IFV", "T-72 (limited)", "Mi-8/17 helicopters"],
+    arsenal: [
+      "Russian small arms",
+      "BMP-1/2 IFV",
+      "T-72 (limited)",
+      "Mi-8/17 helicopters",
+    ],
     description:
       "Russian Ministry of Defense-controlled successor to Wagner Group operations in Africa. Provides regime security, counter-insurgency, and resource-extraction security to client states.",
   },

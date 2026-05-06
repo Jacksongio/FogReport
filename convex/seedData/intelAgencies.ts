@@ -10,7 +10,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     foundedYear: 1947,
     estimatedPersonnel: 21000,
     headquarters: "Langley, Virginia",
-    mission: "Foreign HUMINT collection, all-source analysis, covert action under Title 50 authorities.",
+    mission:
+      "Foreign HUMINT collection, all-source analysis, covert action under Title 50 authorities.",
     notableCapabilities: [
       "Directorate of Operations (clandestine HUMINT)",
       "Directorate of Analysis",
@@ -32,7 +33,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     foundedYear: 1952,
     estimatedPersonnel: 32000,
     headquarters: "Fort Meade, Maryland",
-    mission: "Signals intelligence collection, cryptologic services, and information assurance.",
+    mission:
+      "Signals intelligence collection, cryptologic services, and information assurance.",
     notableCapabilities: [
       "Tailored Access Operations (TAO)",
       "Special Source Operations (cable taps via partnerships)",
@@ -52,7 +54,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     foundedYear: 1961,
     estimatedPersonnel: 16500,
     headquarters: "Joint Base Anacostia-Bolling, Washington DC",
-    mission: "All-source military intelligence supporting DoD and combatant commands; defense attache system.",
+    mission:
+      "All-source military intelligence supporting DoD and combatant commands; defense attache system.",
     notableCapabilities: [
       "Defense Clandestine Service (HUMINT)",
       "Defense Attaché Service (135+ embassies)",
@@ -66,7 +69,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "geospatial",
     foundedYear: 1961,
     headquarters: "Chantilly, Virginia",
-    mission: "Designs, builds, and operates US reconnaissance satellites (existence declassified 1992).",
+    mission:
+      "Designs, builds, and operates US reconnaissance satellites (existence declassified 1992).",
     notableCapabilities: [
       "Crystal / KH-11 imagery satellites",
       "Topaz radar satellites",
@@ -82,7 +86,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     foundedYear: 1996,
     estimatedPersonnel: 14500,
     headquarters: "Springfield, Virginia",
-    mission: "Geospatial intelligence (GEOINT) and analytic exploitation of imagery and geodata.",
+    mission:
+      "Geospatial intelligence (GEOINT) and analytic exploitation of imagery and geodata.",
     notableCapabilities: [
       "Commercial GEOINT integration",
       "Maxar and Planet partnerships",
@@ -96,7 +101,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "internal_security",
     foundedYear: 1908,
     headquarters: "Washington DC",
-    mission: "Counterintelligence and counterterrorism within the United States; lead foreign-counterintel agency.",
+    mission:
+      "Counterintelligence and counterterrorism within the United States; lead foreign-counterintel agency.",
     notableCapabilities: [
       "FISA Section 702 collection (with NSA)",
       "Counterintelligence Strike Forces",
@@ -111,7 +117,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     foundedYear: 2010,
     estimatedPersonnel: 6000,
     headquarters: "Fort Meade, Maryland",
-    mission: "Plans and conducts offensive and defensive cyberspace operations; dual-hatted with NSA director.",
+    mission:
+      "Plans and conducts offensive and defensive cyberspace operations; dual-hatted with NSA director.",
     notableCapabilities: [
       "Cyber Mission Force (133 teams)",
       "Joint Force Headquarters - Cyber",
@@ -127,7 +134,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     foundedYear: 1909,
     estimatedPersonnel: 3500,
     headquarters: "Vauxhall Cross, London",
-    mission: "Foreign HUMINT collection and covert action under Foreign Secretary authority.",
+    mission:
+      "Foreign HUMINT collection and covert action under Foreign Secretary authority.",
     notableCapabilities: [
       "Section CT (counterterror)",
       "Joint MI6/GCHQ National Cyber Force",
@@ -142,7 +150,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     foundedYear: 1909,
     estimatedPersonnel: 5000,
     headquarters: "Thames House, London",
-    mission: "Domestic security intelligence (counterterrorism, counterespionage, hostile state activity).",
+    mission:
+      "Domestic security intelligence (counterterrorism, counterespionage, hostile state activity).",
     notableCapabilities: [
       "Joint Terrorism Analysis Centre (JTAC)",
       "Hostile state interference investigations",
@@ -156,7 +165,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     foundedYear: 1919,
     estimatedPersonnel: 6500,
     headquarters: "Cheltenham",
-    mission: "UK signals intelligence, cybersecurity, and information assurance.",
+    mission:
+      "UK signals intelligence, cybersecurity, and information assurance.",
     notableCapabilities: [
       "Tempora bulk cable interception",
       "National Cyber Security Centre (NCSC)",
@@ -169,7 +179,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     countryCode: "GB",
     type: "military_intelligence",
     headquarters: "Whitehall, London",
-    mission: "Strategic military intelligence integrating MoD, single-service, and Joint Forces Intelligence Group.",
+    mission:
+      "Strategic military intelligence integrating MoD, single-service, and Joint Forces Intelligence Group.",
     notableCapabilities: [
       "Strategic assessment publication (DI Notes)",
       "Daily Russia/Ukraine intelligence updates 2022-present",
@@ -184,7 +195,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     foundedYear: 1982,
     estimatedPersonnel: 7000,
     headquarters: "Boulevard Mortier, Paris",
-    mission: "External intelligence and counterterrorism; both HUMINT and SIGINT under one roof.",
+    mission:
+      "External intelligence and counterterrorism; both HUMINT and SIGINT under one roof.",
     notableCapabilities: [
       "Service Action (paramilitary)",
       "Indigenous SIGINT collection from Kourou and overseas",
@@ -198,7 +210,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "internal_security",
     foundedYear: 2014,
     headquarters: "Levallois-Perret",
-    mission: "Domestic security intelligence (counterterrorism, counterespionage, cyber).",
+    mission:
+      "Domestic security intelligence (counterterrorism, counterespionage, cyber).",
     notableCapabilities: [
       "Counterterrorism (lead following 2015 attacks)",
       "Hostile state activity investigations",
@@ -211,11 +224,9 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "military_intelligence",
     foundedYear: 1992,
     headquarters: "Paris",
-    mission: "French military intelligence supporting deployed forces and strategic planning.",
-    notableCapabilities: [
-      "Helios 2 / CSO satellite imagery",
-      "ROEM SIGINT",
-    ],
+    mission:
+      "French military intelligence supporting deployed forces and strategic planning.",
+    notableCapabilities: ["Helios 2 / CSO satellite imagery", "ROEM SIGINT"],
   },
   // ============ Germany ============
   {
@@ -239,7 +250,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "internal_security",
     foundedYear: 1950,
     headquarters: "Cologne",
-    mission: "Domestic security against threats to constitutional order (extremism, espionage, terrorism).",
+    mission:
+      "Domestic security against threats to constitutional order (extremism, espionage, terrorism).",
     notableCapabilities: [
       "Counterintelligence vs. Russia and China",
       "Right- and left-wing extremism monitoring",
@@ -253,7 +265,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "external_humint",
     foundedYear: 1991,
     headquarters: "Yasenevo, Moscow",
-    mission: "Russian foreign intelligence; civilian HUMINT successor to KGB First Chief Directorate.",
+    mission:
+      "Russian foreign intelligence; civilian HUMINT successor to KGB First Chief Directorate.",
     notableCapabilities: [
       "Illegals program (deep-cover non-official cover officers)",
       "Cyber operations (APT29 / Cozy Bear attribution)",
@@ -271,7 +284,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     foundedYear: 1995,
     estimatedPersonnel: 250000,
     headquarters: "Lubyanka, Moscow",
-    mission: "Russian internal security; counterintelligence, counterterrorism, and (post-2014) external operations in former Soviet space.",
+    mission:
+      "Russian internal security; counterintelligence, counterterrorism, and (post-2014) external operations in former Soviet space.",
     notableCapabilities: [
       "Border Service",
       "Center 16 (SIGINT)",
@@ -289,7 +303,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "military_intelligence",
     foundedYear: 1918,
     headquarters: "Khoroshevskoye Shosse, Moscow",
-    mission: "Russian military intelligence; HUMINT, SIGINT, GEOINT, and Spetsnaz.",
+    mission:
+      "Russian military intelligence; HUMINT, SIGINT, GEOINT, and Spetsnaz.",
     notableCapabilities: [
       "Unit 26165 (cyber, Fancy Bear / APT28)",
       "Unit 74455 (Sandworm)",
@@ -311,7 +326,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "consolidated",
     foundedYear: 1983,
     headquarters: "Beijing",
-    mission: "Chinese civilian intelligence: foreign HUMINT, counterintelligence, internal security.",
+    mission:
+      "Chinese civilian intelligence: foreign HUMINT, counterintelligence, internal security.",
     notableCapabilities: [
       "Bureau 11 (overseas operations)",
       "APT41 / Double Dragon attribution",
@@ -330,7 +346,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "cyber",
     foundedYear: 2015,
     headquarters: "Beijing",
-    mission: "Restructured 2024 into Aerospace Force, Cyberspace Force, and Information Support Force; covers space, cyber, EW, and psyops.",
+    mission:
+      "Restructured 2024 into Aerospace Force, Cyberspace Force, and Information Support Force; covers space, cyber, EW, and psyops.",
     notableCapabilities: [
       "Anti-satellite (ASAT) capabilities",
       "Cyber units (61398, 61486)",
@@ -365,7 +382,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "sigint",
     foundedYear: 1952,
     headquarters: "Glilot, Israel",
-    mission: "IDF SIGINT and cyber intelligence; tier-1 cryptographic and offensive cyber capabilities.",
+    mission:
+      "IDF SIGINT and cyber intelligence; tier-1 cryptographic and offensive cyber capabilities.",
     notableCapabilities: [
       "Stuxnet co-development",
       "Beirut SIGINT collection",
@@ -379,7 +397,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "internal_security",
     foundedYear: 1949,
     headquarters: "Tel Aviv",
-    mission: "Israeli internal security; counterterrorism, counterespionage, protection of officials.",
+    mission:
+      "Israeli internal security; counterterrorism, counterespionage, protection of officials.",
     notableCapabilities: [
       "Counter-Hamas / Palestinian Islamic Jihad operations",
       "Personal protection of senior officials",
@@ -393,7 +412,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "consolidated",
     foundedYear: 1952,
     headquarters: "Tokyo",
-    mission: "Japan's premier civilian intelligence body; coordinates between ministries and reports to PM.",
+    mission:
+      "Japan's premier civilian intelligence body; coordinates between ministries and reports to PM.",
     notableCapabilities: [
       "Foreign intelligence assessment",
       "Counterintelligence coordination",
@@ -406,7 +426,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "military_intelligence",
     foundedYear: 1997,
     headquarters: "Ichigaya, Tokyo",
-    mission: "JSDF strategic and tactical intelligence including SIGINT, GEOINT, and OSINT.",
+    mission:
+      "JSDF strategic and tactical intelligence including SIGINT, GEOINT, and OSINT.",
     notableCapabilities: [
       "Imaging satellites (IGS series)",
       "DPRK ballistic missile early warning",
@@ -420,7 +441,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "consolidated",
     foundedYear: 1961,
     headquarters: "Seoul",
-    mission: "South Korean foreign intelligence, counterespionage, and DPRK monitoring.",
+    mission:
+      "South Korean foreign intelligence, counterespionage, and DPRK monitoring.",
     notableCapabilities: [
       "DPRK source network",
       "Joint operations with US (CIA, NSA)",
@@ -461,10 +483,7 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     foundedYear: 1887,
     headquarters: "New Delhi",
     mission: "India's internal security and counterintelligence.",
-    notableCapabilities: [
-      "Counterterrorism",
-      "VIP security threat assessment",
-    ],
+    notableCapabilities: ["Counterterrorism", "VIP security threat assessment"],
   },
   {
     slug: "in-nta",
@@ -487,7 +506,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "consolidated",
     foundedYear: 1948,
     headquarters: "Aabpara, Islamabad",
-    mission: "Pakistan's largest intelligence service; foreign and domestic, HUMINT and SIGINT.",
+    mission:
+      "Pakistan's largest intelligence service; foreign and domestic, HUMINT and SIGINT.",
     notableCapabilities: [
       "Indian SUBCON HUMINT",
       "Afghan operations (Taliban liaison)",
@@ -506,7 +526,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "consolidated",
     foundedYear: 1984,
     headquarters: "Tehran",
-    mission: "Civilian intelligence and counterintelligence; rivals IRGC Intelligence Organization.",
+    mission:
+      "Civilian intelligence and counterintelligence; rivals IRGC Intelligence Organization.",
     notableCapabilities: [
       "Diplomatic-cover HUMINT",
       "APT34 / OilRig cyber attribution",
@@ -523,7 +544,8 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "consolidated",
     foundedYear: 2009,
     headquarters: "Tehran",
-    mission: "Hardline IRGC intelligence arm; conducts operations parallel to MOIS.",
+    mission:
+      "Hardline IRGC intelligence arm; conducts operations parallel to MOIS.",
     notableCapabilities: [
       "Quds Force liaison (Soleimani-era networks)",
       "Counterintelligence vs. dissidents and journalists",
@@ -557,11 +579,9 @@ export const INTEL_AGENCIES: IntelligenceAgency[] = [
     type: "consolidated",
     foundedYear: 1965,
     headquarters: "Ankara",
-    mission: "Turkish national intelligence; reports directly to the President since 2017.",
-    notableCapabilities: [
-      "Counter-PKK / FETO operations",
-      "Syria operations",
-    ],
+    mission:
+      "Turkish national intelligence; reports directly to the President since 2017.",
+    notableCapabilities: ["Counter-PKK / FETO operations", "Syria operations"],
   },
   // ============ Saudi Arabia ============
   {

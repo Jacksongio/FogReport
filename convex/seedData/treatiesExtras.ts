@@ -3,7 +3,8 @@ import type { TreatyDocument } from "./types";
 export const treatiesExtras: TreatyDocument[] = [
   {
     slug: "helsinki-final-act",
-    title: "Helsinki Final Act (Conference on Security and Co-operation in Europe)",
+    title:
+      "Helsinki Final Act (Conference on Security and Co-operation in Europe)",
     shortName: "Helsinki Final Act",
     category: "diplomatic",
     adoptionDate: "1975-08-01",
@@ -50,7 +51,8 @@ export const treatiesExtras: TreatyDocument[] = [
   },
   {
     slug: "new-start",
-    title: "Treaty between the United States of America and the Russian Federation on Measures for the Further Reduction and Limitation of Strategic Offensive Arms",
+    title:
+      "Treaty between the United States of America and the Russian Federation on Measures for the Further Reduction and Limitation of Strategic Offensive Arms",
     shortName: "New START",
     category: "arms_control",
     adoptionDate: "2010-04-08",
@@ -92,7 +94,8 @@ export const treatiesExtras: TreatyDocument[] = [
   },
   {
     slug: "inf-treaty",
-    title: "Treaty on the Elimination of Intermediate-Range and Shorter-Range Missiles",
+    title:
+      "Treaty on the Elimination of Intermediate-Range and Shorter-Range Missiles",
     shortName: "INF Treaty (defunct)",
     category: "arms_control",
     adoptionDate: "1987-12-08",
@@ -199,7 +202,8 @@ export const treatiesExtras: TreatyDocument[] = [
   },
   {
     slug: "wassenaar-arrangement",
-    title: "Wassenaar Arrangement on Export Controls for Conventional Arms and Dual-Use Goods and Technologies",
+    title:
+      "Wassenaar Arrangement on Export Controls for Conventional Arms and Dual-Use Goods and Technologies",
     shortName: "Wassenaar Arrangement",
     category: "arms_control",
     adoptionDate: "1996-07-12",
@@ -323,7 +327,8 @@ export const treatiesExtras: TreatyDocument[] = [
   },
   {
     slug: "convention-against-torture",
-    title: "Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment",
+    title:
+      "Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment",
     shortName: "CAT",
     category: "humanitarian",
     adoptionDate: "1984-12-10",

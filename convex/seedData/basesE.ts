@@ -50,9 +50,14 @@ export const basesE: MilitaryBase[] = [
     primaryServiceBranch: "Russian Navy (de facto)",
     tenantCountryCodes: ["RU"],
     hostedUnits: ["Black Sea Fleet HQ (de facto)"],
-    hostedSystems: ["Slava CG (Moskva sunk 2022)", "Krivak / Admiral Grigorovich frigates", "Kilo-class SSK"],
+    hostedSystems: [
+      "Slava CG (Moskva sunk 2022)",
+      "Krivak / Admiral Grigorovich frigates",
+      "Kilo-class SSK",
+    ],
     role: "Black Sea Fleet HQ since occupation; subject to Ukrainian missile and drone strikes 2022-present.",
-    notes: "Crimea is internationally recognized as Ukrainian territory; Russian basing is contested.",
+    notes:
+      "Crimea is internationally recognized as Ukrainian territory; Russian basing is contested.",
   },
   {
     slug: "by-baranavichy",
@@ -64,7 +69,11 @@ export const basesE: MilitaryBase[] = [
     primaryServiceBranch: "Belarusian Air Force",
     tenantCountryCodes: ["BY", "RU"],
     hostedUnits: ["61st Fighter Air Base"],
-    hostedSystems: ["Su-30SM", "MiG-29", "Iskander-M (Russian forward deployment)"],
+    hostedSystems: [
+      "Su-30SM",
+      "MiG-29",
+      "Iskander-M (Russian forward deployment)",
+    ],
     role: "Belarusian fighter base hosting Russian Iskander-M and tactical-nuclear-shared aircraft.",
   },
   {
@@ -155,7 +164,10 @@ export const basesE: MilitaryBase[] = [
     primaryServiceBranch: "Korean People's Navy",
     tenantCountryCodes: ["KP"],
     hostedUnits: ["KPN submarine development"],
-    hostedSystems: ["Pukguksong-3/-4/-5 SLBM test platforms", "8.24 Yongung SSB"],
+    hostedSystems: [
+      "Pukguksong-3/-4/-5 SLBM test platforms",
+      "8.24 Yongung SSB",
+    ],
     role: "Centerpiece of DPRK SLBM and ballistic-missile submarine development.",
   },
   {
@@ -258,7 +270,10 @@ export const basesE: MilitaryBase[] = [
     type: "army",
     primaryServiceBranch: "Lithuanian Armed Forces",
     tenantCountryCodes: ["LT", "DE"],
-    hostedUnits: ["NATO eFP Battle Group Lithuania (German-led)", "German Brigade Lithuania (forming)"],
+    hostedUnits: [
+      "NATO eFP Battle Group Lithuania (German-led)",
+      "German Brigade Lithuania (forming)",
+    ],
     hostedSystems: ["Leopard 2A6", "PzH 2000", "Boxer"],
     role: "Future host of permanent German brigade for NATO frontline deterrence on the Suwałki Gap approaches.",
   },
@@ -310,7 +325,10 @@ export const basesE: MilitaryBase[] = [
     type: "air",
     primaryServiceBranch: "Icelandic Coast Guard",
     tenantCountryCodes: ["IS", "US"],
-    hostedUnits: ["NATO Iceland Air Policing rotational", "US Navy P-8A rotational"],
+    hostedUnits: [
+      "NATO Iceland Air Policing rotational",
+      "US Navy P-8A rotational",
+    ],
     hostedSystems: ["P-8A Poseidon (rotational)"],
     role: "GIUK Gap maritime patrol and air policing hub.",
   },

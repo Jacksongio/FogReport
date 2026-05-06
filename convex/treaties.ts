@@ -198,13 +198,13 @@ export const searchByScenario = action({
       scenario.defensiveCountryCode,
     ].filter((c): c is string => !!c);
 
-    const sigStatusMap: Record<string, Record<string, string>> =
-      codes.length > 0
-        ? await ctx.runQuery(internal.treaties.signatoryStatusFor, {
-            treatyIds: articles.map((a) => a.treatyId),
-            countryCodes: codes,
-          })
-        : {};
+    const sigStatusMap: Record<string, Record<string, string>> = codes.length >
+    0
+      ? await ctx.runQuery(internal.treaties.signatoryStatusFor, {
+          treatyIds: articles.map((a) => a.treatyId),
+          countryCodes: codes,
+        })
+      : {};
 
     const ranked: RankedArticle[] = articles.map((article) => {
       const candidate = candidates.find((c) => c._id === article._id);
@@ -221,7 +221,8 @@ export const searchByScenario = action({
         : undefined;
 
       const isBound = (s?: string) => s === "ratified" || s === "acceded";
-      const bothPartiesBound = isBound(offensiveStatus) && isBound(defensiveStatus);
+      const bothPartiesBound =
+        isBound(offensiveStatus) && isBound(defensiveStatus);
 
       let boost = 0;
       if (bothPartiesBound) boost += 0.6;

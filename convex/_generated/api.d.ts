@@ -16,6 +16,7 @@ import type * as http from "../http.js";
 import type * as simulations from "../simulations.js";
 import type * as treaties from "../treaties.js";
 import type * as treatiesIngest from "../treatiesIngest.js";
+import type * as users from "../users.js";
 
 import type {
   ApiFromModules,
@@ -32,6 +33,7 @@ declare const fullApi: ApiFromModules<{
   simulations: typeof simulations;
   treaties: typeof treaties;
   treatiesIngest: typeof treatiesIngest;
+  users: typeof users;
 }>;
 
 /**

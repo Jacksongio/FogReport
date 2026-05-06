@@ -20,9 +20,9 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { useToast } from "@/hooks/use-toast"
 import { FlagIcon } from "@/components/ui/flag-icon"
 import { useIsMobile } from "@/components/ui/use-mobile"
-import LandingPage from "@/components/LandingPage"
+import StarryBackground from "@/components/StarryBackground"
 import { AuthGate } from "@/components/auth-gate"
-import { SignOutButton } from "@/components/sign-out-button"
+import { ProfileMenu, type LoadedBriefing } from "@/components/profile-menu"
 
 function PoliticalAdvisor() {
   const saveAnalysis = useMutation(api.analyses.save)
@@ -31,7 +31,7 @@ function PoliticalAdvisor() {
   const generateBriefingAction = useAction(api.ai.generateBriefing)
   const searchTreaties = useAction(api.treaties.searchByScenario)
   const treatyStats = useQuery(api.treaties.statistics)
-  const [showLanding, setShowLanding] = useState(true)
+
   const [selectedCountry, setSelectedCountry] = useState("")
   const [conflictScenario, setConflictScenario] = useState("")
   const [offensiveCountry, setOffensiveCountry] = useState("")
@@ -810,46 +810,48 @@ function PoliticalAdvisor() {
     setIsSimulating(false)
   }
 
-  // Show landing page first, then simulation
-  if (showLanding) {
-    return <LandingPage onEnterSimulation={() => setShowLanding(false)} />
-  }
-
   return (
-    <div className="bg-dark-bg text-dark-text h-dvh flex flex-col">
+    <div className="bg-dark-bg text-dark-text h-dvh flex flex-col relative overflow-hidden">
+      <StarryBackground />
+
       {/* Header */}
-      <header className="border-b border-dark-border bg-dark-card/80 backdrop-blur-sm">
+      <header className="relative z-10 border-b border-dark-border/60 bg-dark-card/40 backdrop-blur-md">
         <div className="container mx-auto px-3 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between w-full gap-4">
-            <div
-              className="flex items-center space-x-3 sm:space-x-4 cursor-pointer hover:opacity-80 transition-opacity duration-200"
-              onClick={() => setShowLanding(true)}
-            >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center overflow-hidden">
+            <div className="flex items-center space-x-3 sm:space-x-4 group">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center overflow-hidden glow-blue relative">
+                <div className="absolute inset-0 z-10 bg-gradient-to-r from-transparent via-white to-transparent opacity-20 animate-light-reflection rounded-lg pointer-events-none"></div>
                 <Image
                   src="/fogreport.png"
                   alt="FogReport Logo"
                   width={48}
                   height={48}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain relative z-0"
                 />
               </div>
               <div>
-                <h1 className="text-xl sm:text-2xl font-bold text-dark-text">FogReport</h1>
+                <h1 className="text-xl sm:text-2xl font-bold text-dark-text">
+                  Fog<span className="text-flame">Report</span>
+                </h1>
                 <p className="text-xs sm:text-sm text-dark-muted">Military Intelligence Briefing Platform</p>
               </div>
             </div>
-            <SignOutButton />
+            <ProfileMenu
+              onLoadBriefing={(briefing: LoadedBriefing) => {
+                setBriefingData(briefing)
+                setActiveTab("results")
+              }}
+            />
           </div>
         </div>
       </header>
 
-      <div className="container mx-auto px-3 sm:px-6 py-4 sm:py-8 pb-8 sm:pb-12 lg:pb-96 flex-1 overflow-y-auto">
+      <div className="relative z-10 container mx-auto px-3 sm:px-6 py-4 sm:py-8 pb-8 sm:pb-12 lg:pb-96 flex-1 overflow-y-auto">
         <Tabs value={activeTab} onValueChange={handleTabChange} className="space-y-8">
-          <TabsList className="grid w-full grid-cols-3 bg-dark-card border border-dark-border h-10 sm:h-12">
+          <TabsList className="grid w-full grid-cols-3 bg-dark-card/50 backdrop-blur-md border border-dark-border/60 rounded-xl h-10 sm:h-12 p-1">
             <TabsTrigger
               value="setup"
-              className="data-[state=active]:bg-flame data-[state=active]:text-white text-dark-text text-xs sm:text-base px-1 sm:px-3"
+              className="data-[state=active]:bg-flame data-[state=active]:text-white data-[state=active]:shadow-[0_0_18px_rgba(207,92,54,0.45)] text-dark-text text-xs sm:text-base px-1 sm:px-3 rounded-lg transition-all"
             >
               <div className="flex items-center justify-center gap-1 sm:gap-2">
                 <Settings className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -862,7 +864,7 @@ function PoliticalAdvisor() {
             <TabsTrigger
               value="results"
               disabled={!briefingData}
-              className="data-[state=active]:bg-flame data-[state=active]:text-white text-dark-text text-xs sm:text-base disabled:opacity-50 disabled:cursor-not-allowed px-1 sm:px-3"
+              className="data-[state=active]:bg-flame data-[state=active]:text-white data-[state=active]:shadow-[0_0_18px_rgba(207,92,54,0.45)] text-dark-text text-xs sm:text-base disabled:opacity-50 disabled:cursor-not-allowed px-1 sm:px-3 rounded-lg transition-all"
             >
               <div className="flex items-center justify-center gap-1 sm:gap-2">
                 <FileText className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -873,7 +875,7 @@ function PoliticalAdvisor() {
             <TabsTrigger
               value="chat"
               disabled={!briefingData}
-              className="data-[state=active]:bg-flame data-[state=active]:text-white text-dark-text text-xs sm:text-base disabled:opacity-50 disabled:cursor-not-allowed px-1 sm:px-3"
+              className="data-[state=active]:bg-flame data-[state=active]:text-white data-[state=active]:shadow-[0_0_18px_rgba(207,92,54,0.45)] text-dark-text text-xs sm:text-base disabled:opacity-50 disabled:cursor-not-allowed px-1 sm:px-3 rounded-lg transition-all"
             >
               <div className="flex items-center justify-center gap-1 sm:gap-2">
                 <Target className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -888,7 +890,7 @@ function PoliticalAdvisor() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Country Selection with Examples */}
               <div className="space-y-6">
-                <Card className="border-dark-border bg-dark-card">
+                <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
                 <CardHeader className="bg-gradient-to-r from-flame/20 to-flame/10 py-4 tight-v">
                   <CardTitle className="flex items-center space-x-3 text-dark-text text-lg">
                     <Users className="w-5 h-5 text-flame" />
@@ -954,7 +956,7 @@ function PoliticalAdvisor() {
                           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                         </Button>
                       </PopoverTrigger>
-                      <PopoverContent className="w-[400px] p-0 bg-dark-card border-dark-border">
+                      <PopoverContent className="w-[400px] p-0 bg-dark-card/95 backdrop-blur-md border-dark-border rounded-xl">
                         <Command className="bg-dark-card">
                           <CommandInput placeholder="Search countries..." className="text-dark-text" />
                           <CommandList>
@@ -1058,8 +1060,8 @@ function PoliticalAdvisor() {
                       <CarouselContent className="-ml-2 md:-ml-4">
                         {exampleQuestions.map((example, index) => (
                           <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-                            <Card 
-                              className="h-full bg-dark-bg border-dark-border hover:border-blue-400/50 transition-colors cursor-pointer"
+                            <Card
+                              className="h-full bg-dark-bg/60 backdrop-blur-sm border-dark-border/60 hover:border-flame/50 hover:bg-dark-bg/80 transition-all cursor-pointer rounded-xl"
                               onClick={() => applyExampleQuestion(example)}
                             >
                               <CardContent className="p-4 h-full flex flex-col">
@@ -1113,7 +1115,7 @@ function PoliticalAdvisor() {
               </div>
 
               {/* Military Conflict Scenario */}
-              <Card className="border-dark-border bg-dark-card min-h-[400px] flex flex-col">
+              <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl min-h-[400px] flex flex-col">
                 <CardHeader className="bg-gradient-to-r from-flame/20 to-flame/10 py-4 tight-v">
                   <CardTitle className="flex items-center space-x-3 text-dark-text text-lg">
                     <AlertTriangle className="w-5 h-5 text-flame" />
@@ -1186,7 +1188,7 @@ function PoliticalAdvisor() {
                               <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                             </Button>
                           </PopoverTrigger>
-                          <PopoverContent className="w-[350px] p-0 bg-dark-card border-dark-border">
+                          <PopoverContent className="w-[350px] p-0 bg-dark-card/95 backdrop-blur-md border-dark-border rounded-xl">
                             <Command className="bg-dark-card">
                               <CommandInput placeholder="Search countries..." className="text-dark-text" />
                               <CommandList>
@@ -1284,7 +1286,7 @@ function PoliticalAdvisor() {
                               <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                             </Button>
                           </PopoverTrigger>
-                          <PopoverContent className="w-[350px] p-0 bg-dark-card border-dark-border">
+                          <PopoverContent className="w-[350px] p-0 bg-dark-card/95 backdrop-blur-md border-dark-border rounded-xl">
                             <Command className="bg-dark-card">
                               <CommandInput placeholder="Search countries..." className="text-dark-text" />
                               <CommandList>
@@ -1370,7 +1372,7 @@ function PoliticalAdvisor() {
                           <SelectTrigger className="bg-dark-bg border-dark-border text-dark-text">
                             <SelectValue placeholder="Select severity" />
                           </SelectTrigger>
-                          <SelectContent className="bg-dark-card border-dark-border">
+                          <SelectContent className="bg-dark-card/95 backdrop-blur-md border-dark-border rounded-xl">
                             <SelectItem value="low" className="text-dark-text hover:bg-dark-border">
                               Low - Minor tensions
                             </SelectItem>
@@ -1414,7 +1416,7 @@ function PoliticalAdvisor() {
                           <SelectTrigger className="bg-dark-bg border-dark-border text-dark-text">
                             <SelectValue placeholder="Response timeframe" />
                           </SelectTrigger>
-                          <SelectContent className="bg-dark-card border-dark-border">
+                          <SelectContent className="bg-dark-card/95 backdrop-blur-md border-dark-border rounded-xl">
                             <SelectItem value="immediate" className="text-dark-text hover:bg-dark-border">
                               Immediate (24 hours)
                             </SelectItem>
@@ -1451,7 +1453,7 @@ function PoliticalAdvisor() {
                 onClick={generateBriefing}
                 disabled={!selectedCountry || !offensiveCountry || !defensiveCountry || !scenarioDetails.trim() || isGeneratingBriefing}
                 size="responsive-lg"
-                className="bg-flame hover:bg-flame/90 text-white"
+                className="bg-flame hover:bg-flame/90 text-white glow-flame hover-glow-flame transition-all duration-200 hover:scale-[1.02] disabled:hover:scale-100 disabled:opacity-50"
               >
                 {isGeneratingBriefing ? (
                   <>
@@ -1481,7 +1483,7 @@ function PoliticalAdvisor() {
               {ragMetadata?.ragGenerated ? (
                 <div className="space-y-6">
                   {/* Main Intelligence Analysis Card */}
-                  <Card className="border-dark-border bg-dark-card">
+                  <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="text-lg font-bold text-dark-text">RAG Analysis Overview</h3>
@@ -1545,12 +1547,12 @@ function PoliticalAdvisor() {
 
                   {/* Retrieved Treaties */}
                   {ragMetadata.retrievedTreaties && ragMetadata.retrievedTreaties.length > 0 && (
-                    <Card className="border-dark-border bg-dark-card">
+                    <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
                       <CardContent className="p-6">
                         <h3 className="text-lg font-bold text-dark-text mb-4">Key Treaties Referenced</h3>
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                           {ragMetadata.retrievedTreaties.map((treaty: any, index: number) => (
-                            <Card key={index} className="bg-dark-bg border-dark-border">
+                            <Card key={index} className="bg-dark-bg/50 backdrop-blur-sm border-dark-border/60 rounded-xl hover:border-flame/40 transition-colors">
                       <CardContent className="p-4">
                                 <div className="flex items-start justify-between mb-2">
                                   <h4 className="font-semibold text-dark-text text-sm leading-snug" title={treaty.title}>
@@ -1590,7 +1592,7 @@ function PoliticalAdvisor() {
 
                 </div>
               ) : (
-                <Card className="border-dark-border bg-dark-card">
+                <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
                   <CardContent className="p-12 text-center">
                     <div className="w-16 h-16 bg-dark-border rounded-full flex items-center justify-center mx-auto mb-4">
                       <Target className="w-8 h-8 text-dark-muted" />
@@ -1601,7 +1603,7 @@ function PoliticalAdvisor() {
                     </p>
                     <Button
                       variant="outline"
-                      className="border-flame text-flame hover:bg-flame hover:text-white bg-transparent"
+                      className="border-flame text-flame hover:bg-flame hover:text-white bg-transparent transition-all duration-200 hover:scale-[1.02] hover:glow-flame"
                       onClick={() => setActiveTab("setup")}
                     >
                       Return to Setup
@@ -1621,7 +1623,7 @@ function PoliticalAdvisor() {
                         </div>
 
               {isGeneratingBriefing ? (
-                <Card className="border-dark-border bg-dark-card max-w-5xl mx-auto">
+                <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl max-w-5xl mx-auto">
                   <CardContent className="p-12 text-center">
                     <div className="space-y-6">
                       {/* Main Loading Animation */}
@@ -1710,7 +1712,7 @@ function PoliticalAdvisor() {
                   </CardContent>
                 </Card>
               ) : briefingData ? (
-                <Card className="border-dark-border bg-dark-card max-w-5xl mx-auto">
+                <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl max-w-5xl mx-auto">
                   <CardContent className="p-8">
                     {/* Briefing Header */}
                     <div className="text-center mb-8 border-b border-dark-border pb-6">
@@ -1831,7 +1833,7 @@ function PoliticalAdvisor() {
                     <div className="flex justify-center space-x-4 mt-8 pt-6 border-t border-dark-border">
                       <Button
                         variant="outline"
-                        className="border-flame text-flame hover:bg-flame hover:text-white bg-transparent"
+                        className="border-flame text-flame hover:bg-flame hover:text-white bg-transparent transition-all duration-200 hover:scale-[1.02] hover:glow-flame"
                         onClick={() => {
                           const printWindow = window.open('', '_blank')
                           if (printWindow) {
@@ -1895,7 +1897,7 @@ function PoliticalAdvisor() {
                       </Button>
                       <Button
                         variant="outline"
-                        className="border-flame text-flame hover:bg-flame hover:text-white bg-transparent"
+                        className="border-flame text-flame hover:bg-flame hover:text-white bg-transparent transition-all duration-200 hover:scale-[1.02] hover:glow-flame"
                         onClick={() => {
                           const briefingText = `
 ${briefingData.classification}
@@ -1939,7 +1941,7 @@ DISCLAIMER: ${briefingData.disclaimer}
                   </CardContent>
                 </Card>
               ) : (
-                <Card className="border-dark-border bg-dark-card">
+                <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
                   <CardContent className="p-12 text-center">
                     <div className="w-16 h-16 bg-dark-border rounded-full flex items-center justify-center mx-auto mb-4">
                       <File className="w-8 h-8 text-dark-muted" />
@@ -1950,7 +1952,7 @@ DISCLAIMER: ${briefingData.disclaimer}
                     </p>
                     <Button
                       variant="outline"
-                      className="border-flame text-flame hover:bg-flame hover:text-white bg-transparent"
+                      className="border-flame text-flame hover:bg-flame hover:text-white bg-transparent transition-all duration-200 hover:scale-[1.02] hover:glow-flame"
                       onClick={generateBriefing}
                       disabled={!simulationResults}
                     >

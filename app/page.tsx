@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from "react"
 import { Users, Target, BarChart3, Play, FileText, AlertTriangle, Sword, Shield, RotateCcw, MessageCircle, Send, Check, ChevronsUpDown, Settings, Loader2, Award, Calendar, Clock, File, Copy } from "lucide-react"
 import Image from "next/image"
+import { useAction, useMutation, useQuery } from "convex/react"
+import { api } from "@/convex/_generated/api"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -19,8 +21,16 @@ import { useToast } from "@/hooks/use-toast"
 import { FlagIcon } from "@/components/ui/flag-icon"
 import { useIsMobile } from "@/components/ui/use-mobile"
 import LandingPage from "@/components/LandingPage"
+import { AuthGate } from "@/components/auth-gate"
+import { SignOutButton } from "@/components/sign-out-button"
 
-export default function PoliticalAdvisor() {
+function PoliticalAdvisor() {
+  const saveAnalysis = useMutation(api.analyses.save)
+  const runAiAnalysis = useAction(api.ai.analyze)
+  const runAiChat = useAction(api.ai.chat)
+  const generateBriefingAction = useAction(api.ai.generateBriefing)
+  const searchTreaties = useAction(api.treaties.searchByScenario)
+  const treatyStats = useQuery(api.treaties.statistics)
   const [showLanding, setShowLanding] = useState(true)
   const [selectedCountry, setSelectedCountry] = useState("")
   const [conflictScenario, setConflictScenario] = useState("")
@@ -291,55 +301,24 @@ export default function PoliticalAdvisor() {
     }
     
     setIsLoadingTreaties(true)
-    
+
     try {
-      // Prepare current simulation context
-      const scenarioContext = {
-        selectedCountry: countries.find(c => c.code === selectedCountry)?.name || selectedCountry,
-        conflictScenario,
-        offensiveCountry: countries.find(c => c.code === offensiveCountry)?.name || offensiveCountry,
-        defensiveCountry: countries.find(c => c.code === defensiveCountry)?.name || defensiveCountry,
-        scenarioDetails,
-        severityLevel,
-        timeFrame,
-        tradeDependencies: tradeDependencies[0],
-        sanctionsImpact: sanctionsImpact[0],
-        marketStability: marketStability[0],
-        defenseCapabilities: defenseCapabilities[0],
-        allianceSupport: allianceSupport[0],
-        strategicResources: strategicResources[0],
-        unSupport: unSupport[0],
-        regionalInfluence: regionalInfluence[0],
-        publicOpinion: publicOpinion[0],
-        simulationResults
-      }
-
-      const response = await fetch('/api/treaties/query', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const treaties = await searchTreaties({
+        scenario: {
+          selectedCountry: countries.find(c => c.code === selectedCountry)?.name || selectedCountry,
+          conflictScenario,
+          offensiveCountry: countries.find(c => c.code === offensiveCountry)?.name || offensiveCountry,
+          defensiveCountry: countries.find(c => c.code === defensiveCountry)?.name || defensiveCountry,
+          scenarioDetails,
+          severityLevel,
+          timeFrame,
         },
-        body: JSON.stringify({
-          // No manual query - purely scenario-based
-          scenarioContext,
-          includeStatistics: treatyStatistics === null
-        }),
+        limit: 10,
       })
-
-      if (!response.ok) {
-        throw new Error('Treaty loading failed')
-      }
-
-      const result = await response.json()
-      setTreatyResults(result)
-      
-      if (result.statistics && treatyStatistics === null) {
-        setTreatyStatistics(result.statistics)
-      }
-
+      setTreatyResults({ treaties, success: true })
     } catch (error) {
       console.error('Treaty loading error:', error)
-      
+
       toast({
         title: "Loading Error",
         description: "Unable to load relevant treaties. Please try again.",
@@ -350,22 +329,12 @@ export default function PoliticalAdvisor() {
     }
   }
 
-  // Load treaty statistics and auto-load relevant treaties based on scenario
+  // Sync treaty statistics from Convex query
   useEffect(() => {
-    const loadTreatyStats = async () => {
-      try {
-        const response = await fetch('/api/treaties/query')
-        if (response.ok) {
-          const result = await response.json()
-          setTreatyStatistics(result.statistics)
-        }
-      } catch (error) {
-        console.log('Could not load treaty statistics:', error)
-      }
+    if (treatyStats && treatyStatistics === null) {
+      setTreatyStatistics(treatyStats)
     }
-    
-    loadTreatyStats()
-  }, [])
+  }, [treatyStats, treatyStatistics])
 
   // Auto-load relevant treaties when scenario changes
   useEffect(() => {
@@ -510,142 +479,86 @@ export default function PoliticalAdvisor() {
       const defensiveCountryName = countries.find(c => c.code === defensiveCountry)?.name || defensiveCountry
       
       console.log('🚀 Starting briefing generation with optimized flow...')
-      const briefingResponse = await fetch('/api/briefing/generate', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          date: currentDate,
-          scenario: scenarioDetails,
-          simulationResults: completedSimulation || simulationResults,
-          selectedCountry: selectedCountryName,
-          offensiveCountry: offensiveCountryName,
-          defensiveCountry: defensiveCountryName,
-          severityLevel,
-          timeFrame
-        }),
-      })
-      
-      const briefingResult = await briefingResponse.json()
-      
-      if (briefingResult.success) {
-        // Complete the final step
-        setCurrentProgressStep(5) // Last step (index 5)
-        
-        setBriefingData(briefingResult.briefing)
-        setRagMetadata(briefingResult.metadata)
-        
-        const isRAGGenerated = briefingResult.metadata?.ragGenerated
-        const treatiesCount = briefingResult.metadata?.treatiesAnalyzed || 0
-        const processingTime = briefingResult.metadata?.processingTime || 0
-        
-        if (isRAGGenerated) {
-          const ragasMetrics = briefingResult.metadata?.ragasMetrics
-          const faithfulness = ragasMetrics ? (ragasMetrics.faithfulness * 100).toFixed(0) : 'N/A'
-          const relevancy = ragasMetrics ? (ragasMetrics.answerRelevancy * 100).toFixed(0) : 'N/A'
-          
-      toast({
-            title: "✅ RAG Intelligence Briefing Complete",
-            description: `Analyzed ${treatiesCount} treaties in ${Math.round(processingTime/1000)}s (RAGAS: Faithfulness:${faithfulness}% Relevancy:${relevancy}%)`,
-        variant: "default",
-          })
-        } else {
-          toast({
-            title: "⚠️ Standard AI Briefing Generated",
-            description: "RAG system unavailable. Generated standard briefing without treaty analysis.",
-            variant: "destructive",
-          })
-        }
-      } else {
-        // Generate fallback briefing
-        setBriefingData({
-          date: currentDate,
-          title: `Proposed Plan of Action - ${scenarioDetails.slice(0, 50)}${scenarioDetails.length > 50 ? '...' : ''}`,
-          sections: [
-            {
-              point: "(a)",
-              content: `Intelligence assessments indicate heightened military tensions involving ${countries.find(c => c.code === offensiveCountry)?.name || offensiveCountry} and ${countries.find(c => c.code === defensiveCountry)?.name || defensiveCountry}, with ${countries.find(c => c.code === selectedCountry)?.name || selectedCountry} strategic interests directly impacted by potential escalation scenarios.`
-            },
-            {
-              point: "(b)", 
-              content: `Analysis of regional force deployments and communication intercepts suggest significant military preparations during the current ${timeFrame} timeframe, with severity assessed at ${severityLevel} level.`
-            },
-            {
-              point: "(c)",
-              content: `Current diplomatic initiatives have achieved limited success, with international response coordination showing ${simulationResults.diplomaticResponse || 65}% effectiveness in de-escalation efforts.`
-            },
-            {
-              point: "(d)",
-              content: `Economic and alliance factors indicate that standard containment strategies may prove insufficient given the current threat level and regional stability considerations.`
-            }
-          ],
-          recommendations: [
-            "Immediate deployment of enhanced intelligence collection assets to monitor military movements and communication channels in the affected region.",
-            "Coordination with allied nations to establish unified response protocols and information sharing agreements through established intelligence partnerships.",
-            "Implementation of graduated economic and diplomatic pressure measures through appropriate international organizations and bilateral channels.",
-            "Preparation of contingency response plans for multiple escalation scenarios while maintaining strategic deterrent capabilities and force readiness."
-          ],
-          conclusion: `The above assessments lead to the conclusion that without immediate strategic action, the situation may evolve into a more complex and dangerous conflict. Therefore, implementation of the above recommendations is advised to address both immediate tactical concerns and long-term strategic stability objectives.`,
-          classification: "CONFIDENTIAL",
-          author: "Strategic Assessment Division"
-        })
-        
-        toast({
-          title: "⚠️ Fallback Briefing Generated",
-          description: "AI generation failed. Generated emergency briefing template.",
-          variant: "destructive",
-        })
-        // Don't redirect for fallback briefings
+      const effectiveResults = completedSimulation || simulationResults
+      if (!effectiveResults) {
+        throw new Error('No simulation results available for briefing')
       }
+
+      const { briefingId, treatiesAnalyzed, briefing } = await generateBriefingAction({
+        date: currentDate,
+        scenario: scenarioDetails,
+        simulationResults: {
+          diplomaticResponse: effectiveResults.diplomaticResponse,
+          militaryReadiness: effectiveResults.militaryReadiness,
+          economicImpact: effectiveResults.economicImpact,
+          publicSupport: effectiveResults.publicSupport,
+          allianceStrength: effectiveResults.allianceStrength,
+          recommendations: effectiveResults.recommendations ?? [],
+        },
+        selectedCountry: selectedCountryName,
+        offensiveCountry: offensiveCountryName,
+        defensiveCountry: defensiveCountryName,
+        severityLevel,
+        timeFrame,
+      })
+
+      setCurrentProgressStep(5)
+      setBriefingData(briefing)
+      setRagMetadata({ ragGenerated: treatiesAnalyzed > 0, treatiesAnalyzed, briefingId })
+
+      toast({
+        title: treatiesAnalyzed > 0 ? "✅ Intelligence Briefing Complete" : "⚠️ Briefing Generated (no treaties)",
+        description: treatiesAnalyzed > 0
+          ? `Analyzed ${treatiesAnalyzed} treaties.`
+          : "Briefing generated without treaty grounding (treaties not yet ingested).",
+        variant: treatiesAnalyzed > 0 ? "default" : "destructive",
+      })
     } catch (error) {
       console.error('Briefing generation error:', error)
-      
-      // Always provide a fallback briefing
-      const currentDate = new Date().toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
+
+      const fallbackDate = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
       })
-      
+
       setBriefingData({
-        date: currentDate,
+        date: fallbackDate,
         title: `Intelligence Assessment - ${scenarioDetails.slice(0, 50)}${scenarioDetails.length > 50 ? '...' : ''}`,
         sections: [
           {
             point: "(a)",
-            content: `Current threat assessment indicates elevated risk factors in the specified regional conflict zone affecting ${countries.find(c => c.code === selectedCountry)?.name || selectedCountry} strategic interests.`
+            content: `Current threat assessment indicates elevated risk factors in the specified regional conflict zone affecting ${countries.find(c => c.code === selectedCountry)?.name || selectedCountry} strategic interests.`,
           },
           {
             point: "(b)",
-            content: `Intelligence reports suggest significant military and political developments requiring immediate attention from national security apparatus.`
+            content: `Intelligence reports suggest significant military and political developments requiring immediate attention from national security apparatus.`,
           },
           {
             point: "(c)",
-            content: `Analysis indicates that standard diplomatic protocols may be insufficient to address the scope of the current crisis without enhanced strategic coordination.`
+            content: `Analysis indicates that standard diplomatic protocols may be insufficient to address the scope of the current crisis without enhanced strategic coordination.`,
           },
           {
             point: "(d)",
-            content: `Strategic recommendations require implementation of enhanced security measures and coalition building initiatives to maintain regional stability.`
-          }
+            content: `Strategic recommendations require implementation of enhanced security measures and coalition building initiatives to maintain regional stability.`,
+          },
         ],
         recommendations: [
           "Deploy enhanced intelligence assets to monitor regional developments and threat indicators with immediate effect.",
           "Coordinate with allied nations to establish unified response protocols and information sharing agreements.",
           "Implement economic and diplomatic pressure through appropriate international channels and multilateral organizations.",
-          "Prepare contingency plans for escalation scenarios while maintaining deterrent capabilities and diplomatic engagement."
+          "Prepare contingency plans for escalation scenarios while maintaining deterrent capabilities and diplomatic engagement.",
         ],
         conclusion: `Based on the current intelligence assessment, immediate action is recommended to address the evolving security situation and prevent further destabilization of the regional balance of power.`,
-        classification: "CONFIDENTIAL", 
-        author: "Intelligence Analysis Team"
+        classification: "CONFIDENTIAL",
+        author: "Intelligence Analysis Team",
       })
-      
+
       toast({
-        title: "💥 Critical System Error",
-        description: "Complete briefing generation failure. Contact technical support immediately.",
+        title: "Briefing Generation Failed",
+        description: error instanceof Error ? error.message : "Unknown error generating briefing.",
         variant: "destructive",
       })
-      // Don't redirect on critical errors
     }
     
     setIsGeneratingBriefing(false)
@@ -793,24 +706,36 @@ export default function PoliticalAdvisor() {
       publicOpinion: publicOpinion[0]
     }
 
+    // Get country names for better AI analysis
+    const selectedCountryName = countries.find(c => c.code === selectedCountry)?.name || selectedCountry
+    const offensiveCountryName = countries.find(c => c.code === offensiveCountry)?.name || offensiveCountry
+    const defensiveCountryName = countries.find(c => c.code === defensiveCountry)?.name || defensiveCountry
+
     try {
-      // Save analysis parameters to database
-      console.log('Submitting analysis data:', analysisData)
-      const response = await fetch('/api/analysis', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      await saveAnalysis({
+        selectedCountry: selectedCountryName,
+        conflictScenario: currentConflictScenario,
+        offensiveCountry: offensiveCountryName,
+        defensiveCountry: defensiveCountryName,
+        scenarioDetails,
+        severityLevel,
+        timeFrame,
+        economicFactors: {
+          tradeDependencies: tradeDependencies[0],
+          sanctionsImpact: sanctionsImpact[0],
+          marketStability: marketStability[0],
         },
-        body: JSON.stringify(analysisData),
+        militaryReadiness: {
+          defenseCapabilities: defenseCapabilities[0],
+          allianceSupport: allianceSupport[0],
+          strategicResources: strategicResources[0],
+        },
+        diplomaticRelations: {
+          unSupport: unSupport[0],
+          regionalInfluence: regionalInfluence[0],
+          publicOpinion: publicOpinion[0],
+        },
       })
-
-      if (!response.ok) {
-        throw new Error('Failed to save analysis parameters')
-      }
-
-      const result = await response.json()
-      console.log('Analysis parameters saved:', result)
-
     } catch (error) {
       console.error('Error saving analysis:', error)
       toast({
@@ -820,66 +745,36 @@ export default function PoliticalAdvisor() {
       })
     }
 
-    // Get country names for better AI analysis
-    const selectedCountryName = countries.find(c => c.code === selectedCountry)?.name || selectedCountry
-    const offensiveCountryName = countries.find(c => c.code === offensiveCountry)?.name || offensiveCountry
-    const defensiveCountryName = countries.find(c => c.code === defensiveCountry)?.name || defensiveCountry
-
-    // Prepare data for AI analysis
-    const aiAnalysisData = {
-      ...analysisData,
-      selectedCountry: selectedCountryName,
-      offensiveCountry: offensiveCountryName,
-      defensiveCountry: defensiveCountryName
-    }
-
     try {
-      // Call OpenAI analysis API
-      console.log('Sending data to AI analysis:', aiAnalysisData)
-      const aiResponse = await fetch('/api/ai/analyze', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(aiAnalysisData),
+      const aiResult = await runAiAnalysis({
+        selectedCountry: selectedCountryName,
+        conflictScenario: currentConflictScenario,
+        offensiveCountry: offensiveCountryName,
+        defensiveCountry: defensiveCountryName,
+        scenarioDetails,
+        severityLevel,
+        timeFrame,
+        tradeDependencies: tradeDependencies[0],
+        sanctionsImpact: sanctionsImpact[0],
+        marketStability: marketStability[0],
+        defenseCapabilities: defenseCapabilities[0],
+        allianceSupport: allianceSupport[0],
+        strategicResources: strategicResources[0],
+        unSupport: unSupport[0],
+        regionalInfluence: regionalInfluence[0],
+        publicOpinion: publicOpinion[0],
       })
 
-      if (!aiResponse.ok) {
-        throw new Error('AI analysis failed')
-      }
+      setSimulationResults(aiResult)
 
-      const aiResult = await aiResponse.json()
-      console.log('AI analysis result:', aiResult)
-      
-      if (aiResult.success) {
-        setSimulationResults(aiResult.analysis)
-        
-        if (!skipRedirect) {
+      if (!skipRedirect) {
         toast({
           title: "AI Analysis Complete",
-          description: "Your simulation has been analyzed using advanced AI. You are now redirected to the results page.",
+          description: "Your simulation has been analyzed. Redirecting to results page.",
           variant: "default",
         })
-        
-        // Redirect to View Results tab
         setActiveTab("results")
-        }
-      } else {
-        // Use fallback results if AI analysis fails
-        setSimulationResults(aiResult.analysis)
-        
-        if (!skipRedirect) {
-        toast({
-          title: "Analysis Complete",
-          description: "Showing fallback analysis due to AI service issues. Redirecting to results...",
-          variant: "destructive",
-        })
-        
-        // Redirect to View Results tab even with fallback
-        setActiveTab("results")
-        }
       }
-
     } catch (error) {
       console.error('AI analysis error:', error)
       
@@ -925,16 +820,16 @@ export default function PoliticalAdvisor() {
       {/* Header */}
       <header className="border-b border-dark-border bg-dark-card/80 backdrop-blur-sm">
         <div className="container mx-auto px-3 sm:px-6 py-3 sm:py-4">
-          <div className="flex items-center justify-start w-full">
-            <div 
+          <div className="flex items-center justify-between w-full gap-4">
+            <div
               className="flex items-center space-x-3 sm:space-x-4 cursor-pointer hover:opacity-80 transition-opacity duration-200"
               onClick={() => setShowLanding(true)}
             >
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center overflow-hidden">
-                <Image 
-                  src="/fogreport.png" 
-                  alt="FogReport Logo" 
-                  width={48} 
+                <Image
+                  src="/fogreport.png"
+                  alt="FogReport Logo"
+                  width={48}
                   height={48}
                   className="w-full h-full object-contain"
                 />
@@ -944,15 +839,7 @@ export default function PoliticalAdvisor() {
                 <p className="text-xs sm:text-sm text-dark-muted">Military Intelligence Briefing Platform</p>
               </div>
             </div>
-            
-            
-            
-            {/* <div className="flex items-center justify-end space-x-4 flex-1">
-              
-              <Badge variant="outline" className="border-flame text-flame bg-transparent text-sm px-3 py-1">
-                Beta v1.4
-              </Badge>
-            </div> */}
+            <SignOutButton />
           </div>
         </div>
       </header>
@@ -2077,5 +1964,13 @@ DISCLAIMER: ${briefingData.disclaimer}
         </Tabs>
       </div>
     </div>
+  )
+}
+
+export default function Page() {
+  return (
+    <AuthGate>
+      <PoliticalAdvisor />
+    </AuthGate>
   )
 }

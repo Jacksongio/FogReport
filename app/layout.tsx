@@ -1,8 +1,10 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
+import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server"
 import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
+import { ConvexClientProvider } from "@/components/convex-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -28,17 +30,21 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
-      <head>
-        <link 
-          rel="stylesheet" 
-          href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" 
-        />
-      </head>
-      <body className={inter.className}>
-        {children}
-        <Toaster />
-      </body>
-    </html>
+    <ConvexAuthNextjsServerProvider>
+      <html lang="en" className="dark">
+        <head>
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
+          />
+        </head>
+        <body className={inter.className}>
+          <ConvexClientProvider>
+            {children}
+            <Toaster />
+          </ConvexClientProvider>
+        </body>
+      </html>
+    </ConvexAuthNextjsServerProvider>
   )
 }

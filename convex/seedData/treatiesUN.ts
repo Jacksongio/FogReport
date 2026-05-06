@@ -65,7 +65,8 @@ export const treatiesUN: TreatyDocument[] = [
   },
   {
     slug: "genocide-convention",
-    title: "Convention on the Prevention and Punishment of the Crime of Genocide",
+    title:
+      "Convention on the Prevention and Punishment of the Crime of Genocide",
     shortName: "Genocide Convention",
     category: "un_system",
     adoptionDate: "1948-12-09",
@@ -114,7 +115,8 @@ export const treatiesUN: TreatyDocument[] = [
   },
   {
     slug: "refugee-convention",
-    title: "Convention Relating to the Status of Refugees (1951) and 1967 Protocol",
+    title:
+      "Convention Relating to the Status of Refugees (1951) and 1967 Protocol",
     shortName: "Refugee Convention",
     category: "un_system",
     adoptionDate: "1951-07-28",
@@ -145,7 +147,8 @@ export const treatiesUN: TreatyDocument[] = [
   },
   {
     slug: "hague-1907-iv",
-    title: "Hague Convention IV: Respecting the Laws and Customs of War on Land",
+    title:
+      "Hague Convention IV: Respecting the Laws and Customs of War on Land",
     shortName: "Hague IV (1907)",
     category: "law_of_war",
     adoptionDate: "1907-10-18",

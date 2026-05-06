@@ -11,8 +11,10 @@ export const weaponsC: WeaponSystem[] = [
     rangeKm: 1850,
     payload: "AGM-114 Hellfire, GBU-12 Paveway II, GBU-38 JDAM",
     operators: ["US", "GB", "FR", "ES", "IT", "NL", "AU", "JP", "TW"],
-    notableFeatures: "Persistent ISR + strike; SeaGuardian variant for maritime",
-    description: "Premier Western armed MALE UAV; backbone of US counterterrorism strike operations.",
+    notableFeatures:
+      "Persistent ISR + strike; SeaGuardian variant for maritime",
+    description:
+      "Premier Western armed MALE UAV; backbone of US counterterrorism strike operations.",
   },
   {
     slug: "rq-4-global-hawk",
@@ -24,7 +26,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Multi-INT sensor suite (no weapons)",
     operators: ["US", "KR", "JP", "DE (legacy Euro Hawk)"],
     notableFeatures: "HALE platform with 30+ hour endurance",
-    description: "High-altitude long-endurance ISR UAV; critical for theater-wide reconnaissance.",
+    description:
+      "High-altitude long-endurance ISR UAV; critical for theater-wide reconnaissance.",
   },
   {
     slug: "mq-4-triton",
@@ -35,8 +38,10 @@ export const weaponsC: WeaponSystem[] = [
     rangeKm: 15000,
     payload: "MFAS radar, EO/IR, ESM (no weapons)",
     operators: ["US", "AU"],
-    notableFeatures: "Maritime variant of Global Hawk for broad-area maritime surveillance",
-    description: "US Navy/Australian wide-area maritime ISR UAV; replacing P-3 Orion roles.",
+    notableFeatures:
+      "Maritime variant of Global Hawk for broad-area maritime surveillance",
+    description:
+      "US Navy/Australian wide-area maritime ISR UAV; replacing P-3 Orion roles.",
   },
   {
     slug: "switchblade-300",
@@ -48,7 +53,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Anti-personnel warhead (~600g)",
     operators: ["US", "UA", "GB", "NL", "TW (procurement)"],
     notableFeatures: "Tube-launched man-portable loitering munition",
-    description: "Backpack-portable kamikaze drone; widely supplied to Ukraine.",
+    description:
+      "Backpack-portable kamikaze drone; widely supplied to Ukraine.",
   },
   {
     slug: "switchblade-600",
@@ -60,7 +66,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Anti-armor shaped-charge warhead",
     operators: ["US", "UA"],
     notableFeatures: "Larger kin of Switchblade 300; anti-armor capability",
-    description: "Tube-launched anti-tank loitering munition deployed in Ukraine.",
+    description:
+      "Tube-launched anti-tank loitering munition deployed in Ukraine.",
   },
   {
     slug: "bayraktar-tb2",
@@ -70,9 +77,19 @@ export const weaponsC: WeaponSystem[] = [
     yearIntroduced: 2014,
     rangeKm: 150,
     payload: "MAM-L / MAM-C laser-guided munitions",
-    operators: ["TR", "AZ", "UA", "QA", "PL", "MA", "ET", "Various African states"],
+    operators: [
+      "TR",
+      "AZ",
+      "UA",
+      "QA",
+      "PL",
+      "MA",
+      "ET",
+      "Various African states",
+    ],
     notableFeatures: "Combat-proven in Nagorno-Karabakh, Libya, Syria, Ukraine",
-    description: "Turkish armed MALE UAV; transformed UCAV warfare and exports.",
+    description:
+      "Turkish armed MALE UAV; transformed UCAV warfare and exports.",
   },
   {
     slug: "bayraktar-akinci",
@@ -84,7 +101,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "SOM-A cruise missile, MAM family, Mk.81/82/83 bombs",
     operators: ["TR", "PK", "AZ", "LY"],
     notableFeatures: "HALE-class twin-engine UCAV with cruise-missile carriage",
-    description: "Turkish heavy UCAV; carries SOM-A air-launched cruise missile.",
+    description:
+      "Turkish heavy UCAV; carries SOM-A air-launched cruise missile.",
   },
   {
     slug: "kizilelma",
@@ -94,7 +112,8 @@ export const weaponsC: WeaponSystem[] = [
     yearIntroduced: 2024,
     rangeKm: 925,
     operators: ["TR"],
-    notableFeatures: "Subsonic stealth UCAV with internal weapons bay; will operate from TCG Anadolu",
+    notableFeatures:
+      "Subsonic stealth UCAV with internal weapons bay; will operate from TCG Anadolu",
     description: "Turkish carrier-capable stealth combat UAV.",
   },
   {
@@ -106,8 +125,10 @@ export const weaponsC: WeaponSystem[] = [
     rangeKm: 2500,
     payload: "~50 kg warhead",
     operators: ["IR", "RU (Geran-2 variant)", "Houthis"],
-    notableFeatures: "Cheap mass-production loitering munition; Russian production at Alabuga",
-    description: "Iranian-designed long-range loitering munition; widely used by Russia against Ukraine and by Houthis in Red Sea.",
+    notableFeatures:
+      "Cheap mass-production loitering munition; Russian production at Alabuga",
+    description:
+      "Iranian-designed long-range loitering munition; widely used by Russia against Ukraine and by Houthis in Red Sea.",
   },
   {
     slug: "lancet",
@@ -119,7 +140,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "3 kg warhead",
     operators: ["RU"],
     notableFeatures: "Recon-strike loitering munition; used heavily in Ukraine",
-    description: "Russian short-range loitering munition; primary anti-armor and anti-artillery threat.",
+    description:
+      "Russian short-range loitering munition; primary anti-armor and anti-artillery threat.",
   },
   {
     slug: "wingloong-2",
@@ -130,7 +152,8 @@ export const weaponsC: WeaponSystem[] = [
     rangeKm: 1500,
     payload: "AKD-10, BA-7, AR-1, AR-2",
     operators: ["CN", "AE", "EG", "KZ", "PK", "RS", "ID"],
-    notableFeatures: "Chinese Reaper-equivalent; dominant export armed UAV in MENA",
+    notableFeatures:
+      "Chinese Reaper-equivalent; dominant export armed UAV in MENA",
     description: "Chinese MALE UCAV; major Chinese arms-export success.",
   },
   {
@@ -143,7 +166,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "AR-1/2 missile, FT-9/10 bombs",
     operators: ["CN", "PK", "AE", "DZ", "EG"],
     notableFeatures: "Chinese armed MALE UCAV class-equivalent to MQ-9",
-    description: "Major export competitor to Wing Loong II; AR-1 anti-armor missile carriage.",
+    description:
+      "Major export competitor to Wing Loong II; AR-1 anti-armor missile carriage.",
   },
   {
     slug: "heron-tp",
@@ -155,7 +179,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Various Israeli air-to-ground munitions",
     operators: ["IL", "DE (lease)", "IN", "AZ"],
     notableFeatures: "MALE UAV with 30+ hour endurance",
-    description: "Israeli HALE/MALE UAV; widely operated in non-export form by various countries.",
+    description:
+      "Israeli HALE/MALE UAV; widely operated in non-export form by various countries.",
   },
   {
     slug: "anka-s",
@@ -182,7 +207,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Up to 8 t including KAB-500/1500, Kh-29, FAB-500",
     operators: ["RU", "DZ"],
     notableFeatures: "Side-by-side cockpit; long-range strike role",
-    description: "Russian frontline strike fighter; carrier of UMPK glide bombs in Ukraine.",
+    description:
+      "Russian frontline strike fighter; carrier of UMPK glide bombs in Ukraine.",
   },
   {
     slug: "su-35s",
@@ -195,7 +221,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "R-77, R-73, Kh-31, Kh-35",
     operators: ["RU", "EG (procurement)", "IR (procurement)"],
     notableFeatures: "Thrust-vectoring; Irbis-E PESA radar",
-    description: "Russia's most capable 4.5-gen fighter; export to Iran reported.",
+    description:
+      "Russia's most capable 4.5-gen fighter; export to Iran reported.",
   },
   {
     slug: "j-16",
@@ -207,7 +234,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "PL-15, PL-10, YJ-83K, KD-88",
     operators: ["CN"],
     notableFeatures: "Chinese Su-30 derivative; specialized J-16D EW variant",
-    description: "PLA Air Force Flanker-derivative; backbone Chinese strike fighter.",
+    description:
+      "PLA Air Force Flanker-derivative; backbone Chinese strike fighter.",
   },
   {
     slug: "tejas-mk1a",
@@ -220,7 +248,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Astra, Derby, R-73, MICA, Brimstone",
     operators: ["IN"],
     notableFeatures: "Indigenous Indian LCA; Mk2 in development",
-    description: "Indian indigenous light combat aircraft; 83 ordered for IAF replacing MiG-21.",
+    description:
+      "Indian indigenous light combat aircraft; 83 ordered for IAF replacing MiG-21.",
   },
   {
     slug: "kf-21",
@@ -233,7 +262,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Meteor, IRIS-T, AIM-120",
     operators: ["KR", "ID (joint dev partner)"],
     notableFeatures: "South Korean 4.5-gen indigenous fighter; AESA radar",
-    description: "Korean Boramae fighter; replaces F-4/F-5 fleet starting late 2025.",
+    description:
+      "Korean Boramae fighter; replaces F-4/F-5 fleet starting late 2025.",
   },
   {
     slug: "f-cK-1",
@@ -246,7 +276,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Tien Chien I/II AAM",
     operators: ["TW"],
     notableFeatures: "Indigenous Taiwanese fighter",
-    description: "Taiwan's indigenous defense fighter; complement to F-16V fleet.",
+    description:
+      "Taiwan's indigenous defense fighter; complement to F-16V fleet.",
   },
   {
     slug: "saab-jas-39e",
@@ -259,7 +290,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Meteor, IRIS-T, RBS 15F, KEPD 350",
     operators: ["SE", "BR"],
     notableFeatures: "Most modern Gripen variant with PS-05/A Mk4 AESA radar",
-    description: "Latest-gen Gripen; Brazilian local production at Embraer's São Paulo facility.",
+    description:
+      "Latest-gen Gripen; Brazilian local production at Embraer's São Paulo facility.",
   },
 
   // ============ Additional missiles ============
@@ -271,9 +303,24 @@ export const weaponsC: WeaponSystem[] = [
     yearIntroduced: 1991,
     rangeKm: 300,
     payload: "Unitary or DPICM submunition",
-    operators: ["US", "KR", "PL", "RO", "GR", "TR", "AE", "BH", "QA", "TW", "EE", "AU (procurement)", "UA (donated)"],
+    operators: [
+      "US",
+      "KR",
+      "PL",
+      "RO",
+      "GR",
+      "TR",
+      "AE",
+      "BH",
+      "QA",
+      "TW",
+      "EE",
+      "AU (procurement)",
+      "UA (donated)",
+    ],
     notableFeatures: "HIMARS / M270 launched; replaced by PrSM",
-    description: "US tactical ballistic missile; Block IA at 300 km range used by Ukraine since 2024.",
+    description:
+      "US tactical ballistic missile; Block IA at 300 km range used by Ukraine since 2024.",
   },
   {
     slug: "prsm",
@@ -285,7 +332,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Unitary",
     operators: ["US", "AU", "UK (procurement)", "PL"],
     notableFeatures: "ATACMS replacement; Increment 2 with maritime seeker",
-    description: "Next-gen US Army surface-to-surface missile; 2/launcher (vs. 1 ATACMS).",
+    description:
+      "Next-gen US Army surface-to-surface missile; 2/launcher (vs. 1 ATACMS).",
   },
   {
     slug: "iskander-m",
@@ -297,7 +345,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Conventional or low-yield nuclear",
     operators: ["RU", "BY (forward-deployed)", "AM"],
     notableFeatures: "Quasi-ballistic trajectory; nuclear-capable",
-    description: "Russian short-range tactical ballistic missile; primary battlefield strike asset.",
+    description:
+      "Russian short-range tactical ballistic missile; primary battlefield strike asset.",
   },
   {
     slug: "iskander-k",
@@ -308,8 +357,10 @@ export const weaponsC: WeaponSystem[] = [
     rangeKm: 500,
     payload: "Conventional",
     operators: ["RU"],
-    notableFeatures: "GLCM variant of Iskander system; INF Treaty violation US position pre-2019",
-    description: "Russian ground-launched cruise missile; cited by US as INF Treaty violation that led to US INF withdrawal.",
+    notableFeatures:
+      "GLCM variant of Iskander system; INF Treaty violation US position pre-2019",
+    description:
+      "Russian ground-launched cruise missile; cited by US as INF Treaty violation that led to US INF withdrawal.",
   },
   {
     slug: "kalibr-3m54",
@@ -335,7 +386,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "300 kg",
     operators: ["CN"],
     notableFeatures: "Subsonic cruise with supersonic terminal sprint",
-    description: "Chinese version of Kalibr-style anti-ship missile; PLAN VLS standard.",
+    description:
+      "Chinese version of Kalibr-style anti-ship missile; PLAN VLS standard.",
   },
   {
     slug: "yj-21",
@@ -348,7 +400,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Conventional anti-ship",
     operators: ["CN"],
     notableFeatures: "Air-launched / VLS-launched hypersonic anti-ship",
-    description: "Type 055 destroyer launches of YJ-21 demonstrated 2023; threat to US carrier strike groups.",
+    description:
+      "Type 055 destroyer launches of YJ-21 demonstrated 2023; threat to US carrier strike groups.",
   },
   {
     slug: "naval-strike-missile",
@@ -360,7 +413,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "125 kg HE",
     operators: ["NO", "PL", "US (Marines/Navy)", "MY", "DE", "RO", "AU", "CA"],
     notableFeatures: "Sea-skimming with 5th-gen IIR seeker",
-    description: "Norwegian/US anti-ship missile; US Marines deploy as NMESIS shore-defense.",
+    description:
+      "Norwegian/US anti-ship missile; US Marines deploy as NMESIS shore-defense.",
   },
   {
     slug: "exocet-mm40-block3",
@@ -382,9 +436,33 @@ export const weaponsC: WeaponSystem[] = [
     yearIntroduced: 2002,
     rangeKm: 124,
     payload: "221 kg",
-    operators: ["US", "AU", "BR", "CA", "DK", "DE", "GR", "IN", "ID", "JP", "KR", "NL", "PK", "PL", "PT", "SA", "SG", "ES", "TW", "TR", "AE", "GB"],
+    operators: [
+      "US",
+      "AU",
+      "BR",
+      "CA",
+      "DK",
+      "DE",
+      "GR",
+      "IN",
+      "ID",
+      "JP",
+      "KR",
+      "NL",
+      "PK",
+      "PL",
+      "PT",
+      "SA",
+      "SG",
+      "ES",
+      "TW",
+      "TR",
+      "AE",
+      "GB",
+    ],
     notableFeatures: "Block II SAR/INS plus GPS for littoral strike",
-    description: "US standard sub/sea/air-launched anti-ship missile; widely exported.",
+    description:
+      "US standard sub/sea/air-launched anti-ship missile; widely exported.",
   },
   {
     slug: "type-12-ssm",
@@ -396,7 +474,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Conventional",
     operators: ["JP"],
     notableFeatures: "Extended-range upgrade in development to 1000+ km",
-    description: "Japanese standard truck-launched anti-ship missile; Japan's stand-off counterstrike spine.",
+    description:
+      "Japanese standard truck-launched anti-ship missile; Japan's stand-off counterstrike spine.",
   },
   {
     slug: "hyunmoo-3",
@@ -420,7 +499,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Nuclear-capable",
     operators: ["PK"],
     notableFeatures: "Submarine-launched cruise missile",
-    description: "Pakistani SLCM giving Pakistan a sea-based deterrent leg via Agosta-90B.",
+    description:
+      "Pakistani SLCM giving Pakistan a sea-based deterrent leg via Agosta-90B.",
   },
   {
     slug: "raad",
@@ -431,7 +511,8 @@ export const weaponsC: WeaponSystem[] = [
     rangeKm: 600,
     payload: "Nuclear-capable",
     operators: ["PK"],
-    notableFeatures: "Air-launched cruise missile; Mirage III/V launch platform",
+    notableFeatures:
+      "Air-launched cruise missile; Mirage III/V launch platform",
     description: "Pakistani ALCM; provides air-component nuclear deterrent.",
   },
 
@@ -445,8 +526,10 @@ export const weaponsC: WeaponSystem[] = [
     rangeKm: 40,
     payload: "Hit-to-kill",
     operators: ["DE", "EG", "UA", "EE", "SE", "AT", "NO"],
-    notableFeatures: "Highly effective in Ukraine vs. ballistic, cruise, and drone threats",
-    description: "German short/medium-range air defense system; Ukraine deployment validated effectiveness.",
+    notableFeatures:
+      "Highly effective in Ukraine vs. ballistic, cruise, and drone threats",
+    description:
+      "German short/medium-range air defense system; Ukraine deployment validated effectiveness.",
   },
   {
     slug: "samp-t",
@@ -458,7 +541,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Aster 30 with hit-to-kill",
     operators: ["FR", "IT", "SG", "UA"],
     notableFeatures: "European Patriot-class system; SAMP/T NG in development",
-    description: "Italo-French Aster 30 ground-based air defense; supplied to Ukraine.",
+    description:
+      "Italo-French Aster 30 ground-based air defense; supplied to Ukraine.",
   },
   {
     slug: "pantsir-s1",
@@ -470,7 +554,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "57E6 missile + 30mm cannon",
     operators: ["RU", "DZ", "IR", "SY", "AE", "RS"],
     notableFeatures: "Combined missile-gun point-defense system",
-    description: "Russian short-range air defense; widely fielded against UAV threats.",
+    description:
+      "Russian short-range air defense; widely fielded against UAV threats.",
   },
   {
     slug: "buk-m3",
@@ -482,7 +567,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "9M317M missile",
     operators: ["RU"],
     notableFeatures: "Latest Buk variant with improved 9M317M missile",
-    description: "Russian medium-range mobile air defense; 6 missiles per launcher.",
+    description:
+      "Russian medium-range mobile air defense; 6 missiles per launcher.",
   },
 
   // ============ Additional naval ============
@@ -495,7 +581,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "112 VLS cells (YJ-18, HHQ-9, HHQ-26, CY-5)",
     operators: ["CN"],
     notableFeatures: "Largest non-US surface combatant; cruiser-sized",
-    description: "Premier PLA Navy surface combatant; equivalent to US Ticonderoga in firepower.",
+    description:
+      "Premier PLA Navy surface combatant; equivalent to US Ticonderoga in firepower.",
   },
   {
     slug: "zumwalt-class",
@@ -503,10 +590,13 @@ export const weaponsC: WeaponSystem[] = [
     category: "destroyer",
     originCountryCode: "US",
     yearIntroduced: 2016,
-    payload: "80 Mk57 VLS cells; Conventional Prompt Strike (CPS) hypersonic from 2025",
+    payload:
+      "80 Mk57 VLS cells; Conventional Prompt Strike (CPS) hypersonic from 2025",
     operators: ["US"],
-    notableFeatures: "Stealth tumblehome hull; first US Navy hypersonic strike platform",
-    description: "Three-ship US guided-missile destroyer class; hosts Conventional Prompt Strike hypersonic.",
+    notableFeatures:
+      "Stealth tumblehome hull; first US Navy hypersonic strike platform",
+    description:
+      "Three-ship US guided-missile destroyer class; hosts Conventional Prompt Strike hypersonic.",
   },
   {
     slug: "type-218sg",
@@ -517,7 +607,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Heavyweight torpedoes; capable of cruise missile carriage",
     operators: ["SG"],
     notableFeatures: "Lithium-ion AIP optional; tropical operations",
-    description: "Most advanced non-nuclear submarine in Southeast Asia (Singapore).",
+    description:
+      "Most advanced non-nuclear submarine in Southeast Asia (Singapore).",
   },
   {
     slug: "u212cd",
@@ -528,7 +619,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Torpedoes, Naval Strike Missile (procurement)",
     operators: ["DE", "NO"],
     notableFeatures: "Common design for Norwegian and German programs",
-    description: "Joint German-Norwegian SSK program replacing Type 212A and Ula-class.",
+    description:
+      "Joint German-Norwegian SSK program replacing Type 212A and Ula-class.",
   },
   {
     slug: "scorpene-class",
@@ -550,7 +642,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "Type 53 torpedo, Kalibr-PL SLCM",
     operators: ["RU", "VN", "IN (legacy 877EKM)", "DZ"],
     notableFeatures: "Kalibr cruise missile capability; widely exported",
-    description: "Russian diesel-electric SSK; Vietnam and Algeria operate full squadron strength.",
+    description:
+      "Russian diesel-electric SSK; Vietnam and Algeria operate full squadron strength.",
   },
   {
     slug: "type-039a-yuan",
@@ -560,8 +653,10 @@ export const weaponsC: WeaponSystem[] = [
     yearIntroduced: 2006,
     payload: "Yu-6 torpedo, YJ-18 SLCM",
     operators: ["CN", "PK (Hangor-II derivative)", "TH (procurement)"],
-    notableFeatures: "AIP-equipped; first Chinese diesel SSK with cruise missile carriage",
-    description: "PLA Navy diesel-electric submarine; export to Pakistan and Thailand.",
+    notableFeatures:
+      "AIP-equipped; first Chinese diesel SSK with cruise missile carriage",
+    description:
+      "PLA Navy diesel-electric submarine; export to Pakistan and Thailand.",
   },
 
   // ============ Additional tanks / IFVs ============
@@ -573,8 +668,10 @@ export const weaponsC: WeaponSystem[] = [
     yearIntroduced: 2024,
     payload: "130mm Rheinmetall Future Gun System",
     operators: ["IT (procurement)"],
-    notableFeatures: "First production-ready 130mm MBT; designed for European Main Ground Combat System",
-    description: "Rheinmetall's next-gen MBT competing for European future-tank programs.",
+    notableFeatures:
+      "First production-ready 130mm MBT; designed for European Main Ground Combat System",
+    description:
+      "Rheinmetall's next-gen MBT competing for European future-tank programs.",
   },
   {
     slug: "altay",
@@ -620,7 +717,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "GPS/INS-guided 155mm",
     operators: ["US", "AU", "CA", "FR", "DE", "IT", "NL", "SE", "UA"],
     notableFeatures: "Increment Ib at 70 km range",
-    description: "US precision-guided 155mm artillery shell; major Ukraine wartime supply.",
+    description:
+      "US precision-guided 155mm artillery shell; major Ukraine wartime supply.",
   },
   {
     slug: "smerch",
@@ -642,7 +740,8 @@ export const weaponsC: WeaponSystem[] = [
     payload: "300mm rockets with INS guidance",
     operators: ["RU"],
     notableFeatures: "Smerch successor with corrected/guided rockets",
-    description: "Russian successor to Smerch with extended range and improved accuracy.",
+    description:
+      "Russian successor to Smerch with extended range and improved accuracy.",
   },
 
   // ============ Hypersonics expansion ============
@@ -680,6 +779,7 @@ export const weaponsC: WeaponSystem[] = [
     speedMach: 15,
     operators: ["IR"],
     notableFeatures: "Iran's claimed hypersonic glide vehicle",
-    description: "Iranian hypersonic missile; capabilities and accuracy disputed.",
+    description:
+      "Iranian hypersonic missile; capabilities and accuracy disputed.",
   },
 ];

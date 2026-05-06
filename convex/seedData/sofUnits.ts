@@ -209,10 +209,7 @@ export const SOF_UNITS: SofUnit[] = [
     estimatedStrength: 1000,
     homeBase: "Calw",
     role: "German Army SOF; direct action, special reconnaissance, counterterrorism.",
-    notableOperations: [
-      "Afghanistan 2002-2021",
-      "ISAF special operations",
-    ],
+    notableOperations: ["Afghanistan 2002-2021", "ISAF special operations"],
   },
   {
     slug: "de-ksm",
@@ -442,9 +439,7 @@ export const SOF_UNITS: SofUnit[] = [
     type: "naval_sof",
     homeBase: "Jinhae",
     role: "Korean naval SOF; maritime CT, direct action, counter-DPRK infiltration.",
-    notableOperations: [
-      "Daewon hostage rescue 2011 (Somali pirates)",
-    ],
+    notableOperations: ["Daewon hostage rescue 2011 (Somali pirates)"],
   },
   // ============ Japan ============
   {

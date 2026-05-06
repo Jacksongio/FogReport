@@ -3,11 +3,7 @@
 import { useState, type ReactNode } from "react";
 import Image from "next/image";
 import { useAuthActions } from "@convex-dev/auth/react";
-import {
-  AuthLoading,
-  Authenticated,
-  Unauthenticated,
-} from "convex/react";
+import { AuthLoading, Authenticated, Unauthenticated } from "convex/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
@@ -84,7 +80,9 @@ function SignInForm() {
             className="w-full space-y-4 bg-dark-card/60 backdrop-blur-sm border border-dark-border rounded-2xl p-6"
           >
             <div className="space-y-2">
-              <label className="text-sm font-medium text-dark-text">Email</label>
+              <label className="text-sm font-medium text-dark-text">
+                Email
+              </label>
               <Input
                 name="email"
                 type="email"
@@ -95,12 +93,16 @@ function SignInForm() {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium text-dark-text">Password</label>
+              <label className="text-sm font-medium text-dark-text">
+                Password
+              </label>
               <div className="relative">
                 <Input
                   name="password"
                   type={showPassword ? "text" : "password"}
-                  autoComplete={flow === "signIn" ? "current-password" : "new-password"}
+                  autoComplete={
+                    flow === "signIn" ? "current-password" : "new-password"
+                  }
                   required
                   minLength={8}
                   placeholder="At least 8 characters"

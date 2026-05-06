@@ -116,18 +116,18 @@
     min-height: 44px;
     min-width: 44px;
   }
-  
+
   /* Reduce padding for mobile cards */
   .card-mobile {
     padding: 1rem !important;
   }
-  
+
   /* Stack elements vertically on mobile */
   .mobile-stack {
     flex-direction: column !important;
     gap: 0.75rem !important;
   }
-  
+
   /* Improve scrolling performance */
   .mobile-scroll {
     -webkit-overflow-scrolling: touch;
@@ -164,7 +164,7 @@
     padding: 0.5rem 0.75rem !important;
     height: 2.5rem !important;
   }
-  
+
   /* Ultra compact tabs for very small screens */
   .tabs-ultra-compact {
     font-size: 0.6875rem !important; /* 11px */
@@ -189,7 +189,7 @@
     max-width: 95vw !important;
     margin: 0 2.5vw;
   }
-  
+
   /* Enhanced dropdown item styling */
   .dropdown-mobile-item {
     padding: 0.75rem !important;
@@ -197,14 +197,14 @@
     font-size: 0.875rem !important;
     line-height: 1.25rem !important;
   }
-  
+
   /* Mobile-friendly search input */
   .dropdown-search-mobile {
     height: 2.5rem !important;
     font-size: 0.875rem !important;
     padding: 0.5rem 0.75rem !important;
   }
-  
+
   /* Improved mobile scrolling for dropdown lists */
   .dropdown-list-mobile {
     max-height: 60vh !important;
@@ -238,8 +238,15 @@
 
 /* Starry background animation */
 @keyframes twinkle {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); }
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 }
 
 .animate-twinkle {
@@ -256,15 +263,24 @@
 
 /* Glow effects */
 .glow-flame {
-  box-shadow: 0 0 20px rgba(207, 92, 54, 0.5), 0 0 40px rgba(207, 92, 54, 0.3), 0 0 60px rgba(207, 92, 54, 0.1);
+  box-shadow:
+    0 0 20px rgba(207, 92, 54, 0.5),
+    0 0 40px rgba(207, 92, 54, 0.3),
+    0 0 60px rgba(207, 92, 54, 0.1);
 }
 
 .glow-blue {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.4), 0 0 60px rgba(59, 130, 246, 0.2), 0 0 90px rgba(59, 130, 246, 0.1);
+  box-shadow:
+    0 0 30px rgba(59, 130, 246, 0.4),
+    0 0 60px rgba(59, 130, 246, 0.2),
+    0 0 90px rgba(59, 130, 246, 0.1);
 }
 
 .hover-glow-flame:hover {
-  box-shadow: 0 0 25px rgba(207, 92, 54, 0.7), 0 0 50px rgba(207, 92, 54, 0.4), 0 0 75px rgba(207, 92, 54, 0.2);
+  box-shadow:
+    0 0 25px rgba(207, 92, 54, 0.7),
+    0 0 50px rgba(207, 92, 54, 0.4),
+    0 0 75px rgba(207, 92, 54, 0.2);
   transition: box-shadow 0.3s ease;
 }
 
@@ -274,7 +290,9 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(42, 42, 42, 0.8);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .glass-card:hover {

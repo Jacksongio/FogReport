@@ -11,8 +11,10 @@ export const weaponsB: WeaponSystem[] = [
     rangeKm: 13000,
     payload: "W78 (335 kt) or W87 (300 kt)",
     operators: ["US"],
-    notableFeatures: "MIRV-capable (single-warhead per New START); Sentinel replacement program in development",
-    description: "Sole US land-based ICBM; 400 missiles deployed across Malmstrom, Minot, F.E. Warren.",
+    notableFeatures:
+      "MIRV-capable (single-warhead per New START); Sentinel replacement program in development",
+    description:
+      "Sole US land-based ICBM; 400 missiles deployed across Malmstrom, Minot, F.E. Warren.",
   },
   {
     slug: "trident-ii",
@@ -23,8 +25,10 @@ export const weaponsB: WeaponSystem[] = [
     rangeKm: 12000,
     payload: "W76-1 (100 kt) / W76-2 (5-7 kt low-yield) / W88 (475 kt)",
     operators: ["US", "GB"],
-    notableFeatures: "Shared with UK Vanguard SSBNs; W76-2 fielded 2019 for low-yield response",
-    description: "US/UK sea-based strategic deterrent; deployed on Ohio (US) and Vanguard (UK) classes.",
+    notableFeatures:
+      "Shared with UK Vanguard SSBNs; W76-2 fielded 2019 for low-yield response",
+    description:
+      "US/UK sea-based strategic deterrent; deployed on Ohio (US) and Vanguard (UK) classes.",
   },
   {
     slug: "rs-28-sarmat",
@@ -35,8 +39,10 @@ export const weaponsB: WeaponSystem[] = [
     rangeKm: 18000,
     payload: "10+ MIRV warheads or Avangard HGV",
     operators: ["RU"],
-    notableFeatures: "Heavy liquid-fuel ICBM; can carry hypersonic glide vehicles",
-    description: "Russian heavy ICBM successor to R-36M Voevoda; combat duty announced 2023.",
+    notableFeatures:
+      "Heavy liquid-fuel ICBM; can carry hypersonic glide vehicles",
+    description:
+      "Russian heavy ICBM successor to R-36M Voevoda; combat duty announced 2023.",
   },
   {
     slug: "yars",
@@ -47,8 +53,10 @@ export const weaponsB: WeaponSystem[] = [
     rangeKm: 11000,
     payload: "MIRV (3-4 warheads typical)",
     operators: ["RU"],
-    notableFeatures: "Road-mobile and silo-based variants; principal modern Russian ICBM",
-    description: "Russian solid-fuel ICBM; backbone of contemporary Strategic Rocket Forces.",
+    notableFeatures:
+      "Road-mobile and silo-based variants; principal modern Russian ICBM",
+    description:
+      "Russian solid-fuel ICBM; backbone of contemporary Strategic Rocket Forces.",
   },
   {
     slug: "bulava",
@@ -72,7 +80,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "TN-75 / TNO MIRV warheads",
     operators: ["FR"],
     notableFeatures: "Three-stage solid-fuel SLBM; M51.3 entering service",
-    description: "French sea-based strategic deterrent; deployed on Triomphant-class SSBNs.",
+    description:
+      "French sea-based strategic deterrent; deployed on Triomphant-class SSBNs.",
   },
   {
     slug: "df-41",
@@ -83,8 +92,10 @@ export const weaponsB: WeaponSystem[] = [
     rangeKm: 14000,
     payload: "MIRV (up to 10 warheads claimed)",
     operators: ["CN"],
-    notableFeatures: "Road-mobile / silo / rail; centerpiece of Chinese arsenal expansion",
-    description: "PLA Rocket Force's principal modern ICBM; central to projected 1500-warhead arsenal by 2035.",
+    notableFeatures:
+      "Road-mobile / silo / rail; centerpiece of Chinese arsenal expansion",
+    description:
+      "PLA Rocket Force's principal modern ICBM; central to projected 1500-warhead arsenal by 2035.",
   },
   {
     slug: "jl-3",
@@ -95,8 +106,10 @@ export const weaponsB: WeaponSystem[] = [
     rangeKm: 10000,
     payload: "MIRV nuclear",
     operators: ["CN"],
-    notableFeatures: "Provides PLAN SSBNs intercontinental reach from Chinese bastions",
-    description: "Chinese third-generation SLBM deployed on Type 094 Jin-class SSBNs.",
+    notableFeatures:
+      "Provides PLAN SSBNs intercontinental reach from Chinese bastions",
+    description:
+      "Chinese third-generation SLBM deployed on Type 094 Jin-class SSBNs.",
   },
   {
     slug: "agni-v",
@@ -107,8 +120,10 @@ export const weaponsB: WeaponSystem[] = [
     rangeKm: 5500,
     payload: "MIRV (since 2024)",
     operators: ["IN"],
-    notableFeatures: "First Indian ICBM-class missile; MIRV capability demonstrated 2024",
-    description: "Indian three-stage solid-fuel ICBM; central to credible minimum deterrence.",
+    notableFeatures:
+      "First Indian ICBM-class missile; MIRV capability demonstrated 2024",
+    description:
+      "Indian three-stage solid-fuel ICBM; central to credible minimum deterrence.",
   },
   {
     slug: "k-4",
@@ -132,7 +147,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "Nuclear (MIRV claimed)",
     operators: ["KP"],
     notableFeatures: "First DPRK solid-fuel ICBM; rapid launch posture",
-    description: "DPRK solid-fuel ICBM; provides survivable second-strike option.",
+    description:
+      "DPRK solid-fuel ICBM; provides survivable second-strike option.",
   },
   {
     slug: "shaheen-iii",
@@ -144,7 +160,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "Nuclear or conventional",
     operators: ["PK"],
     notableFeatures: "Pakistan's longest-range MRBM",
-    description: "Pakistani solid-fuel medium-range ballistic missile reaching across the entire Indian land mass.",
+    description:
+      "Pakistani solid-fuel medium-range ballistic missile reaching across the entire Indian land mass.",
   },
   // Carriers and amphibs
   {
@@ -156,7 +173,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "60+ aircraft including F-35C, F/A-18E/F, EA-18G",
     operators: ["US"],
     notableFeatures: "EMALS catapults; AAG arresting gear; reduced crew",
-    description: "Latest US nuclear supercarrier class; lead ship USS Gerald R. Ford operational.",
+    description:
+      "Latest US nuclear supercarrier class; lead ship USS Gerald R. Ford operational.",
   },
   {
     slug: "nimitz-class-cvn",
@@ -178,7 +196,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "Up to 36 F-35B + Merlin / Wildcat",
     operators: ["GB"],
     notableFeatures: "STOVL carrier with two islands; ramp-launched F-35B",
-    description: "UK's flat-deck STOVL strike carriers; HMS Queen Elizabeth and HMS Prince of Wales.",
+    description:
+      "UK's flat-deck STOVL strike carriers; HMS Queen Elizabeth and HMS Prince of Wales.",
   },
   {
     slug: "charles-de-gaulle",
@@ -199,7 +218,8 @@ export const weaponsB: WeaponSystem[] = [
     yearIntroduced: 2024,
     payload: "Estimated 40+ J-15T / J-35; KJ-600 AEW",
     operators: ["CN"],
-    notableFeatures: "First Chinese CATOBAR carrier with electromagnetic catapults",
+    notableFeatures:
+      "First Chinese CATOBAR carrier with electromagnetic catapults",
     description: "Latest PLAN aircraft carrier; sea trials underway.",
   },
   {
@@ -211,7 +231,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "F-35B (post-conversion); SH-60K helicopters",
     operators: ["JP"],
     notableFeatures: "Conversion to support F-35B operations completed by 2027",
-    description: "JMSDF helicopter destroyers; converting to STOVL light carriers.",
+    description:
+      "JMSDF helicopter destroyers; converting to STOVL light carriers.",
   },
   {
     slug: "america-class-lha",
@@ -222,7 +243,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "Up to 20 F-35B + MV-22B + AH-1Z + UH-1Y",
     operators: ["US"],
     notableFeatures: "Aviation-centric amphibious assault ship",
-    description: "US Marine STOVL carrier; central to distributed maritime operations.",
+    description:
+      "US Marine STOVL carrier; central to distributed maritime operations.",
   },
   // Submarines
   {
@@ -233,8 +255,10 @@ export const weaponsB: WeaponSystem[] = [
     yearIntroduced: 1981,
     payload: "20 Trident II D5 SLBMs",
     operators: ["US"],
-    notableFeatures: "Backbone of US sea-based deterrent; replaced by Columbia from 2030",
-    description: "US strategic ballistic-missile submarine class; 14 SSBNs in service.",
+    notableFeatures:
+      "Backbone of US sea-based deterrent; replaced by Columbia from 2030",
+    description:
+      "US strategic ballistic-missile submarine class; 14 SSBNs in service.",
   },
   {
     slug: "columbia-ssbn",
@@ -245,7 +269,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "16 Trident II D5LE missiles",
     operators: ["US"],
     notableFeatures: "Life-of-ship reactor; quieter than Ohio",
-    description: "Next-generation US SSBN under construction; lead ship USS District of Columbia.",
+    description:
+      "Next-generation US SSBN under construction; lead ship USS District of Columbia.",
   },
   {
     slug: "virginia-class",
@@ -255,8 +280,10 @@ export const weaponsB: WeaponSystem[] = [
     yearIntroduced: 2004,
     payload: "Tomahawk Block V; Mk 48 ADCAP; UUVs",
     operators: ["US", "AU (planned)"],
-    notableFeatures: "Block V adds Virginia Payload Module (28 additional Tomahawks)",
-    description: "Premier Western SSN; AUKUS Pillar I rotational deployment to Australia.",
+    notableFeatures:
+      "Block V adds Virginia Payload Module (28 additional Tomahawks)",
+    description:
+      "Premier Western SSN; AUKUS Pillar I rotational deployment to Australia.",
   },
   {
     slug: "borei-class",
@@ -267,7 +294,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "16 RSM-56 Bulava SLBMs",
     operators: ["RU"],
     notableFeatures: "Replaces Delta IV; Borei-A quieter and improved sensors",
-    description: "Russian fourth-generation SSBN; eight planned across Northern and Pacific Fleets.",
+    description:
+      "Russian fourth-generation SSBN; eight planned across Northern and Pacific Fleets.",
   },
   {
     slug: "yasen-class",
@@ -278,7 +306,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "Kalibr / Oniks / Zircon (32 in VLS)",
     operators: ["RU"],
     notableFeatures: "Russia's most modern attack submarine; multi-mission",
-    description: "Severodvinsk-class with Kalibr/Oniks/Zircon long-range strike capability.",
+    description:
+      "Severodvinsk-class with Kalibr/Oniks/Zircon long-range strike capability.",
   },
   {
     slug: "type-094",
@@ -289,7 +318,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "12 JL-2 / JL-3 SLBMs",
     operators: ["CN"],
     notableFeatures: "PLA Navy nuclear deterrent platform; Yulin/Hainan based",
-    description: "Chinese SSBN class supporting near-continuous deterrent patrols.",
+    description:
+      "Chinese SSBN class supporting near-continuous deterrent patrols.",
   },
   {
     slug: "type-093",
@@ -311,7 +341,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "Tomahawk Block V; Spearfish",
     operators: ["GB"],
     notableFeatures: "Pump-jet propulsor; PWR2 reactor",
-    description: "Royal Navy attack submarine class; AUKUS technology basis for SSN-AUKUS.",
+    description:
+      "Royal Navy attack submarine class; AUKUS technology basis for SSN-AUKUS.",
   },
   {
     slug: "vanguard-class",
@@ -321,8 +352,10 @@ export const weaponsB: WeaponSystem[] = [
     yearIntroduced: 1993,
     payload: "16 Trident II D5 SLBMs",
     operators: ["GB"],
-    notableFeatures: "UK CASD platform replaced by Dreadnought-class from 2030s",
-    description: "UK strategic submarine class providing continuous-at-sea deterrence.",
+    notableFeatures:
+      "UK CASD platform replaced by Dreadnought-class from 2030s",
+    description:
+      "UK strategic submarine class providing continuous-at-sea deterrence.",
   },
   {
     slug: "suffren-class",
@@ -332,8 +365,10 @@ export const weaponsB: WeaponSystem[] = [
     yearIntroduced: 2022,
     payload: "Naval Cruise Missile (MdCN); F21 torpedoes",
     operators: ["FR"],
-    notableFeatures: "First French SSN with land-attack cruise missile capability",
-    description: "French nuclear attack submarine class with stand-off strike role.",
+    notableFeatures:
+      "First French SSN with land-attack cruise missile capability",
+    description:
+      "French nuclear attack submarine class with stand-off strike role.",
   },
   {
     slug: "soryu-class",
@@ -344,7 +379,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "Type 89 torpedoes; Harpoon",
     operators: ["JP"],
     notableFeatures: "Lithium-ion batteries on Taigei follow-on",
-    description: "JMSDF AIP/Li-ion submarine class; world's largest non-nuclear SSK.",
+    description:
+      "JMSDF AIP/Li-ion submarine class; world's largest non-nuclear SSK.",
   },
   // Tanks and IFVs
   {
@@ -378,7 +414,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "120 mm Rh-120 L/55A1",
     operators: ["GB"],
     notableFeatures: "Smoothbore 120 mm; Trophy APS",
-    description: "British upgrade replacing Challenger 2; entering service late this decade.",
+    description:
+      "British upgrade replacing Challenger 2; entering service late this decade.",
   },
   {
     slug: "k2-black-panther",
@@ -400,7 +437,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "125 mm 2A46M-5",
     operators: ["RU", "IN (license)"],
     notableFeatures: "Relikt ERA; Kalina FCS",
-    description: "Modern Russian MBT; combat losses heavy in Ukraine despite upgrades.",
+    description:
+      "Modern Russian MBT; combat losses heavy in Ukraine despite upgrades.",
   },
   {
     slug: "type-99a",
@@ -411,7 +449,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "125 mm autoloader",
     operators: ["CN"],
     notableFeatures: "Premier PLAGF MBT",
-    description: "Chinese third-generation MBT; mainstay of group army armoured brigades.",
+    description:
+      "Chinese third-generation MBT; mainstay of group army armoured brigades.",
   },
   {
     slug: "merkava-mk4",
@@ -422,7 +461,8 @@ export const weaponsB: WeaponSystem[] = [
     payload: "120 mm MG253",
     operators: ["IL"],
     notableFeatures: "Trophy APS; rear crew compartment for infantry",
-    description: "Israeli MBT family; latest Mk5 Barak entering service 2023-2024.",
+    description:
+      "Israeli MBT family; latest Mk5 Barak entering service 2023-2024.",
   },
   // Artillery / MLRS
   {
@@ -433,7 +473,20 @@ export const weaponsB: WeaponSystem[] = [
     yearIntroduced: 2010,
     rangeKm: 300,
     payload: "GMLRS; ATACMS Block IA; PrSM",
-    operators: ["US", "PL", "RO", "EE", "LV", "LT", "AU", "SG", "AE", "TW", "MA", "JO"],
+    operators: [
+      "US",
+      "PL",
+      "RO",
+      "EE",
+      "LV",
+      "LT",
+      "AU",
+      "SG",
+      "AE",
+      "TW",
+      "MA",
+      "JO",
+    ],
     notableFeatures: "Highly mobile; PrSM range 500+ km",
     description: "Wheeled MLRS; transformative effect demonstrated in Ukraine.",
   },
@@ -458,7 +511,8 @@ export const weaponsB: WeaponSystem[] = [
     rangeKm: 40,
     operators: ["DE", "IT", "NL", "GR", "HR", "QA", "HU", "LT", "UA"],
     notableFeatures: "MRSI capability (multi-round simultaneous impact)",
-    description: "German 155 mm self-propelled howitzer; combat-proven in Ukraine.",
+    description:
+      "German 155 mm self-propelled howitzer; combat-proven in Ukraine.",
   },
   {
     slug: "caesar",

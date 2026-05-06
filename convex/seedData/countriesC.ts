@@ -174,11 +174,7 @@ export const countriesC: CountryProfile[] = [
       "Ras Banas / Beranis (Red Sea)",
       "Alexandria Naval Base",
     ],
-    alliances: [
-      "Major Non-NATO Ally of US",
-      "Arab League",
-      "African Union",
-    ],
+    alliances: ["Major Non-NATO Ally of US", "Arab League", "African Union"],
     notableCapabilities: [
       "Two Mistral LHDs (only Arab state with operational helicopter carriers)",
       "Suez Canal sovereignty (12% world trade)",
@@ -356,11 +352,7 @@ export const countriesC: CountryProfile[] = [
       "Natuna Besar (South China Sea outpost)",
       "Sorong (Papua, expanding)",
     ],
-    alliances: [
-      "ASEAN",
-      "Non-Aligned Movement",
-      "BRICS+ (joining)",
-    ],
+    alliances: ["ASEAN", "Non-Aligned Movement", "BRICS+ (joining)"],
     notableCapabilities: [
       "Largest military in Southeast Asia",
       "Strategic location across SLOCs (Malacca, Sunda, Lombok straits)",
@@ -559,12 +551,7 @@ export const countriesC: CountryProfile[] = [
       "Naval Base Simon's Town",
       "AFB Hoedspruit",
     ],
-    alliances: [
-      "African Union",
-      "SADC",
-      "BRICS+",
-      "Non-Aligned Movement",
-    ],
+    alliances: ["African Union", "SADC", "BRICS+", "Non-Aligned Movement"],
     notableCapabilities: [
       "Only state to indigenously develop and dismantle nuclear weapons",
       "Indigenous defence-industrial base (Denel, Paramount)",

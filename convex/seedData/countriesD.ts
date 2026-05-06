@@ -98,11 +98,7 @@ export const countriesD: CountryProfile[] = [
       "Haakonsvern Naval Base (largest in Northern Europe)",
       "MCPP-N Trondheim (US Marines prepositioning)",
     ],
-    alliances: [
-      "NATO Article 5 (founding member)",
-      "JEF",
-      "NORDEFCO",
-    ],
+    alliances: ["NATO Article 5 (founding member)", "JEF", "NORDEFCO"],
     notableCapabilities: [
       "Frontline NATO airspace adjacent to Russian Northern Fleet",
       "Joint Strike Missile co-developed with Lockheed",
@@ -235,12 +231,7 @@ export const countriesD: CountryProfile[] = [
       "A400M Atlas",
       "NH90 NFH",
     ],
-    missiles: [
-      "AIM-120 AMRAAM",
-      "AIM-9X",
-      "Mistral 3 MANPADS",
-      "ESSM",
-    ],
+    missiles: ["AIM-120 AMRAAM", "AIM-9X", "Mistral 3 MANPADS", "ESSM"],
     naval: [
       "Karel Doorman-class M-frigate (Leopold I, Louise-Marie)",
       "City-class MCM (incoming)",
@@ -470,11 +461,7 @@ export const countriesD: CountryProfile[] = [
       "Berbera, Somaliland (UAE-leased)",
       "Assab, Eritrea (former)",
     ],
-    alliances: [
-      "GCC",
-      "Abraham Accords",
-      "Major Defense Partner of US",
-    ],
+    alliances: ["GCC", "Abraham Accords", "Major Defense Partner of US"],
     notableCapabilities: [
       "First THAAD export customer",
       "F-16 Block 60 most advanced export Block",
@@ -510,12 +497,7 @@ export const countriesD: CountryProfile[] = [
       "Musherib-class OPV",
       "Barzan-class FAC(M)",
     ],
-    groundForces: [
-      "Leopard 2A7+",
-      "Piranha V",
-      "VBCI",
-      "PzH 2000 SP howitzer",
-    ],
+    groundForces: ["Leopard 2A7+", "Piranha V", "VBCI", "PzH 2000 SP howitzer"],
     bases: [
       "Al Udeid Air Base (US AFCENT forward HQ)",
       "Tariq bin Ziyad Turkish Base",

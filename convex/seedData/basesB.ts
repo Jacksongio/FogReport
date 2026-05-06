@@ -13,7 +13,11 @@ export const basesB: MilitaryBase[] = [
     primaryServiceBranch: "Royal Navy",
     tenantCountryCodes: ["GB"],
     hostedUnits: ["UK Submarine Service"],
-    hostedSystems: ["Vanguard-class SSBN", "Astute-class SSN", "Trident II D5 SLBM"],
+    hostedSystems: [
+      "Vanguard-class SSBN",
+      "Astute-class SSN",
+      "Trident II D5 SLBM",
+    ],
     role: "Sole UK SSBN base; foundation of the UK continuous-at-sea deterrent (CASD).",
   },
   {
@@ -38,7 +42,12 @@ export const basesB: MilitaryBase[] = [
     type: "air",
     primaryServiceBranch: "Royal Air Force",
     tenantCountryCodes: ["GB"],
-    hostedUnits: ["No. 1 Squadron", "No. 2 Squadron", "No. 6 Squadron", "120 Sqn (P-8A)"],
+    hostedUnits: [
+      "No. 1 Squadron",
+      "No. 2 Squadron",
+      "No. 6 Squadron",
+      "120 Sqn (P-8A)",
+    ],
     hostedSystems: ["Eurofighter Typhoon FGR4", "P-8A Poseidon MRA1"],
     role: "Northern UK QRA base; UK maritime patrol hub covering GIUK approaches.",
   },
@@ -52,7 +61,11 @@ export const basesB: MilitaryBase[] = [
     primaryServiceBranch: "Royal Air Force",
     tenantCountryCodes: ["GB"],
     hostedUnits: ["No. 84 Squadron"],
-    hostedSystems: ["Typhoon FGR4 (rotational)", "Voyager KC2/KC3", "Sentinel R1 (retired) / RC-135W rotational"],
+    hostedSystems: [
+      "Typhoon FGR4 (rotational)",
+      "Voyager KC2/KC3",
+      "Sentinel R1 (retired) / RC-135W rotational",
+    ],
     role: "UK Sovereign Base Area; Eastern Mediterranean strike, ISR, and basing hub.",
   },
   {
@@ -65,7 +78,10 @@ export const basesB: MilitaryBase[] = [
     primaryServiceBranch: "Royal Air Force",
     tenantCountryCodes: ["GB"],
     hostedUnits: ["No. 1435 Flight"],
-    hostedSystems: ["Typhoon FGR4 (4 aircraft)", "Sky Sabre (CAMM) air defence"],
+    hostedSystems: [
+      "Typhoon FGR4 (4 aircraft)",
+      "Sky Sabre (CAMM) air defence",
+    ],
     role: "Falklands sovereignty deterrent; sole UK strategic basing in South Atlantic.",
   },
   {
@@ -130,7 +146,11 @@ export const basesB: MilitaryBase[] = [
     primaryServiceBranch: "Marine nationale",
     tenantCountryCodes: ["FR"],
     hostedUnits: ["French Mediterranean Fleet"],
-    hostedSystems: ["Charles de Gaulle (R91)", "Suffren-class SSN", "FREMM frigates"],
+    hostedSystems: [
+      "Charles de Gaulle (R91)",
+      "Suffren-class SSN",
+      "FREMM frigates",
+    ],
     role: "Largest French naval base; principal Mediterranean fleet homeport.",
   },
   {
@@ -182,7 +202,11 @@ export const basesB: MilitaryBase[] = [
     primaryServiceBranch: "Belgian Air Component",
     tenantCountryCodes: ["BE", "US"],
     hostedUnits: ["10th Tactical Wing"],
-    hostedSystems: ["F-16AM (retiring)", "F-35A Lightning II (incoming)", "B61-12 (US)"],
+    hostedSystems: [
+      "F-16AM (retiring)",
+      "F-35A Lightning II (incoming)",
+      "B61-12 (US)",
+    ],
     role: "Belgian DCA host for NATO nuclear sharing; transitioning to F-35A platform.",
   },
   {
@@ -194,7 +218,10 @@ export const basesB: MilitaryBase[] = [
     type: "air",
     primaryServiceBranch: "Italian Air Force",
     tenantCountryCodes: ["IT", "US"],
-    hostedUnits: ["Italian Air Force 51° Stormo (offsite)", "USAF 31st Fighter Wing"],
+    hostedUnits: [
+      "Italian Air Force 51° Stormo (offsite)",
+      "USAF 31st Fighter Wing",
+    ],
     hostedSystems: ["F-16CM (US)"],
     role: "Joint Italian-US base; sole USAFE fighter wing in southern Europe.",
   },
@@ -208,7 +235,11 @@ export const basesB: MilitaryBase[] = [
     primaryServiceBranch: "Italian Air Force",
     tenantCountryCodes: ["IT", "US"],
     hostedUnits: ["6º Stormo"],
-    hostedSystems: ["Tornado IDS (DCA, retiring)", "F-35A (transitioning)", "B61-12 (US)"],
+    hostedSystems: [
+      "Tornado IDS (DCA, retiring)",
+      "F-35A (transitioning)",
+      "B61-12 (US)",
+    ],
     role: "Italian DCA host for NATO nuclear sharing; F-35A conversion underway.",
   },
   {
@@ -233,7 +264,9 @@ export const basesB: MilitaryBase[] = [
     type: "joint",
     primaryServiceBranch: "Spanish Air Force / US Marine Corps",
     tenantCountryCodes: ["ES", "US"],
-    hostedUnits: ["Special Purpose Marine Air-Ground Task Force Crisis Response - Africa"],
+    hostedUnits: [
+      "Special Purpose Marine Air-Ground Task Force Crisis Response - Africa",
+    ],
     hostedSystems: ["MV-22 Osprey", "KC-130J"],
     role: "US AFRICOM rapid-response hub on the Iberian Peninsula.",
   },
@@ -338,7 +371,11 @@ export const basesB: MilitaryBase[] = [
     primaryServiceBranch: "Swedish Air Force",
     tenantCountryCodes: ["SE"],
     hostedUnits: ["Skaraborg Wing"],
-    hostedSystems: ["JAS 39E Gripen E (training)", "C-130H Hercules", "C-17 (Heavy Airlift Wing detachment)"],
+    hostedSystems: [
+      "JAS 39E Gripen E (training)",
+      "C-130H Hercules",
+      "C-17 (Heavy Airlift Wing detachment)",
+    ],
     role: "Swedish Gripen fleet training and conversion hub.",
   },
   {

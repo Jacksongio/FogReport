@@ -79,7 +79,8 @@ export const treatiesGeneva: TreatyDocument[] = [
   },
   {
     slug: "geneva-iii-1949",
-    title: "Geneva Convention III Relative to the Treatment of Prisoners of War",
+    title:
+      "Geneva Convention III Relative to the Treatment of Prisoners of War",
     shortName: "Geneva III",
     category: "humanitarian",
     adoptionDate: "1949-08-12",

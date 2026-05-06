@@ -11,10 +11,25 @@ export const countriesF: CountryProfile[] = [
     doctrine:
       "CSTO collective defence; effectively integrated into Russian Western Strategic Direction since 2020-2022 crackdown and forward-deployed Russian Iskander-M and tactical nuclear assets.",
     aircraft: ["Su-30SM", "MiG-29", "Su-25 Frogfoot", "Mi-24 Hind", "Mi-8/17"],
-    missiles: ["Iskander-M (Russian forward deployment)", "Polonez MLRS", "Tor-M2", "S-400 / S-300"],
+    missiles: [
+      "Iskander-M (Russian forward deployment)",
+      "Polonez MLRS",
+      "Tor-M2",
+      "S-400 / S-300",
+    ],
     naval: [],
-    groundForces: ["T-72B3 / T-80U", "BMP-2", "BTR-82A", "Polonez MLRS", "Special Operations Forces"],
-    bases: ["Baranavichy Air Base", "Maczulszczyzna Air Base", "Asipovichy (Russian tactical nuclear storage)"],
+    groundForces: [
+      "T-72B3 / T-80U",
+      "BMP-2",
+      "BTR-82A",
+      "Polonez MLRS",
+      "Special Operations Forces",
+    ],
+    bases: [
+      "Baranavichy Air Base",
+      "Maczulszczyzna Air Base",
+      "Asipovichy (Russian tactical nuclear storage)",
+    ],
     alliances: ["CSTO", "Union State of Russia and Belarus", "EAEU"],
     notableCapabilities: [
       "Hosts Russian tactical nuclear weapons (since 2023)",
@@ -35,7 +50,11 @@ export const countriesF: CountryProfile[] = [
     missiles: ["S-300", "Buk", "Tor-M2"],
     naval: ["Kazakhstan Naval Forces (Caspian)", "Sayasat-class missile boats"],
     groundForces: ["T-72BA", "BMP-2", "BTR-80A"],
-    bases: ["Aktau Naval Base (Caspian)", "Almaty AB", "Baikonur Cosmodrome (leased to Russia)"],
+    bases: [
+      "Aktau Naval Base (Caspian)",
+      "Almaty AB",
+      "Baikonur Cosmodrome (leased to Russia)",
+    ],
     alliances: ["CSTO", "SCO", "Eurasian Economic Union"],
     notableCapabilities: [
       "Largest Caspian Sea naval force",
@@ -72,10 +91,25 @@ export const countriesF: CountryProfile[] = [
     activeMilitaryPersonnel: 230000,
     doctrine:
       "Counter-Boko Haram / ISWAP, anti-piracy in Gulf of Guinea, ECOWAS leadership.",
-    aircraft: ["JF-17 Block II", "F-7NI", "L-39 Albatros", "A-29 Super Tucano", "Mi-35M"],
+    aircraft: [
+      "JF-17 Block II",
+      "F-7NI",
+      "L-39 Albatros",
+      "A-29 Super Tucano",
+      "Mi-35M",
+    ],
     missiles: ["AIM-9 / PL-5"],
-    naval: ["NNS Centenary (P18N Chinese-built FFG)", "NNS Aradu", "Hamilton-class (ex-USCG cutters)"],
-    groundForces: ["T-72NG", "Vickers Mk3", "Otokar Cobra", "Streit Spartan MRAP"],
+    naval: [
+      "NNS Centenary (P18N Chinese-built FFG)",
+      "NNS Aradu",
+      "Hamilton-class (ex-USCG cutters)",
+    ],
+    groundForces: [
+      "T-72NG",
+      "Vickers Mk3",
+      "Otokar Cobra",
+      "Streit Spartan MRAP",
+    ],
     bases: ["Abuja AB", "Kainji AB", "Apapa Naval Base, Lagos"],
     alliances: ["ECOWAS", "African Union"],
     notableCapabilities: [
@@ -95,7 +129,11 @@ export const countriesF: CountryProfile[] = [
       "Defensive against Morocco; large indigenous and Russian-supplied arsenal; non-alignment.",
     aircraft: ["Su-30MKA", "Su-24M2 Fencer", "MiG-29M/M2", "Yak-130"],
     missiles: ["Iskander-E", "S-400 Triumf", "Pantsir-S1", "Kh-31 / Kh-59"],
-    naval: ["Project 1159TR Frigate", "MEKO A-200AN frigate", "Kilo-class (Project 636) SSK"],
+    naval: [
+      "Project 1159TR Frigate",
+      "MEKO A-200AN frigate",
+      "Kilo-class (Project 636) SSK",
+    ],
     groundForces: ["T-90SA", "T-72B", "BMP-2M", "BMPT-72 Terminator"],
     bases: ["Boufarik AB", "Tindouf Airbase", "Mers el-Kébir Naval Base"],
     alliances: ["Arab League (suspended)", "Non-Aligned Movement"],
@@ -114,10 +152,24 @@ export const countriesF: CountryProfile[] = [
     activeMilitaryPersonnel: 196000,
     doctrine:
       "Defensive against Algeria; Western Sahara security; close US/French/Israeli partnerships.",
-    aircraft: ["F-16C/D Block 52", "F-5E Tiger II", "Mirage F1", "AH-64E Apache"],
+    aircraft: [
+      "F-16C/D Block 52",
+      "F-5E Tiger II",
+      "Mirage F1",
+      "AH-64E Apache",
+    ],
     missiles: ["AIM-120C AMRAAM", "Patriot PAC-3 (procurement)", "Spike NLOS"],
-    naval: ["Mohammed VI-class FFG (FREMM-derived)", "SIGMA-class FFG", "Floréal-class"],
-    groundForces: ["M1A1 SA Abrams (procurement)", "VT-1A MBT", "M60A3 TTS", "VAB"],
+    naval: [
+      "Mohammed VI-class FFG (FREMM-derived)",
+      "SIGMA-class FFG",
+      "Floréal-class",
+    ],
+    groundForces: [
+      "M1A1 SA Abrams (procurement)",
+      "VT-1A MBT",
+      "M60A3 TTS",
+      "VAB",
+    ],
     bases: ["Sidi Slimane AB", "Kénitra AB", "Casablanca Naval Base"],
     alliances: ["Major Non-NATO Ally of US", "Arab League", "African Union"],
     notableCapabilities: [
@@ -218,9 +270,17 @@ export const countriesF: CountryProfile[] = [
       "Forces Goal 2030 modernization; UN peacekeeping leader; balancing India and China procurement.",
     aircraft: ["F-7BG/BGI", "MiG-29B", "Yak-130 (procurement)", "K-8W trainer"],
     missiles: ["FM-90", "C-704 anti-ship"],
-    naval: ["BNS Bangabandhu (FFG)", "Type 053H3 Padma-class FFG", "Ming-class (Type 035) SSK"],
+    naval: [
+      "BNS Bangabandhu (FFG)",
+      "Type 053H3 Padma-class FFG",
+      "Ming-class (Type 035) SSK",
+    ],
     groundForces: ["MBT-2000 (Al-Khalid)", "Type 69-IIG", "BTR-80"],
-    bases: ["Chittagong Naval Base", "Kurmitola AB", "BNS Sheikh Hasina (submarine base under construction)"],
+    bases: [
+      "Chittagong Naval Base",
+      "Kurmitola AB",
+      "BNS Sheikh Hasina (submarine base under construction)",
+    ],
     alliances: ["BIMSTEC", "Non-Aligned Movement"],
     notableCapabilities: [
       "Top UN peacekeeping contributor globally",
@@ -300,9 +360,17 @@ export const countriesF: CountryProfile[] = [
       "Constitutional defence; Pacific maritime focus; one of South America's most professional militaries.",
     aircraft: ["F-16C/D Block 50", "F-5III Tiger III"],
     missiles: ["AIM-120C", "AGM-65 Maverick", "Crotale", "Spyder"],
-    naval: ["Almirante Williams-class (ex-Type 23)", "Adelaide-class FFG (ex-RAN)", "Scorpène-class SSK"],
+    naval: [
+      "Almirante Williams-class (ex-Type 23)",
+      "Adelaide-class FFG (ex-RAN)",
+      "Scorpène-class SSK",
+    ],
     groundForces: ["Leopard 2A4", "M-109A5+ SP howitzer", "Marder 1A3"],
-    bases: ["Valparaíso Naval Base", "Punta Arenas (Antarctic gateway)", "Pudahuel AB"],
+    bases: [
+      "Valparaíso Naval Base",
+      "Punta Arenas (Antarctic gateway)",
+      "Pudahuel AB",
+    ],
     alliances: ["Rio Treaty"],
     notableCapabilities: [
       "Pacific Alliance member",
@@ -318,12 +386,20 @@ export const countriesF: CountryProfile[] = [
     activeMilitaryPersonnel: 295000,
     doctrine:
       "Counter-narcotics, counter-FARC dissidents, ELN, GAOs; longstanding US Plan Colombia partnership.",
-    aircraft: ["IAI Kfir COA", "AT-29B Super Tucano", "AC-47T 'Fantasma'", "UH-60 Black Hawk"],
+    aircraft: [
+      "IAI Kfir COA",
+      "AT-29B Super Tucano",
+      "AC-47T 'Fantasma'",
+      "UH-60 Black Hawk",
+    ],
     missiles: ["AIM-120 AMRAAM"],
     naval: ["ARC Almirante Padilla-class FFG", "Type 209/1200 SSK"],
     groundForces: ["EE-9 Cascavel", "RG-31 MRAP", "M113 / M114"],
     bases: ["Tolemaida AB", "Cartagena Naval Base", "Palanquero AB"],
-    alliances: ["Major Non-NATO Ally of US (since 2022)", "NATO Global Partner"],
+    alliances: [
+      "Major Non-NATO Ally of US (since 2022)",
+      "NATO Global Partner",
+    ],
     notableCapabilities: [
       "First Latin American Major Non-NATO Ally",
       "Most US-trained military in Latin America",
@@ -339,9 +415,18 @@ export const countriesF: CountryProfile[] = [
     activeMilitaryPersonnel: 100000,
     doctrine:
       "Defence of national territory; counter-Sendero remnants; mixed US-Russian-Korean procurement.",
-    aircraft: ["MiG-29SE", "Su-25", "Mirage 2000P (retired)", "FA-50 Fighting Eagle (procurement)"],
+    aircraft: [
+      "MiG-29SE",
+      "Su-25",
+      "Mirage 2000P (retired)",
+      "FA-50 Fighting Eagle (procurement)",
+    ],
     missiles: ["Igla-S MANPADS"],
-    naval: ["BAP Almirante Grau (retired)", "Lupo-class FFG", "Type 209/1200 SSK"],
+    naval: [
+      "BAP Almirante Grau (retired)",
+      "Lupo-class FFG",
+      "Type 209/1200 SSK",
+    ],
     groundForces: ["T-55", "AMX-13", "BTR-80"],
     bases: ["Las Palmas AB", "Callao Naval Base"],
     alliances: ["Rio Treaty"],
@@ -379,7 +464,11 @@ export const countriesF: CountryProfile[] = [
     activeMilitaryPersonnel: 39000,
     doctrine:
       "Internal security focus following 2024 'internal armed conflict' declaration vs. drug cartels; territorial defence in Amazon and Pacific approaches.",
-    aircraft: ["Cheetah C/D", "A-29 Super Tucano", "Mirage 2000P (Peruvian sale, declined)"],
+    aircraft: [
+      "Cheetah C/D",
+      "A-29 Super Tucano",
+      "Mirage 2000P (Peruvian sale, declined)",
+    ],
     missiles: [],
     naval: ["Eloy Alfaro-class FFG (ex-Leander)", "Esmeraldas-class corvette"],
     groundForces: ["T-55", "AMX-13", "EE-9 Cascavel"],

@@ -108,7 +108,8 @@ export const treatiesArms: TreatyDocument[] = [
   },
   {
     slug: "cwc",
-    title: "Convention on the Prohibition of the Development, Production, Stockpiling and Use of Chemical Weapons",
+    title:
+      "Convention on the Prohibition of the Development, Production, Stockpiling and Use of Chemical Weapons",
     shortName: "Chemical Weapons Convention",
     category: "arms_control",
     adoptionDate: "1993-01-13",
@@ -145,7 +146,8 @@ export const treatiesArms: TreatyDocument[] = [
   },
   {
     slug: "bwc",
-    title: "Convention on the Prohibition of the Development, Production and Stockpiling of Bacteriological (Biological) and Toxin Weapons and on Their Destruction",
+    title:
+      "Convention on the Prohibition of the Development, Production and Stockpiling of Bacteriological (Biological) and Toxin Weapons and on Their Destruction",
     shortName: "Biological Weapons Convention",
     category: "arms_control",
     adoptionDate: "1972-04-10",

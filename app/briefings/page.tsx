@@ -93,7 +93,9 @@ function PastBriefings() {
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-3">
               <FileText className="w-6 h-6 text-flame" />
-              <h2 className="text-2xl font-bold text-dark-text">Past Briefings</h2>
+              <h2 className="text-2xl font-bold text-dark-text">
+                Past Briefings
+              </h2>
             </div>
             <Link href="/">
               <Button
@@ -132,10 +134,17 @@ function PastBriefings() {
             <p className="text-sm text-dark-muted">
               {search ? (
                 <>
-                  Showing <span className="text-dark-text font-semibold">{filtered.length}</span> of {briefings.length} briefings
+                  Showing{" "}
+                  <span className="text-dark-text font-semibold">
+                    {filtered.length}
+                  </span>{" "}
+                  of {briefings.length} briefings
                 </>
               ) : (
-                <>{briefings.length} briefing{briefings.length === 1 ? "" : "s"} on file</>
+                <>
+                  {briefings.length} briefing{briefings.length === 1 ? "" : "s"}{" "}
+                  on file
+                </>
               )}
             </p>
           )}
@@ -155,7 +164,8 @@ function PastBriefings() {
                   No briefings yet
                 </h3>
                 <p className="text-dark-muted mb-6">
-                  Generate your first intelligence briefing to see it appear here.
+                  Generate your first intelligence briefing to see it appear
+                  here.
                 </p>
                 <Link href="/">
                   <Button className="bg-flame hover:bg-flame/90 text-white glow-flame hover-glow-flame transition-all duration-200 hover:scale-[1.02]">
@@ -168,7 +178,8 @@ function PastBriefings() {
             <Card className="border-dark-border/60 bg-dark-card/60 backdrop-blur-md rounded-2xl">
               <CardContent className="p-12 text-center">
                 <p className="text-dark-muted">
-                  No briefings match &quot;<span className="text-dark-text">{search}</span>&quot;.
+                  No briefings match &quot;
+                  <span className="text-dark-text">{search}</span>&quot;.
                 </p>
               </CardContent>
             </Card>
@@ -185,7 +196,10 @@ function PastBriefings() {
                     <h4 className="text-base font-semibold text-dark-text">
                       {briefing.title}
                     </h4>
-                    <Badge variant="outline" className="border-flame/40 text-flame whitespace-nowrap font-mono text-xs">
+                    <Badge
+                      variant="outline"
+                      className="border-flame/40 text-flame whitespace-nowrap font-mono text-xs"
+                    >
                       {briefing.classification}
                     </Badge>
                   </div>
@@ -195,7 +209,8 @@ function PastBriefings() {
                       <span className="text-dark-border">·</span>
                       <span>{briefing.author}</span>
                     </div>
-                    {briefing.treatiesAnalyzed && briefing.treatiesAnalyzed > 0 ? (
+                    {briefing.treatiesAnalyzed &&
+                    briefing.treatiesAnalyzed > 0 ? (
                       <span className="text-flame">
                         {briefing.treatiesAnalyzed} treaty article
                         {briefing.treatiesAnalyzed === 1 ? "" : "s"} analyzed

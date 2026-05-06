@@ -10,6 +10,6 @@ const nextConfig = {
     domains: ["placeholder.svg"],
     unoptimized: true,
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

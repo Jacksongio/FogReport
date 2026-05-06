@@ -46,7 +46,11 @@ async function callOpenAIWithJsonRepair<T>(
 async function callOpenAI(
   model: string,
   messages: Array<{ role: string; content: string }>,
-  options: { temperature?: number; maxTokens?: number; jsonMode?: boolean } = {},
+  options: {
+    temperature?: number;
+    maxTokens?: number;
+    jsonMode?: boolean;
+  } = {},
 ): Promise<string> {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) throw new Error("OPENAI_API_KEY is not configured in Convex");
@@ -289,7 +293,9 @@ function weaponToContextBlock(w: Doc<"weaponSystems">): string {
 function intelAgencyToContextBlock(a: Doc<"intelligenceAgencies">): string {
   return [
     `[${a.name}] (${a.countryCode}, ${a.type})`,
-    a.estimatedPersonnel ? `~${a.estimatedPersonnel.toLocaleString()} personnel` : "",
+    a.estimatedPersonnel
+      ? `~${a.estimatedPersonnel.toLocaleString()} personnel`
+      : "",
     `Mission: ${a.mission}`,
     a.notableCapabilities.length
       ? `Capabilities: ${a.notableCapabilities.slice(0, 4).join("; ")}`
@@ -302,7 +308,9 @@ function intelAgencyToContextBlock(a: Doc<"intelligenceAgencies">): string {
 function sofUnitToContextBlock(u: Doc<"sofUnits">): string {
   return [
     `[${u.name}] (${u.countryCode}, ${u.parentService}, ${u.type})`,
-    u.estimatedStrength ? `~${u.estimatedStrength.toLocaleString()} personnel` : "",
+    u.estimatedStrength
+      ? `~${u.estimatedStrength.toLocaleString()} personnel`
+      : "",
     u.homeBase ? `home: ${u.homeBase}` : "",
     `Role: ${u.role}`,
   ]
@@ -314,7 +322,9 @@ function defenseIndustryToContextBlock(d: Doc<"defenseIndustries">): string {
   return [
     `[${d.name}] (${d.countryCode}, ${d.ownership})`,
     d.revenueUsdBillions ? `~$${d.revenueUsdBillions}B revenue` : "",
-    d.keyProducts.length ? `Products: ${d.keyProducts.slice(0, 5).join("; ")}` : "",
+    d.keyProducts.length
+      ? `Products: ${d.keyProducts.slice(0, 5).join("; ")}`
+      : "",
     `Notes: ${d.notes}`,
   ]
     .filter(Boolean)
@@ -341,7 +351,9 @@ function subStateActorToContextBlock(a: Doc<"subStateActors">): string {
     .join(" | ");
 }
 
-function historicalIncidentToContextBlock(h: Doc<"historicalIncidents">): string {
+function historicalIncidentToContextBlock(
+  h: Doc<"historicalIncidents">,
+): string {
   return [
     `[${h.name}] ${h.startDate}${h.endDate ? `–${h.endDate}` : ""} (${h.region}, ${h.type})`,
     `Parties: ${h.primaryParties.join(", ")}`,
@@ -422,9 +434,7 @@ function profileToContextBlock(
     blocks.push(`Key bases: ${p.bases.slice(0, 6).join(", ")}`);
   if (p.alliances.length) blocks.push(`Alliances: ${p.alliances.join("; ")}`);
   if (p.notableCapabilities.length)
-    blocks.push(
-      `Notable: ${p.notableCapabilities.slice(0, 5).join("; ")}`,
-    );
+    blocks.push(`Notable: ${p.notableCapabilities.slice(0, 5).join("; ")}`);
   return blocks.filter(Boolean).join("\n");
 }
 
@@ -469,7 +479,10 @@ export const generateBriefing = action({
       recommendations: v.array(v.string()),
     }),
   },
-  handler: async (ctx, args): Promise<{
+  handler: async (
+    ctx,
+    args,
+  ): Promise<{
     briefingId: Id<"briefings">;
     treatiesAnalyzed: number;
     qa: {
@@ -613,7 +626,8 @@ Return JSON:
       [
         {
           role: "system",
-          content: "You are a precise threat classification assistant. Respond with valid JSON only.",
+          content:
+            "You are a precise threat classification assistant. Respond with valid JSON only.",
         },
         { role: "user", content: classifierPrompt },
       ],
@@ -622,21 +636,21 @@ Return JSON:
     const classification = JSON.parse(classRaw) as ThreatClassification;
 
     // ============ Step 2: Country profile lookup ============
-    const profileMap: Record<string, Doc<"countryProfiles">> = await ctx.runQuery(
-      internal.treaties.lookupCountryProfiles,
-      {
-        codes: [
-          args.selectedCountryCode ?? "",
-          args.offensiveCountryCode ?? "",
-          args.defensiveCountryCode ?? "",
-        ],
-        names: [
-          args.selectedCountry,
-          args.offensiveCountry,
-          args.defensiveCountry,
-        ],
-      },
-    );
+    const profileMap: Record<
+      string,
+      Doc<"countryProfiles">
+    > = await ctx.runQuery(internal.treaties.lookupCountryProfiles, {
+      codes: [
+        args.selectedCountryCode ?? "",
+        args.offensiveCountryCode ?? "",
+        args.defensiveCountryCode ?? "",
+      ],
+      names: [
+        args.selectedCountry,
+        args.offensiveCountry,
+        args.defensiveCountry,
+      ],
+    });
 
     const selectedProfile =
       profileMap[args.selectedCountryCode ?? ""] ??
@@ -738,7 +752,9 @@ Return JSON:
       // Bases hosting equipment whose name appears in scenario
       if (
         b.hostedSystems.some((s) =>
-          s.length >= 4 ? args.scenario.toLowerCase().includes(s.toLowerCase()) : false,
+          s.length >= 4
+            ? args.scenario.toLowerCase().includes(s.toLowerCase())
+            : false,
         )
       )
         score += 2;
@@ -758,12 +774,21 @@ Return JSON:
 
     // ============ Step 2e: Weapons system specs for perspective country (domain-ranked) ============
     const perspectiveWeapons: Doc<"weaponSystems">[] = args.selectedCountryCode
-      ? await ctx.runQuery(internal.seedMutations.fetchWeaponSystemsByOperator, {
-          countryCode: args.selectedCountryCode,
-        })
+      ? await ctx.runQuery(
+          internal.seedMutations.fetchWeaponSystemsByOperator,
+          {
+            countryCode: args.selectedCountryCode,
+          },
+        )
       : [];
     const weaponDomainBoosts: Record<string, string[]> = {
-      air: ["fighter_aircraft", "bomber", "cruise_missile", "uav", "air_defense"],
+      air: [
+        "fighter_aircraft",
+        "bomber",
+        "cruise_missile",
+        "uav",
+        "air_defense",
+      ],
       sea: ["carrier", "destroyer", "submarine", "anti_ship"],
       land: ["tank", "artillery", "anti_tank"],
       nuclear: ["icbm", "slbm", "ballistic_missile", "hypersonic"],
@@ -837,7 +862,9 @@ Return JSON:
       let score = 0;
       // Strong: name or alias appears in scenario
       if (tokenMatches(args.scenario, a.name)) score += 5;
-      if (a.aliases.some((al) => al.length > 3 && tokenMatches(args.scenario, al)))
+      if (
+        a.aliases.some((al) => al.length > 3 && tokenMatches(args.scenario, al))
+      )
         score += 4;
       // AOR mentions involved country
       if (
@@ -894,26 +921,13 @@ Return JSON:
           incidentTypeLower.includes("blockade"))
       )
         score += 2;
-      if (
-        domainSet.has("air") &&
-        incidentTypeLower.includes("air")
-      )
+      if (domainSet.has("air") && incidentTypeLower.includes("air")) score += 2;
+      if (domainSet.has("nuclear") && incidentTypeLower.includes("nuclear"))
         score += 2;
-      if (
-        domainSet.has("nuclear") &&
-        incidentTypeLower.includes("nuclear")
-      )
-        score += 2;
-      if (
-        domainSet.has("cyber") &&
-        incidentTypeLower.includes("covert")
-      )
+      if (domainSet.has("cyber") && incidentTypeLower.includes("covert"))
         score += 1;
       // Region match (only if scenario explicitly references a region keyword)
-      if (
-        h.region &&
-        tokenMatches(args.scenario, h.region.split(/\s+/)[0])
-      )
+      if (h.region && tokenMatches(args.scenario, h.region.split(/\s+/)[0]))
         score += 1;
       // Explicit name match in scenario
       if (tokenMatches(args.scenario, h.name)) score += 4;
@@ -1170,8 +1184,10 @@ DO NOT write generic statements like "leverage alliance support" or "enhance air
     for (const a of relevantSubStateActors) {
       const named =
         allBriefingText.toLowerCase().includes(a.name.toLowerCase()) ||
-        a.aliases.some((al) =>
-          al.length > 3 && allBriefingText.toLowerCase().includes(al.toLowerCase()),
+        a.aliases.some(
+          (al) =>
+            al.length > 3 &&
+            allBriefingText.toLowerCase().includes(al.toLowerCase()),
         );
       if (named) {
         verifiedCitations.subStateActorsVerified += 1;
@@ -1193,9 +1209,13 @@ DO NOT write generic statements like "leverage alliance support" or "enhance air
 RETRIEVED CONTEXT (the briefing should not invent facts beyond this and the perspective country's profile):
 - Bases: ${relevantBases.map((b) => b.name).join("; ") || "none"}
 - Weapons (perspective): ${topPerspectiveWeapons.map((w) => w.name).join("; ") || "none"}
-- Treaty articles cited as available: ${articles
-      .map((a) => `${a.treatyShortName ?? a.treatyTitle} Art ${a.articleNumber}`)
-      .join("; ") || "none"}
+- Treaty articles cited as available: ${
+      articles
+        .map(
+          (a) => `${a.treatyShortName ?? a.treatyTitle} Art ${a.articleNumber}`,
+        )
+        .join("; ") || "none"
+    }
 - Sub-state actors flagged: ${relevantSubStateActors.map((a) => a.name).join("; ") || "none"}
 
 BRIEFING (assess this):
@@ -1269,7 +1289,8 @@ Criteria:
           ? {
               severityProportionality: critique.severity_proportionality,
               placeholderBrackets: critique.placeholder_brackets,
-              groundedInRetrievedContext: critique.grounded_in_retrieved_context,
+              groundedInRetrievedContext:
+                critique.grounded_in_retrieved_context,
               issues: critique.issues,
               score: critique.score,
             }

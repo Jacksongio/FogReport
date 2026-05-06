@@ -24,7 +24,11 @@ export const basesC: MilitaryBase[] = [
     primaryServiceBranch: "JMSDF / US Navy",
     tenantCountryCodes: ["JP", "US"],
     hostedUnits: ["Escort Flotilla 2", "Amphibious Squadron 11 (US)"],
-    hostedSystems: ["JS Kaga (DDH-184) — F-35B carrier conversion", "Wasp-class LHD (US)", "MCM ships"],
+    hostedSystems: [
+      "JS Kaga (DDH-184) — F-35B carrier conversion",
+      "Wasp-class LHD (US)",
+      "MCM ships",
+    ],
     role: "Forward amphibious and DDH base; F-35B sea-control hub closest to Korean and Taiwan straits.",
   },
   {
@@ -63,7 +67,10 @@ export const basesC: MilitaryBase[] = [
     primaryServiceBranch: "Republic of Korea Navy",
     tenantCountryCodes: ["KR"],
     hostedUnits: ["7th Mobile Flotilla"],
-    hostedSystems: ["Sejong the Great-class DDG", "Dosan Ahn Changho-class SSK"],
+    hostedSystems: [
+      "Sejong the Great-class DDG",
+      "Dosan Ahn Changho-class SSK",
+    ],
     role: "Southern naval base supporting submarine and Aegis destroyer operations across the East China Sea approaches.",
   },
   {
@@ -76,7 +83,11 @@ export const basesC: MilitaryBase[] = [
     primaryServiceBranch: "Republic of Korea Navy",
     tenantCountryCodes: ["KR", "US"],
     hostedUnits: ["ROK Fleet Command"],
-    hostedSystems: ["Sejong the Great-class DDG", "Chang Bogo-class SSK", "Dokdo-class LPH"],
+    hostedSystems: [
+      "Sejong the Great-class DDG",
+      "Chang Bogo-class SSK",
+      "Dokdo-class LPH",
+    ],
     role: "Principal ROK Navy headquarters port; hosts US Navy logistics for the peninsula.",
   },
   {
@@ -89,7 +100,12 @@ export const basesC: MilitaryBase[] = [
     primaryServiceBranch: "Republic of China Navy",
     tenantCountryCodes: ["TW"],
     hostedUnits: ["ROCN Fleet Command"],
-    hostedSystems: ["Kee Lung DDG", "Cheng Kung FFG", "Hai Lung SSK", "Hai Kun (sea trials)"],
+    hostedSystems: [
+      "Kee Lung DDG",
+      "Cheng Kung FFG",
+      "Hai Lung SSK",
+      "Hai Kun (sea trials)",
+    ],
     role: "Largest ROCN base; principal southern Taiwan fleet anchor.",
   },
   {
@@ -180,7 +196,10 @@ export const basesC: MilitaryBase[] = [
     primaryServiceBranch: "Royal Australian Navy",
     tenantCountryCodes: ["AU", "US", "GB"],
     hostedUnits: ["Fleet Base West"],
-    hostedSystems: ["Collins-class SSK", "AUKUS rotational SSN forward presence"],
+    hostedSystems: [
+      "Collins-class SSK",
+      "AUKUS rotational SSN forward presence",
+    ],
     role: "Future host of rotational US Virginia-class SSNs under AUKUS Pillar I.",
   },
   {
@@ -206,7 +225,10 @@ export const basesC: MilitaryBase[] = [
     primaryServiceBranch: "Republic of Singapore Navy",
     tenantCountryCodes: ["SG", "US"],
     hostedUnits: ["RSN 185 Squadron", "Logistics Group Western Pacific (US)"],
-    hostedSystems: ["Independence-class LCS (US, rotational)", "Formidable-class FFG"],
+    hostedSystems: [
+      "Independence-class LCS (US, rotational)",
+      "Formidable-class FFG",
+    ],
     role: "Hosts forward-deployed US Navy LCS rotation through Singapore.",
   },
   {
@@ -218,7 +240,10 @@ export const basesC: MilitaryBase[] = [
     type: "joint",
     primaryServiceBranch: "Royal Malaysian Air Force",
     tenantCountryCodes: ["MY", "AU"],
-    hostedUnits: ["Integrated Area Defence System HQ", "RAAF 92 Wing detachment"],
+    hostedUnits: [
+      "Integrated Area Defence System HQ",
+      "RAAF 92 Wing detachment",
+    ],
     hostedSystems: ["RAAF AP-3C Orion (rotational)", "RMAF F/A-18D Hornet"],
     role: "FPDA Integrated Air Defence System headquarters; Australian rotational MPA presence.",
   },
@@ -271,7 +296,11 @@ export const basesC: MilitaryBase[] = [
     primaryServiceBranch: "PLA Navy",
     tenantCountryCodes: ["CN"],
     hostedUnits: ["South Sea Fleet submarine bastion"],
-    hostedSystems: ["Type 094 Jin-class SSBN", "Type 093 Shang-class SSN", "Type 075 LHD"],
+    hostedSystems: [
+      "Type 094 Jin-class SSBN",
+      "Type 093 Shang-class SSN",
+      "Type 075 LHD",
+    ],
     role: "PLA Navy SSBN bastion in the South China Sea; underground submarine pens.",
   },
   {
@@ -310,7 +339,11 @@ export const basesC: MilitaryBase[] = [
     primaryServiceBranch: "PLA Navy / PLA Air Force",
     tenantCountryCodes: ["CN"],
     hostedUnits: ["PLA garrison detachment"],
-    hostedSystems: ["YJ-62 anti-ship cruise missile", "HQ-9 SAM", "J-11B / Su-30 (rotational)"],
+    hostedSystems: [
+      "YJ-62 anti-ship cruise missile",
+      "HQ-9 SAM",
+      "J-11B / Su-30 (rotational)",
+    ],
     role: "Largest militarized PRC outpost in the Paracels; airstrip and missile-defence node.",
   },
   {
@@ -323,7 +356,11 @@ export const basesC: MilitaryBase[] = [
     primaryServiceBranch: "PLA Navy / PLA Air Force",
     tenantCountryCodes: ["CN"],
     hostedUnits: ["PLA reef garrison"],
-    hostedSystems: ["YJ-12B anti-ship cruise missile", "HQ-9B SAM", "J-11 (rotational)"],
+    hostedSystems: [
+      "YJ-12B anti-ship cruise missile",
+      "HQ-9B SAM",
+      "J-11 (rotational)",
+    ],
     role: "Largest militarized PRC reef outpost in the Spratlys; supports PLA presence operations across the South China Sea.",
   },
   {
@@ -349,7 +386,11 @@ export const basesC: MilitaryBase[] = [
     primaryServiceBranch: "Russian Navy",
     tenantCountryCodes: ["RU"],
     hostedUnits: ["Pacific Fleet HQ"],
-    hostedSystems: ["Borei SSBN (Pacific)", "Slava-class CG", "Akula-class SSN"],
+    hostedSystems: [
+      "Borei SSBN (Pacific)",
+      "Slava-class CG",
+      "Akula-class SSN",
+    ],
     role: "Russian Pacific Fleet HQ; SLBM patrols against US Pacific approaches.",
   },
   {
@@ -362,7 +403,11 @@ export const basesC: MilitaryBase[] = [
     primaryServiceBranch: "Russian Armed Forces",
     tenantCountryCodes: ["RU"],
     hostedUnits: ["Baltic Fleet", "11th Army Corps"],
-    hostedSystems: ["Iskander-M SRBM (nuclear-capable)", "S-400 Triumf", "Bastion-P coastal defence"],
+    hostedSystems: [
+      "Iskander-M SRBM (nuclear-capable)",
+      "S-400 Triumf",
+      "Bastion-P coastal defence",
+    ],
     role: "Russian exclusive A2/AD bastion in the Baltic; threatens NATO eastern flank and Suwałki Gap.",
   },
   {

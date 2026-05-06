@@ -141,7 +141,11 @@ export const basesD: MilitaryBase[] = [
     primaryServiceBranch: "IRGC Navy / Islamic Republic of Iran Navy",
     tenantCountryCodes: ["IR"],
     hostedUnits: ["IRIN HQ"],
-    hostedSystems: ["Moudge-class FFG", "Ghadir / Fateh midget subs", "Bavar-373 SAM"],
+    hostedSystems: [
+      "Moudge-class FFG",
+      "Ghadir / Fateh midget subs",
+      "Bavar-373 SAM",
+    ],
     role: "Iran's principal Persian Gulf naval base; controls northern Strait of Hormuz approaches.",
   },
   {
@@ -206,7 +210,11 @@ export const basesD: MilitaryBase[] = [
     primaryServiceBranch: "Turkish Navy",
     tenantCountryCodes: ["TR"],
     hostedUnits: ["Turkish Naval Forces HQ"],
-    hostedSystems: ["TCG Anadolu (L-400)", "Ada-class corvette", "Gür-class SSK"],
+    hostedSystems: [
+      "TCG Anadolu (L-400)",
+      "Ada-class corvette",
+      "Gür-class SSK",
+    ],
     role: "Turkish Navy headquarters and shipyard on the Sea of Marmara.",
   },
   {
@@ -284,7 +292,10 @@ export const basesD: MilitaryBase[] = [
     primaryServiceBranch: "Brazilian Navy",
     tenantCountryCodes: ["BR"],
     hostedUnits: ["Brazilian SSN Program (PROSUB)"],
-    hostedSystems: ["Riachuelo-class SSK", "SN-Álvaro Alberto SSN (under construction)"],
+    hostedSystems: [
+      "Riachuelo-class SSK",
+      "SN-Álvaro Alberto SSN (under construction)",
+    ],
     role: "Brazilian SSN program shipyard and nuclear-program nucleus.",
   },
   {

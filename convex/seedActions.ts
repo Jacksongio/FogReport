@@ -50,7 +50,10 @@ export const seedCountries = internalAction({
 
     let inserted = 0;
     for (const profile of COUNTRIES) {
-      await ctx.runMutation(internal.seedMutations.insertCountryProfile, profile);
+      await ctx.runMutation(
+        internal.seedMutations.insertCountryProfile,
+        profile,
+      );
       inserted += 1;
     }
     console.log(`Seeded ${inserted} country profiles`);
@@ -278,10 +281,7 @@ export const seedHistoricalIncidents = internalAction({
     }
     let inserted = 0;
     for (const h of HISTORICAL_INCIDENTS) {
-      await ctx.runMutation(
-        internal.seedMutations.insertHistoricalIncident,
-        h,
-      );
+      await ctx.runMutation(internal.seedMutations.insertHistoricalIncident, h);
       inserted += 1;
     }
     console.log(`Seeded ${inserted} historical incidents`);

@@ -9,9 +9,20 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Bethesda, Maryland",
     ownership: "publicly-traded",
     revenueUsdBillions: 67,
-    keyProducts: ["F-35 Lightning II", "F-22 Raptor", "C-130J Super Hercules", "Trident II D5", "PAC-3 MSE", "THAAD", "Aegis combat system", "Sikorsky helicopters", "AGM-158 JASSM"],
+    keyProducts: [
+      "F-35 Lightning II",
+      "F-22 Raptor",
+      "C-130J Super Hercules",
+      "Trident II D5",
+      "PAC-3 MSE",
+      "THAAD",
+      "Aegis combat system",
+      "Sikorsky helicopters",
+      "AGM-158 JASSM",
+    ],
     majorCustomers: ["US", "GB", "JP", "KR", "AU", "IL", "PL", "DE", "FI"],
-    notes: "World's largest defense contractor; F-35 program is the largest US defense program in history.",
+    notes:
+      "World's largest defense contractor; F-35 program is the largest US defense program in history.",
   },
   {
     slug: "raytheon-rtx",
@@ -20,9 +31,18 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Arlington, Virginia",
     ownership: "publicly-traded",
     revenueUsdBillions: 69,
-    keyProducts: ["Patriot air defense", "AIM-120 AMRAAM", "AIM-9X Sidewinder", "Tomahawk Block V", "SM-3 / SM-6", "F-119 / F-135 engines (Pratt & Whitney)", "JSM"],
+    keyProducts: [
+      "Patriot air defense",
+      "AIM-120 AMRAAM",
+      "AIM-9X Sidewinder",
+      "Tomahawk Block V",
+      "SM-3 / SM-6",
+      "F-119 / F-135 engines (Pratt & Whitney)",
+      "JSM",
+    ],
     majorCustomers: ["US", "JP", "KR", "GB", "DE", "AU", "SA", "PL"],
-    notes: "Merger of Raytheon and United Technologies (2020); world leader in air-defense and air-to-air missiles.",
+    notes:
+      "Merger of Raytheon and United Technologies (2020); world leader in air-defense and air-to-air missiles.",
   },
   {
     slug: "boeing-defense",
@@ -31,9 +51,18 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Arlington, Virginia",
     ownership: "publicly-traded",
     revenueUsdBillions: 25,
-    keyProducts: ["F-15EX Eagle II", "F/A-18E/F Super Hornet", "P-8A Poseidon", "AH-64 Apache", "CH-47 Chinook", "KC-46 Pegasus", "B-52 modernization"],
+    keyProducts: [
+      "F-15EX Eagle II",
+      "F/A-18E/F Super Hornet",
+      "P-8A Poseidon",
+      "AH-64 Apache",
+      "CH-47 Chinook",
+      "KC-46 Pegasus",
+      "B-52 modernization",
+    ],
     majorCustomers: ["US", "AU", "IN", "JP", "KR", "GB", "GR", "QA"],
-    notes: "Defense arm of Boeing; supplies majority of US naval strike fighters and maritime patrol aircraft.",
+    notes:
+      "Defense arm of Boeing; supplies majority of US naval strike fighters and maritime patrol aircraft.",
   },
   {
     slug: "northrop-grumman",
@@ -42,9 +71,18 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Falls Church, Virginia",
     ownership: "publicly-traded",
     revenueUsdBillions: 39,
-    keyProducts: ["B-2 Spirit", "B-21 Raider", "RQ-4 Global Hawk", "MQ-4C Triton", "E-2D Advanced Hawkeye", "Sentinel ICBM", "IBCS air-defense C2"],
+    keyProducts: [
+      "B-2 Spirit",
+      "B-21 Raider",
+      "RQ-4 Global Hawk",
+      "MQ-4C Triton",
+      "E-2D Advanced Hawkeye",
+      "Sentinel ICBM",
+      "IBCS air-defense C2",
+    ],
     majorCustomers: ["US", "AU", "KR", "JP"],
-    notes: "Sole producer of the B-21 Raider strategic stealth bomber; building Sentinel ICBM replacing Minuteman III.",
+    notes:
+      "Sole producer of the B-21 Raider strategic stealth bomber; building Sentinel ICBM replacing Minuteman III.",
   },
   {
     slug: "general-dynamics",
@@ -53,9 +91,16 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Reston, Virginia",
     ownership: "publicly-traded",
     revenueUsdBillions: 42,
-    keyProducts: ["M1 Abrams MBT", "Stryker", "Virginia-class SSN", "Columbia-class SSBN", "Arleigh Burke DDG construction (Bath Iron Works)"],
+    keyProducts: [
+      "M1 Abrams MBT",
+      "Stryker",
+      "Virginia-class SSN",
+      "Columbia-class SSBN",
+      "Arleigh Burke DDG construction (Bath Iron Works)",
+    ],
     majorCustomers: ["US", "AU", "TW", "PL"],
-    notes: "Builds about half the US Navy submarine fleet via Electric Boat; only US producer of M1 Abrams.",
+    notes:
+      "Builds about half the US Navy submarine fleet via Electric Boat; only US producer of M1 Abrams.",
   },
   {
     slug: "huntington-ingalls",
@@ -64,9 +109,16 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Newport News, Virginia",
     ownership: "publicly-traded",
     revenueUsdBillions: 11,
-    keyProducts: ["Ford-class CVN", "Nimitz-class CVN refueling", "Virginia-class SSN (joint with EB)", "Arleigh Burke DDG construction", "America-class LHA"],
+    keyProducts: [
+      "Ford-class CVN",
+      "Nimitz-class CVN refueling",
+      "Virginia-class SSN (joint with EB)",
+      "Arleigh Burke DDG construction",
+      "America-class LHA",
+    ],
     majorCustomers: ["US"],
-    notes: "Sole US shipyard capable of building nuclear-powered aircraft carriers (Newport News).",
+    notes:
+      "Sole US shipyard capable of building nuclear-powered aircraft carriers (Newport News).",
   },
   {
     slug: "l3harris",
@@ -75,9 +127,15 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Melbourne, Florida",
     ownership: "publicly-traded",
     revenueUsdBillions: 21,
-    keyProducts: ["Tactical radios (SINCGARS)", "Electro-optical/infrared sensors", "Wescam imaging", "Aerojet Rocketdyne (acquired 2023, propulsion)"],
+    keyProducts: [
+      "Tactical radios (SINCGARS)",
+      "Electro-optical/infrared sensors",
+      "Wescam imaging",
+      "Aerojet Rocketdyne (acquired 2023, propulsion)",
+    ],
     majorCustomers: ["US", "NATO members"],
-    notes: "Major C4ISR and tactical communications provider; acquired Aerojet Rocketdyne giving control of US tactical missile propulsion.",
+    notes:
+      "Major C4ISR and tactical communications provider; acquired Aerojet Rocketdyne giving control of US tactical missile propulsion.",
   },
   {
     slug: "anduril",
@@ -86,9 +144,16 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Costa Mesa, California",
     ownership: "private",
     revenueUsdBillions: 1,
-    keyProducts: ["Lattice OS", "Ghost autonomous UAV", "Roadrunner counter-UAS", "Dive autonomous undersea vehicle", "Bolt-M loitering munition"],
+    keyProducts: [
+      "Lattice OS",
+      "Ghost autonomous UAV",
+      "Roadrunner counter-UAS",
+      "Dive autonomous undersea vehicle",
+      "Bolt-M loitering munition",
+    ],
     majorCustomers: ["US", "GB", "AU"],
-    notes: "Software-first defense startup; partner on US Replicator and CCA programs.",
+    notes:
+      "Software-first defense startup; partner on US Replicator and CCA programs.",
   },
   // ============ United Kingdom ============
   {
@@ -98,9 +163,18 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "London",
     ownership: "publicly-traded",
     revenueUsdBillions: 32,
-    keyProducts: ["Eurofighter Typhoon (35% partner)", "F-35 (rear fuselage)", "Type 26 frigate", "Astute-class SSN", "Dreadnought-class SSBN", "Challenger 3", "AS-90 / Archer"],
+    keyProducts: [
+      "Eurofighter Typhoon (35% partner)",
+      "F-35 (rear fuselage)",
+      "Type 26 frigate",
+      "Astute-class SSN",
+      "Dreadnought-class SSBN",
+      "Challenger 3",
+      "AS-90 / Archer",
+    ],
     majorCustomers: ["GB", "US", "AU", "SA", "OM"],
-    notes: "Largest European defense company; central to UK CASD via Dreadnought program.",
+    notes:
+      "Largest European defense company; central to UK CASD via Dreadnought program.",
   },
   {
     slug: "babcock-international",
@@ -109,7 +183,11 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "London",
     ownership: "publicly-traded",
     revenueUsdBillions: 5,
-    keyProducts: ["Royal Navy submarine support (HMNB Clyde)", "Type 31 frigate (Arrowhead 140)", "Defence training services"],
+    keyProducts: [
+      "Royal Navy submarine support (HMNB Clyde)",
+      "Type 31 frigate (Arrowhead 140)",
+      "Defence training services",
+    ],
     majorCustomers: ["GB", "AU", "FR"],
     notes: "Critical sustainment partner for UK SSBN/SSN fleet at HMNB Clyde.",
   },
@@ -120,9 +198,16 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Derby",
     ownership: "publicly-traded",
     revenueUsdBillions: 5,
-    keyProducts: ["EJ200 (Eurofighter)", "F136 (cancelled)", "PWR2 nuclear submarine reactor", "AE 2100 (C-130J)", "F-35 LiftSystem"],
+    keyProducts: [
+      "EJ200 (Eurofighter)",
+      "F136 (cancelled)",
+      "PWR2 nuclear submarine reactor",
+      "AE 2100 (C-130J)",
+      "F-35 LiftSystem",
+    ],
     majorCustomers: ["GB", "EU partners", "US"],
-    notes: "Designs and produces UK naval nuclear reactors for Astute, Dreadnought, and AUKUS SSN-AUKUS.",
+    notes:
+      "Designs and produces UK naval nuclear reactors for Astute, Dreadnought, and AUKUS SSN-AUKUS.",
   },
   // ============ France ============
   {
@@ -132,9 +217,15 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Paris",
     ownership: "publicly-traded",
     revenueUsdBillions: 6,
-    keyProducts: ["Rafale", "Mirage 2000 (legacy)", "nEUROn UCAV demonstrator", "Falcon business jets"],
+    keyProducts: [
+      "Rafale",
+      "Mirage 2000 (legacy)",
+      "nEUROn UCAV demonstrator",
+      "Falcon business jets",
+    ],
     majorCustomers: ["FR", "EG", "QA", "IN", "GR", "HR", "AE", "ID", "RS"],
-    notes: "Family-controlled; sole French combat-aircraft prime; lead industrial partner for FCAS / SCAF.",
+    notes:
+      "Family-controlled; sole French combat-aircraft prime; lead industrial partner for FCAS / SCAF.",
   },
   {
     slug: "airbus-defense",
@@ -143,9 +234,17 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Munich (and Toulouse)",
     ownership: "consortium",
     revenueUsdBillions: 12,
-    keyProducts: ["A400M Atlas", "A330 MRTT", "Eurofighter (33% share)", "Eurodrone", "C295", "Tiger HAD"],
+    keyProducts: [
+      "A400M Atlas",
+      "A330 MRTT",
+      "Eurofighter (33% share)",
+      "Eurodrone",
+      "C295",
+      "Tiger HAD",
+    ],
     majorCustomers: ["FR", "DE", "ES", "GB", "BE", "TR"],
-    notes: "Pan-European consortium; primary partner with Dassault on FCAS NGF program.",
+    notes:
+      "Pan-European consortium; primary partner with Dassault on FCAS NGF program.",
   },
   {
     slug: "naval-group",
@@ -154,9 +253,16 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Paris",
     ownership: "state-owned",
     revenueUsdBillions: 5,
-    keyProducts: ["Suffren-class SSN", "Triomphant-class SSBN", "FREMM frigate", "Scorpène-class SSK", "Charles de Gaulle CVN sustainment"],
+    keyProducts: [
+      "Suffren-class SSN",
+      "Triomphant-class SSBN",
+      "FREMM frigate",
+      "Scorpène-class SSK",
+      "Charles de Gaulle CVN sustainment",
+    ],
     majorCustomers: ["FR", "BR", "IN (Kalvari)", "ES", "MA", "GR (Belharra)"],
-    notes: "France's flagship naval shipbuilder; lost AUKUS Australian SSK contract to US/UK.",
+    notes:
+      "France's flagship naval shipbuilder; lost AUKUS Australian SSK contract to US/UK.",
   },
   {
     slug: "thales",
@@ -165,9 +271,15 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "La Défense",
     ownership: "publicly-traded",
     revenueUsdBillions: 21,
-    keyProducts: ["GM200 / GM400 radars", "Aster missiles (with MBDA)", "F-21 / F-22 sonar suites", "SCALP guidance"],
+    keyProducts: [
+      "GM200 / GM400 radars",
+      "Aster missiles (with MBDA)",
+      "F-21 / F-22 sonar suites",
+      "SCALP guidance",
+    ],
     majorCustomers: ["FR", "GB", "EU partners", "AE"],
-    notes: "European leader in radar, sonar, and command systems; major French state shareholder.",
+    notes:
+      "European leader in radar, sonar, and command systems; major French state shareholder.",
   },
   {
     slug: "mbda",
@@ -176,9 +288,19 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Le Plessis-Robinson",
     ownership: "consortium",
     revenueUsdBillions: 5,
-    keyProducts: ["Storm Shadow / SCALP", "Meteor BVRAAM", "MICA", "Aster 15/30", "ASMP-A nuclear ALCM", "CAMM", "Brimstone", "Spear 3"],
+    keyProducts: [
+      "Storm Shadow / SCALP",
+      "Meteor BVRAAM",
+      "MICA",
+      "Aster 15/30",
+      "ASMP-A nuclear ALCM",
+      "CAMM",
+      "Brimstone",
+      "Spear 3",
+    ],
     majorCustomers: ["FR", "GB", "IT", "DE", "EU partners"],
-    notes: "European missile-systems consortium owned by Airbus, BAE, Leonardo. Sole producer of French ASMP-A nuclear cruise missile.",
+    notes:
+      "European missile-systems consortium owned by Airbus, BAE, Leonardo. Sole producer of French ASMP-A nuclear cruise missile.",
   },
   // ============ Germany ============
   {
@@ -188,9 +310,17 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Düsseldorf",
     ownership: "publicly-traded",
     revenueUsdBillions: 9,
-    keyProducts: ["Leopard 2 / KF51 Panther MBT", "Lynx KF41 IFV", "Boxer", "PzH 2000", "RH-120 main gun", "155mm artillery ammunition"],
+    keyProducts: [
+      "Leopard 2 / KF51 Panther MBT",
+      "Lynx KF41 IFV",
+      "Boxer",
+      "PzH 2000",
+      "RH-120 main gun",
+      "155mm artillery ammunition",
+    ],
     majorCustomers: ["DE", "HU", "AU", "IT", "GB", "RO", "UA"],
-    notes: "Europe's largest land-systems manufacturer; producing 700k+ 155mm shells/year for Ukraine support.",
+    notes:
+      "Europe's largest land-systems manufacturer; producing 700k+ 155mm shells/year for Ukraine support.",
   },
   {
     slug: "krauss-maffei-wegmann",
@@ -198,9 +328,14 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "DE",
     headquarters: "Munich",
     ownership: "consortium",
-    keyProducts: ["Leopard 2 (with Rheinmetall)", "PzH 2000 (with Rheinmetall)", "Boxer (with Rheinmetall)"],
+    keyProducts: [
+      "Leopard 2 (with Rheinmetall)",
+      "PzH 2000 (with Rheinmetall)",
+      "Boxer (with Rheinmetall)",
+    ],
     majorCustomers: ["DE", "NATO Leopard 2 operators"],
-    notes: "Merged into KNDS with French Nexter (2015); manages Leopard 2 program.",
+    notes:
+      "Merged into KNDS with French Nexter (2015); manages Leopard 2 program.",
   },
   {
     slug: "diehl-defense",
@@ -208,9 +343,14 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "DE",
     headquarters: "Überlingen",
     ownership: "private",
-    keyProducts: ["IRIS-T air-to-air", "IRIS-T SLM/SLS air defense", "RBS 15 (with Saab)"],
+    keyProducts: [
+      "IRIS-T air-to-air",
+      "IRIS-T SLM/SLS air defense",
+      "RBS 15 (with Saab)",
+    ],
     majorCustomers: ["DE", "UA", "EE", "SE", "AT"],
-    notes: "Family-owned; IRIS-T SLM has been crucial frontline air-defence in Ukraine.",
+    notes:
+      "Family-owned; IRIS-T SLM has been crucial frontline air-defence in Ukraine.",
   },
   // ============ Russia ============
   {
@@ -222,7 +362,8 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     revenueUsdBillions: 13,
     keyProducts: ["S-300 / S-400 / S-500", "Buk M2/M3", "Tor-M2", "Pantsir-S1"],
     majorCustomers: ["RU", "CN", "IN", "TR", "BY"],
-    notes: "Russia's flagship air-defence holding; subject to extensive Western sanctions.",
+    notes:
+      "Russia's flagship air-defence holding; subject to extensive Western sanctions.",
   },
   {
     slug: "rostec",
@@ -230,9 +371,14 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "RU",
     headquarters: "Moscow",
     ownership: "state-owned",
-    keyProducts: ["Aggregator of UAC, Almaz-Antey-adjacent assets", "Kalashnikov", "Helicopters of Russia"],
+    keyProducts: [
+      "Aggregator of UAC, Almaz-Antey-adjacent assets",
+      "Kalashnikov",
+      "Helicopters of Russia",
+    ],
     majorCustomers: ["RU", "BRICS partners"],
-    notes: "Umbrella state corporation overseeing most Russian defence enterprises.",
+    notes:
+      "Umbrella state corporation overseeing most Russian defence enterprises.",
   },
   {
     slug: "uac-united-aircraft",
@@ -240,9 +386,18 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "RU",
     headquarters: "Moscow",
     ownership: "state-owned",
-    keyProducts: ["Su-57", "Su-35S", "Su-34", "Su-30SM", "MiG-31BM", "MiG-35", "Tu-160 Blackjack"],
+    keyProducts: [
+      "Su-57",
+      "Su-35S",
+      "Su-34",
+      "Su-30SM",
+      "MiG-31BM",
+      "MiG-35",
+      "Tu-160 Blackjack",
+    ],
     majorCustomers: ["RU", "IN", "CN (legacy)", "DZ", "VN"],
-    notes: "Russia's combined fixed-wing aircraft producer; major Western sanctions impact components.",
+    notes:
+      "Russia's combined fixed-wing aircraft producer; major Western sanctions impact components.",
   },
   // ============ China ============
   {
@@ -252,9 +407,16 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Beijing",
     ownership: "state-owned",
     revenueUsdBillions: 22,
-    keyProducts: ["Type 99 MBT", "Type 15 light tank", "PCL-181 SP howitzer", "PHL-191 MLRS", "Red Arrow ATGM family"],
+    keyProducts: [
+      "Type 99 MBT",
+      "Type 15 light tank",
+      "PCL-181 SP howitzer",
+      "PHL-191 MLRS",
+      "Red Arrow ATGM family",
+    ],
     majorCustomers: ["CN", "PK", "TH", "DZ", "various African states"],
-    notes: "Largest Chinese land-systems producer; major arms exporter to Africa and Pakistan.",
+    notes:
+      "Largest Chinese land-systems producer; major arms exporter to Africa and Pakistan.",
   },
   {
     slug: "avic",
@@ -263,9 +425,18 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Beijing",
     ownership: "state-owned",
     revenueUsdBillions: 75,
-    keyProducts: ["J-20", "J-16", "J-10C", "J-15", "Y-20 transport", "Z-20 helicopter", "Wing Loong UAV"],
+    keyProducts: [
+      "J-20",
+      "J-16",
+      "J-10C",
+      "J-15",
+      "Y-20 transport",
+      "Z-20 helicopter",
+      "Wing Loong UAV",
+    ],
     majorCustomers: ["CN", "PK (JF-17 partner)", "MM", "ID"],
-    notes: "Chinese aerospace conglomerate; produces all Chinese combat aircraft.",
+    notes:
+      "Chinese aerospace conglomerate; produces all Chinese combat aircraft.",
   },
   {
     slug: "cssc-china-state-shipbuilding",
@@ -273,9 +444,16 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "CN",
     headquarters: "Beijing",
     ownership: "state-owned",
-    keyProducts: ["Type 003 Fujian carrier", "Type 055 Renhai DDG", "Type 052D Luyang III DDG", "Type 075 LHD", "Type 094 SSBN"],
+    keyProducts: [
+      "Type 003 Fujian carrier",
+      "Type 055 Renhai DDG",
+      "Type 052D Luyang III DDG",
+      "Type 075 LHD",
+      "Type 094 SSBN",
+    ],
     majorCustomers: ["CN", "TH (Yuan-class deal)", "PK (Hangor-II)"],
-    notes: "World's largest shipbuilder; underpins PLA Navy expansion to 400+ hulls.",
+    notes:
+      "World's largest shipbuilder; underpins PLA Navy expansion to 400+ hulls.",
   },
   {
     slug: "casc",
@@ -283,7 +461,12 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "CN",
     headquarters: "Beijing",
     ownership: "state-owned",
-    keyProducts: ["DF-21D / DF-26 / DF-17 / DF-41", "JL-3 SLBM", "Long March launchers", "BeiDou navigation satellites"],
+    keyProducts: [
+      "DF-21D / DF-26 / DF-17 / DF-41",
+      "JL-3 SLBM",
+      "Long March launchers",
+      "BeiDou navigation satellites",
+    ],
     majorCustomers: ["CN"],
     notes: "Premier Chinese ballistic missile and space launch enterprise.",
   },
@@ -295,9 +478,15 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Lod",
     ownership: "state-owned",
     revenueUsdBillions: 5,
-    keyProducts: ["Heron / Heron TP UAV", "Barak 8 SAM (with India)", "Phalcon AEW", "Arrow 2/3 (with Boeing)"],
+    keyProducts: [
+      "Heron / Heron TP UAV",
+      "Barak 8 SAM (with India)",
+      "Phalcon AEW",
+      "Arrow 2/3 (with Boeing)",
+    ],
     majorCustomers: ["IL", "IN", "DE", "AZ"],
-    notes: "Largest Israeli state-owned aerospace company; major UAV and BMD exporter.",
+    notes:
+      "Largest Israeli state-owned aerospace company; major UAV and BMD exporter.",
   },
   {
     slug: "elbit-systems",
@@ -306,9 +495,15 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Haifa",
     ownership: "publicly-traded",
     revenueUsdBillions: 6,
-    keyProducts: ["F-35 helmet display systems", "PULS MLRS", "Hermes 900 UAV", "C4ISR systems"],
+    keyProducts: [
+      "F-35 helmet display systems",
+      "PULS MLRS",
+      "Hermes 900 UAV",
+      "C4ISR systems",
+    ],
     majorCustomers: ["IL", "DK", "US", "GB", "DE", "PH"],
-    notes: "Israeli publicly-traded electronics and systems company with deep international footprint.",
+    notes:
+      "Israeli publicly-traded electronics and systems company with deep international footprint.",
   },
   {
     slug: "rafael",
@@ -317,9 +512,16 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Haifa",
     ownership: "state-owned",
     revenueUsdBillions: 4,
-    keyProducts: ["Iron Dome (with IAI)", "David's Sling (with Raytheon)", "Spike ATGM family", "Trophy APS", "Litening pod"],
+    keyProducts: [
+      "Iron Dome (with IAI)",
+      "David's Sling (with Raytheon)",
+      "Spike ATGM family",
+      "Trophy APS",
+      "Litening pod",
+    ],
     majorCustomers: ["IL", "DE", "US", "various NATO members"],
-    notes: "Trophy active protection retrofitted to US M1 Abrams; Iron Dome co-developer.",
+    notes:
+      "Trophy active protection retrofitted to US M1 Abrams; Iron Dome co-developer.",
   },
   // ============ Korea ============
   {
@@ -329,9 +531,16 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Seoul",
     ownership: "publicly-traded",
     revenueUsdBillions: 8,
-    keyProducts: ["K9 Thunder SP howitzer", "Chunmoo MLRS (K239)", "Redback IFV", "K2 Black Panther engines", "F-35 components"],
+    keyProducts: [
+      "K9 Thunder SP howitzer",
+      "Chunmoo MLRS (K239)",
+      "Redback IFV",
+      "K2 Black Panther engines",
+      "F-35 components",
+    ],
     majorCustomers: ["KR", "PL", "FI", "NO", "EE", "AU", "EG", "TR"],
-    notes: "K9 Thunder is the world's most-exported self-propelled artillery; major Polish K9 / Chunmoo deal worth $20B.",
+    notes:
+      "K9 Thunder is the world's most-exported self-propelled artillery; major Polish K9 / Chunmoo deal worth $20B.",
   },
   {
     slug: "korea-aerospace-industries",
@@ -340,9 +549,15 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Sacheon",
     ownership: "publicly-traded",
     revenueUsdBillions: 3,
-    keyProducts: ["KF-21 Boramae", "FA-50 Fighting Eagle", "T-50 Golden Eagle", "KUH-1 Surion"],
+    keyProducts: [
+      "KF-21 Boramae",
+      "FA-50 Fighting Eagle",
+      "T-50 Golden Eagle",
+      "KUH-1 Surion",
+    ],
     majorCustomers: ["KR", "PL", "PH", "ID", "MY", "IQ"],
-    notes: "Korean fighter and trainer aircraft prime; KF-21 is South Korea's first indigenous 4.5-gen fighter.",
+    notes:
+      "Korean fighter and trainer aircraft prime; KF-21 is South Korea's first indigenous 4.5-gen fighter.",
   },
   {
     slug: "lig-nex1",
@@ -350,7 +565,12 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "KR",
     headquarters: "Seongnam",
     ownership: "publicly-traded",
-    keyProducts: ["Cheongung-II (KM-SAM Block 2)", "Hyunmoo missile family", "Haeseong anti-ship missile", "Chiron MANPADS"],
+    keyProducts: [
+      "Cheongung-II (KM-SAM Block 2)",
+      "Hyunmoo missile family",
+      "Haeseong anti-ship missile",
+      "Chiron MANPADS",
+    ],
     majorCustomers: ["KR", "AE (KM-SAM)", "SA"],
     notes: "Korean missile and air-defence specialist.",
   },
@@ -360,7 +580,11 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "KR",
     headquarters: "Ulsan",
     ownership: "publicly-traded",
-    keyProducts: ["Sejong the Great-class DDG", "Dosan Ahn Changho-class SSK", "Daegu-class FFG"],
+    keyProducts: [
+      "Sejong the Great-class DDG",
+      "Dosan Ahn Changho-class SSK",
+      "Daegu-class FFG",
+    ],
     majorCustomers: ["KR", "PH (Jose Rizal-class)", "PE"],
     notes: "Builds majority of ROK Navy surface combatants and submarines.",
   },
@@ -372,9 +596,16 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Bengaluru",
     ownership: "state-owned",
     revenueUsdBillions: 4,
-    keyProducts: ["Tejas LCA Mk1A", "Su-30MKI assembly", "ALH Dhruv", "Rudra HAL", "AMCA fifth-gen development"],
+    keyProducts: [
+      "Tejas LCA Mk1A",
+      "Su-30MKI assembly",
+      "ALH Dhruv",
+      "Rudra HAL",
+      "AMCA fifth-gen development",
+    ],
     majorCustomers: ["IN", "MV (Dhruv)"],
-    notes: "Indian aerospace prime; producing Tejas Mk1A and developing Tejas Mk2 / AMCA.",
+    notes:
+      "Indian aerospace prime; producing Tejas Mk1A and developing Tejas Mk2 / AMCA.",
   },
   {
     slug: "drdo",
@@ -382,7 +613,13 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "IN",
     headquarters: "New Delhi",
     ownership: "state-owned",
-    keyProducts: ["Agni missile family", "Akash SAM", "BrahMos (with Russia)", "Arjun MBT", "Astra BVRAAM"],
+    keyProducts: [
+      "Agni missile family",
+      "Akash SAM",
+      "BrahMos (with Russia)",
+      "Arjun MBT",
+      "Astra BVRAAM",
+    ],
     majorCustomers: ["IN"],
     notes: "Umbrella R&D organization for Indian indigenous weapons systems.",
   },
@@ -394,7 +631,8 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     ownership: "state-owned",
     keyProducts: ["Akash SAM components", "Radars", "SDR", "EW suites"],
     majorCustomers: ["IN"],
-    notes: "Indian electronics defence prime; major BMP-2 upgrade and radar producer.",
+    notes:
+      "Indian electronics defence prime; major BMP-2 upgrade and radar producer.",
   },
   // ============ Italy ============
   {
@@ -404,7 +642,13 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Rome",
     ownership: "publicly-traded",
     revenueUsdBillions: 18,
-    keyProducts: ["Eurofighter (33% partner)", "AW101 / AW139 / AW149", "C-27J Spartan", "FREMM (Fincantieri partner)", "MBDA (33%)"],
+    keyProducts: [
+      "Eurofighter (33% partner)",
+      "AW101 / AW139 / AW149",
+      "C-27J Spartan",
+      "FREMM (Fincantieri partner)",
+      "MBDA (33%)",
+    ],
     majorCustomers: ["IT", "GB", "US", "PL", "various NATO"],
     notes: "Italy's flagship defence company; 30%+ Italian state ownership.",
   },
@@ -414,9 +658,15 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "IT",
     headquarters: "Trieste",
     ownership: "publicly-traded",
-    keyProducts: ["FREMM frigates", "PPA (Pattugliatore Polivalente d'Altura)", "Constellation-class FFG (US)", "ITS Cavour / Trieste"],
+    keyProducts: [
+      "FREMM frigates",
+      "PPA (Pattugliatore Polivalente d'Altura)",
+      "Constellation-class FFG (US)",
+      "ITS Cavour / Trieste",
+    ],
     majorCustomers: ["IT", "US (Constellation)", "QA", "ID"],
-    notes: "Largest European shipbuilder; building US Navy Constellation-class frigates.",
+    notes:
+      "Largest European shipbuilder; building US Navy Constellation-class frigates.",
   },
   // ============ Sweden ============
   {
@@ -426,9 +676,16 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Stockholm",
     ownership: "publicly-traded",
     revenueUsdBillions: 5,
-    keyProducts: ["JAS 39 Gripen", "GlobalEye AEW&C", "Carl Gustaf recoilless rifle", "RBS 70 / RBS 15", "A26 (Blekinge) submarine"],
+    keyProducts: [
+      "JAS 39 Gripen",
+      "GlobalEye AEW&C",
+      "Carl Gustaf recoilless rifle",
+      "RBS 70 / RBS 15",
+      "A26 (Blekinge) submarine",
+    ],
     majorCustomers: ["SE", "BR", "TH", "AE (GlobalEye)", "PL (Gripen lease)"],
-    notes: "Saab integrates much of Sweden's defence portfolio; new MBT-tier Carl Gustaf widely used in Ukraine.",
+    notes:
+      "Saab integrates much of Sweden's defence portfolio; new MBT-tier Carl Gustaf widely used in Ukraine.",
   },
   {
     slug: "kockums",
@@ -436,9 +693,14 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "SE",
     headquarters: "Karlskrona / Malmö",
     ownership: "publicly-traded",
-    keyProducts: ["Gotland-class SSK", "A26 Blekinge-class SSK", "Visby-class corvette"],
+    keyProducts: [
+      "Gotland-class SSK",
+      "A26 Blekinge-class SSK",
+      "Visby-class corvette",
+    ],
     majorCustomers: ["SE", "AU (legacy Collins-class)", "SG (Archer)"],
-    notes: "Stirling AIP technology pioneer; supplies the Royal Swedish Navy submarine fleet.",
+    notes:
+      "Stirling AIP technology pioneer; supplies the Royal Swedish Navy submarine fleet.",
   },
   // ============ Norway ============
   {
@@ -448,9 +710,15 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Kongsberg",
     ownership: "publicly-traded",
     revenueUsdBillions: 3,
-    keyProducts: ["Naval Strike Missile (NSM)", "Joint Strike Missile (JSM)", "NASAMS (with Raytheon)", "Protector RWS"],
+    keyProducts: [
+      "Naval Strike Missile (NSM)",
+      "Joint Strike Missile (JSM)",
+      "NASAMS (with Raytheon)",
+      "Protector RWS",
+    ],
     majorCustomers: ["NO", "US", "PL", "AU", "RO", "DE"],
-    notes: "NSM/JSM family arms F-35A and Aegis ships globally; Australian and Polish shore-defence customer.",
+    notes:
+      "NSM/JSM family arms F-35A and Aegis ships globally; Australian and Polish shore-defence customer.",
   },
   // ============ Finland ============
   {
@@ -459,9 +727,14 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "FI",
     headquarters: "Helsinki",
     ownership: "state-owned",
-    keyProducts: ["AMV 8x8", "Nemo / Patria 120 mortar system", "Hawk maintenance"],
+    keyProducts: [
+      "AMV 8x8",
+      "Nemo / Patria 120 mortar system",
+      "Hawk maintenance",
+    ],
     majorCustomers: ["FI", "PL", "ZA", "AE", "SI"],
-    notes: "Finnish armoured-vehicle prime; Polish Rosomak built under license.",
+    notes:
+      "Finnish armoured-vehicle prime; Polish Rosomak built under license.",
   },
   // ============ Türkiye ============
   {
@@ -471,9 +744,15 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Ankara",
     ownership: "state-owned",
     revenueUsdBillions: 3,
-    keyProducts: ["HISAR / SIPER air defense", "Korkut SPAA", "EW suites", "F-16 Özgür upgrade"],
+    keyProducts: [
+      "HISAR / SIPER air defense",
+      "Korkut SPAA",
+      "EW suites",
+      "F-16 Özgür upgrade",
+    ],
     majorCustomers: ["TR", "AZ", "PK"],
-    notes: "Turkey's largest electronics defence company; central to indigenous BMD program.",
+    notes:
+      "Turkey's largest electronics defence company; central to indigenous BMD program.",
   },
   {
     slug: "baykar",
@@ -481,9 +760,15 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "TR",
     headquarters: "Istanbul",
     ownership: "private",
-    keyProducts: ["Bayraktar TB2", "Bayraktar Akıncı", "Bayraktar Kızılelma", "TB3"],
+    keyProducts: [
+      "Bayraktar TB2",
+      "Bayraktar Akıncı",
+      "Bayraktar Kızılelma",
+      "TB3",
+    ],
     majorCustomers: ["TR", "UA", "AZ", "PL", "QA", "various African states"],
-    notes: "Family-owned; TB2 transformed UCAV warfare in Nagorno-Karabakh, Libya, and Ukraine.",
+    notes:
+      "Family-owned; TB2 transformed UCAV warfare in Nagorno-Karabakh, Libya, and Ukraine.",
   },
   {
     slug: "tusas",
@@ -491,7 +776,12 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "TR",
     headquarters: "Ankara",
     ownership: "state-owned",
-    keyProducts: ["KAAN (TF-X) fifth-gen", "Hürkuş trainer", "Anka-S MALE UAV", "T129 ATAK (with Leonardo)"],
+    keyProducts: [
+      "KAAN (TF-X) fifth-gen",
+      "Hürkuş trainer",
+      "Anka-S MALE UAV",
+      "T129 ATAK (with Leonardo)",
+    ],
     majorCustomers: ["TR", "PK (T129)"],
     notes: "Turkish national fighter prime; KAAN flew first prototype 2024.",
   },
@@ -503,9 +793,15 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Tokyo",
     ownership: "publicly-traded",
     revenueUsdBillions: 38,
-    keyProducts: ["F-2A/B Viper Zero", "Type 10 / Type 90 MBT", "Maya / Atago-class DDG", "Sōryū / Taigei SSK"],
+    keyProducts: [
+      "F-2A/B Viper Zero",
+      "Type 10 / Type 90 MBT",
+      "Maya / Atago-class DDG",
+      "Sōryū / Taigei SSK",
+    ],
     majorCustomers: ["JP"],
-    notes: "Japan's largest defence prime; central to GCAP (Global Combat Air Programme) with UK and Italy.",
+    notes:
+      "Japan's largest defence prime; central to GCAP (Global Combat Air Programme) with UK and Italy.",
   },
   {
     slug: "kawasaki-heavy",
@@ -513,7 +809,11 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "JP",
     headquarters: "Kobe",
     ownership: "publicly-traded",
-    keyProducts: ["P-1 maritime patrol aircraft", "C-2 transport", "Sōryū / Taigei SSK (with MHI)"],
+    keyProducts: [
+      "P-1 maritime patrol aircraft",
+      "C-2 transport",
+      "Sōryū / Taigei SSK (with MHI)",
+    ],
     majorCustomers: ["JP"],
     notes: "Major Japanese aerospace and submarine builder.",
   },
@@ -524,9 +824,15 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "ES",
     headquarters: "Madrid",
     ownership: "state-owned",
-    keyProducts: ["Juan Carlos I (LHD)", "Álvaro de Bazán-class F100 frigate", "S-80 Plus (Isaac Peral) SSK", "F-110 Bonifaz frigate"],
+    keyProducts: [
+      "Juan Carlos I (LHD)",
+      "Álvaro de Bazán-class F100 frigate",
+      "S-80 Plus (Isaac Peral) SSK",
+      "F-110 Bonifaz frigate",
+    ],
     majorCustomers: ["ES", "AU (Hobart-class)", "NO (Fridtjof Nansen)"],
-    notes: "Spanish state-owned shipbuilder; Hobart-class baseline used by RAN.",
+    notes:
+      "Spanish state-owned shipbuilder; Hobart-class baseline used by RAN.",
   },
   // ============ Brazil ============
   {
@@ -537,7 +843,8 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     ownership: "publicly-traded",
     keyProducts: ["KC-390 Millennium", "A-29 Super Tucano", "EMB 145 AEW&C"],
     majorCustomers: ["BR", "PT", "HU", "NL", "CZ", "AT"],
-    notes: "Brazilian aerospace prime; KC-390 has won European tactical airlift competitions.",
+    notes:
+      "Brazilian aerospace prime; KC-390 has won European tactical airlift competitions.",
   },
   // ============ South Africa ============
   {
@@ -546,9 +853,14 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "ZA",
     headquarters: "Pretoria",
     ownership: "state-owned",
-    keyProducts: ["Rooivalk attack helicopter", "G6 Rhino SP howitzer", "Umkhonto SAM"],
+    keyProducts: [
+      "Rooivalk attack helicopter",
+      "G6 Rhino SP howitzer",
+      "Umkhonto SAM",
+    ],
     majorCustomers: ["ZA"],
-    notes: "South African state-owned conglomerate; financial difficulties have constrained output since 2019.",
+    notes:
+      "South African state-owned conglomerate; financial difficulties have constrained output since 2019.",
   },
   {
     slug: "paramount-group",
@@ -556,7 +868,11 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "ZA",
     headquarters: "Johannesburg",
     ownership: "private",
-    keyProducts: ["Mbombe IFV", "Marauder MRAP", "AHRLAC reconnaissance aircraft"],
+    keyProducts: [
+      "Mbombe IFV",
+      "Marauder MRAP",
+      "AHRLAC reconnaissance aircraft",
+    ],
     majorCustomers: ["ZA", "JO", "various African states"],
     notes: "Private South African defence conglomerate; major MRAP exports.",
   },
@@ -567,9 +883,15 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "IR",
     headquarters: "Tehran",
     ownership: "state-owned",
-    keyProducts: ["Karrar MBT", "Zulfiqar MBT", "Shahab missile family", "Boragh IFV"],
+    keyProducts: [
+      "Karrar MBT",
+      "Zulfiqar MBT",
+      "Shahab missile family",
+      "Boragh IFV",
+    ],
     majorCustomers: ["IR"],
-    notes: "Iranian state defense conglomerate; subject to extensive UN/US sanctions.",
+    notes:
+      "Iranian state defense conglomerate; subject to extensive UN/US sanctions.",
   },
   {
     slug: "shahed-aviation",
@@ -577,9 +899,14 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "IR",
     headquarters: "Tehran",
     ownership: "state-owned",
-    keyProducts: ["Shahed-129", "Shahed-136 / Geran-2 (Russian variant)", "Mohajer-6"],
+    keyProducts: [
+      "Shahed-129",
+      "Shahed-136 / Geran-2 (Russian variant)",
+      "Mohajer-6",
+    ],
     majorCustomers: ["IR", "RU (Geran-2 production in Alabuga, Russia)"],
-    notes: "Producer of Shahed-136 loitering munition; Russian production line at Alabuga uses Iranian designs.",
+    notes:
+      "Producer of Shahed-136 loitering munition; Russian production line at Alabuga uses Iranian designs.",
   },
   // ============ Pakistan ============
   {
@@ -588,9 +915,14 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "PK",
     headquarters: "Kamra",
     ownership: "state-owned",
-    keyProducts: ["JF-17 Block II/III (with China)", "K-8 Karakorum trainer (with China)", "Mushshak trainer"],
+    keyProducts: [
+      "JF-17 Block II/III (with China)",
+      "K-8 Karakorum trainer (with China)",
+      "Mushshak trainer",
+    ],
     majorCustomers: ["PK", "MM", "NG", "AZ"],
-    notes: "Pakistan's primary aircraft assembler; JF-17 co-developed with AVIC.",
+    notes:
+      "Pakistan's primary aircraft assembler; JF-17 co-developed with AVIC.",
   },
   // ============ Australia ============
   {
@@ -599,9 +931,14 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "AU",
     headquarters: "Adelaide",
     ownership: "state-owned",
-    keyProducts: ["Collins-class SSK sustainment", "Hobart-class DDG construction", "Future SSN-AUKUS"],
+    keyProducts: [
+      "Collins-class SSK sustainment",
+      "Hobart-class DDG construction",
+      "Future SSN-AUKUS",
+    ],
     majorCustomers: ["AU"],
-    notes: "Australian government-owned shipbuilder; central to AUKUS Pillar I sovereign SSN program.",
+    notes:
+      "Australian government-owned shipbuilder; central to AUKUS Pillar I sovereign SSN program.",
   },
   // ============ Canada ============
   {
@@ -610,7 +947,11 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "CA",
     headquarters: "Halifax",
     ownership: "private",
-    keyProducts: ["Halifax-class FFG mid-life", "Harry DeWolf-class AOPV", "River-class destroyer (CSC)"],
+    keyProducts: [
+      "Halifax-class FFG mid-life",
+      "Harry DeWolf-class AOPV",
+      "River-class destroyer (CSC)",
+    ],
     majorCustomers: ["CA"],
     notes: "Canada's primary combat-ship shipyard.",
   },
@@ -622,9 +963,14 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     headquarters: "Abu Dhabi",
     ownership: "state-owned",
     revenueUsdBillions: 5,
-    keyProducts: ["Hunter loitering munition", "Halcon JEFF guided bomb", "QX-1/QX-2 UAV"],
+    keyProducts: [
+      "Hunter loitering munition",
+      "Halcon JEFF guided bomb",
+      "QX-1/QX-2 UAV",
+    ],
     majorCustomers: ["AE", "various Gulf and African states"],
-    notes: "Emirati defence conglomerate consolidating ~25 UAE companies (2019).",
+    notes:
+      "Emirati defence conglomerate consolidating ~25 UAE companies (2019).",
   },
   // ============ Singapore ============
   {
@@ -633,8 +979,14 @@ export const DEFENSE_INDUSTRIES: DefenseIndustry[] = [
     countryCode: "SG",
     headquarters: "Singapore",
     ownership: "publicly-traded",
-    keyProducts: ["Bionix II / Hunter AFV", "Terrex 8x8", "Endurance-class LST", "FH2000 howitzer"],
+    keyProducts: [
+      "Bionix II / Hunter AFV",
+      "Terrex 8x8",
+      "Endurance-class LST",
+      "FH2000 howitzer",
+    ],
     majorCustomers: ["SG", "TH", "BO"],
-    notes: "Singapore's largest defence-engineering group; key SG self-reliant defense pillar.",
+    notes:
+      "Singapore's largest defence-engineering group; key SG self-reliant defense pillar.",
   },
 ];

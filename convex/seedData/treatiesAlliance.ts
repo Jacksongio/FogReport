@@ -46,7 +46,8 @@ export const treatiesAlliance: TreatyDocument[] = [
   },
   {
     slug: "anzus-treaty",
-    title: "Security Treaty between Australia, New Zealand, and the United States",
+    title:
+      "Security Treaty between Australia, New Zealand, and the United States",
     shortName: "ANZUS",
     category: "alliance",
     adoptionDate: "1951-09-01",
@@ -132,7 +133,8 @@ export const treatiesAlliance: TreatyDocument[] = [
   },
   {
     slug: "us-philippines-mutual-defense-treaty",
-    title: "Mutual Defense Treaty between the United States and the Philippines",
+    title:
+      "Mutual Defense Treaty between the United States and the Philippines",
     shortName: "US-Philippines MDT",
     category: "alliance",
     adoptionDate: "1951-08-30",

@@ -135,13 +135,23 @@ function SignInForm() {
     formData.set("flow", flow);
 
     try {
+      console.log("[AUTH DEBUG] Attempting signIn", {
+        flow,
+        email: email.trim(),
+        convexUrl: process.env.NEXT_PUBLIC_CONVEX_URL ?? "MISSING",
+      });
       await signIn("password", formData);
+      console.log("[AUTH DEBUG] signIn succeeded");
     } catch (err) {
       const message =
         err instanceof Error ? err.message : "Authentication failed";
+      console.error("[AUTH DEBUG] signIn failed", {
+        error: message,
+        fullError: err,
+      });
       setSubmitError(
         flow === "signIn"
-          ? "Invalid email or password."
+          ? `Sign in failed: ${message}`
           : message.includes("already exists")
             ? "An account with that email already exists."
             : message,

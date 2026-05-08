@@ -19,6 +19,7 @@ import type { Country } from "@/components/political-advisor/types";
 import { detectConflictType } from "@/lib/conflict-detection";
 import type { ExampleScenario } from "@/lib/example-scenarios";
 import { useBriefingGenerator } from "@/hooks/use-briefing-generator";
+import { describeError } from "@/lib/error-messages";
 
 function PoliticalAdvisor() {
   const router = useRouter();
@@ -88,15 +89,24 @@ function PoliticalAdvisor() {
     async function loadCountries() {
       try {
         const res = await fetch("/api/countries");
-        if (!res.ok) throw new Error("Failed to fetch countries");
+        if (!res.ok) {
+          throw new Error(`Failed to fetch countries (${res.status})`);
+        }
         const data: Country[] = await res.json();
         data.sort((a, b) => b.power - a.power);
         setCountries(data);
       } catch (err) {
         console.error(err);
+        const friendly = describeError("countries.load", err);
+        toast({
+          title: friendly.title,
+          description: friendly.description,
+          variant: "destructive",
+        });
       }
     }
     loadCountries();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -159,9 +169,10 @@ function PoliticalAdvisor() {
       limit: 10,
     }).catch((error) => {
       console.error("Treaty loading error:", error);
+      const friendly = describeError("treaties.search", error);
       toast({
-        title: "Loading Error",
-        description: "Unable to load relevant treaties. Please try again.",
+        title: friendly.title,
+        description: friendly.description,
         variant: "destructive",
       });
     });

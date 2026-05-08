@@ -1082,7 +1082,7 @@ Return JSON with this exact schema:
   "conclusion": "Paragraph beginning 'The above assessments lead to the conclusion...' and ending '...should be patterned along the following lines:'",
   "finalRecommendation": "Paragraph identifying the prioritized recommendation and reasoning for ${args.selectedCountry}",
   "classification": "CONFIDENTIAL",
-  "author": "Strategic Intelligence Division",
+  "author": "${args.selectedCountry} Strategic Intelligence Division",
   "treatyReferences": [{"title": "Treaty short name + Article number", "relevance": "one sentence on why it applies"}],
   "disclaimer": "Educational simulation only. Not for real-world decisions."
 }

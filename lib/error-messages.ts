@@ -103,28 +103,6 @@ export function describeError(
 
   switch (context) {
     case "auth.signIn": {
-      if (
-        m.includes("invalidaccountid") ||
-        m.includes("invalidsecret") ||
-        m.includes("invalid credentials") ||
-        m.includes("invalid password") ||
-        m.includes("incorrect password") ||
-        m.includes("wrong password") ||
-        m.includes("invalid email or password")
-      ) {
-        return {
-          title: "Incorrect email or password",
-          description:
-            "Double-check your credentials and try again. If you forgot your password, use the reset link below.",
-        };
-      }
-      if (m.includes("not found") || m.includes("no account")) {
-        return {
-          title: "No account found",
-          description:
-            "We couldn't find an account with that email. Try signing up instead.",
-        };
-      }
       if (isRateLimit(err)) {
         return {
           title: "Too many attempts",
@@ -132,9 +110,15 @@ export function describeError(
             "You've tried to sign in too many times. Please wait a minute before trying again.",
         };
       }
+      // The form validates email/password format before submission, so any
+      // server-side rejection that isn't a network/timeout/rate-limit is
+      // almost always a credentials mismatch. Convex Auth deliberately
+      // returns a generic "Server Error" here to avoid leaking which field
+      // was wrong, so we default to a credentials message.
       return {
-        title: "Sign in failed",
-        description: stripConvexNoise(raw) || "Please try again.",
+        title: "Incorrect email or password",
+        description:
+          "Double-check your credentials and try again. If you forgot your password, use the reset link below.",
       };
     }
 

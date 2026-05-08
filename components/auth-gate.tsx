@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { AlertCircle, ArrowLeft, Eye, EyeOff, Loader2 } from "lucide-react";
 import StarryBackground from "@/components/StarryBackground";
 import { useRef, useCallback } from "react";
+import { describeError, type FriendlyError } from "@/lib/error-messages";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -88,6 +89,24 @@ function FieldErrorDropdown({ messages }: { messages: string[] }) {
             <li key={i}>{m}</li>
           ))}
         </ul>
+      </div>
+    </div>
+  );
+}
+
+function SubmitErrorAlert({ error }: { error: FriendlyError | null }) {
+  if (!error) return null;
+  return (
+    <div
+      role="alert"
+      className="rounded-md border border-red-500/40 bg-red-950/60 backdrop-blur-sm p-3 text-sm text-red-200 animate-in fade-in slide-in-from-top-1"
+    >
+      <div className="flex items-start gap-2">
+        <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-red-400" />
+        <div className="space-y-0.5">
+          <p className="font-medium text-red-100">{error.title}</p>
+          <p className="text-xs text-red-300/90">{error.description}</p>
+        </div>
       </div>
     </div>
   );
@@ -180,7 +199,7 @@ function SignInForm() {
   const { signIn } = useAuthActions();
   const [view, setView] = useState<AuthView>("signIn");
   const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<FriendlyError | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -258,18 +277,12 @@ function SignInForm() {
       await signIn("password", formData);
       console.log("[AUTH DEBUG] signIn succeeded");
     } catch (err) {
-      const message =
-        err instanceof Error ? err.message : "Authentication failed";
       console.error("[AUTH DEBUG] signIn failed", {
-        error: message,
+        error: err instanceof Error ? err.message : err,
         fullError: err,
       });
       setSubmitError(
-        flow === "signIn"
-          ? `Sign in failed: ${message}`
-          : message.includes("already exists")
-            ? "An account with that email already exists."
-            : message,
+        describeError(flow === "signIn" ? "auth.signIn" : "auth.signUp", err),
       );
     } finally {
       setSubmitting(false);
@@ -284,7 +297,11 @@ function SignInForm() {
     setSubmitSuccess(null);
 
     if (!email.trim() || !EMAIL_RE.test(email.trim())) {
-      setSubmitError("Please enter a valid email address.");
+      setSubmitError({
+        title: "Invalid email",
+        description:
+          "Please enter a valid email address (e.g., name@example.com).",
+      });
       return;
     }
 
@@ -298,9 +315,8 @@ function SignInForm() {
       setSubmitSuccess("A verification code has been sent to your email.");
       setView("resetCode");
     } catch (err) {
-      const message =
-        err instanceof Error ? err.message : "Failed to send reset email";
-      setSubmitError(message);
+      console.error("[AUTH DEBUG] forgot password failed", err);
+      setSubmitError(describeError("auth.forgotPassword", err));
     } finally {
       setSubmitting(false);
     }
@@ -314,19 +330,32 @@ function SignInForm() {
     setSubmitSuccess(null);
 
     if (resetCode.length !== 6 || !/^\d{6}$/.test(resetCode)) {
-      setSubmitError("Please enter the full 6-digit verification code.");
+      setSubmitError({
+        title: "Incomplete code",
+        description:
+          "Please enter the full 6-digit verification code from your email.",
+      });
       return;
     }
     if (!newPassword || newPassword.length < 8) {
-      setSubmitError("New password must be at least 8 characters.");
+      setSubmitError({
+        title: "Password too short",
+        description: "New password must be at least 8 characters.",
+      });
       return;
     }
     if (!/[a-zA-Z]/.test(newPassword)) {
-      setSubmitError("New password must include at least one letter.");
+      setSubmitError({
+        title: "Password too weak",
+        description: "New password must include at least one letter.",
+      });
       return;
     }
     if (!/[0-9]/.test(newPassword)) {
-      setSubmitError("New password must include at least one number.");
+      setSubmitError({
+        title: "Password too weak",
+        description: "New password must include at least one number.",
+      });
       return;
     }
 
@@ -341,9 +370,8 @@ function SignInForm() {
       await signIn("password", formData);
       setSubmitSuccess("Password reset successful! You are now signed in.");
     } catch (err) {
-      const message =
-        err instanceof Error ? err.message : "Failed to reset password";
-      setSubmitError(message);
+      console.error("[AUTH DEBUG] reset code failed", err);
+      setSubmitError(describeError("auth.resetCode", err));
     } finally {
       setSubmitting(false);
     }
@@ -365,9 +393,8 @@ function SignInForm() {
       setSubmitSuccess("A new verification code has been sent to your email.");
       setResetCode("");
     } catch (err) {
-      const message =
-        err instanceof Error ? err.message : "Failed to resend code";
-      setSubmitError(message);
+      console.error("[AUTH DEBUG] resend code failed", err);
+      setSubmitError(describeError("auth.resendCode", err));
     } finally {
       setResending(false);
     }
@@ -523,11 +550,7 @@ function SignInForm() {
                 </div>
               )}
 
-              {submitError && (
-                <p className="text-sm text-red-400" role="alert">
-                  {submitError}
-                </p>
-              )}
+              <SubmitErrorAlert error={submitError} />
 
               <Button
                 type="submit"
@@ -593,11 +616,7 @@ function SignInForm() {
                 />
               </div>
 
-              {submitError && (
-                <p className="text-sm text-red-400" role="alert">
-                  {submitError}
-                </p>
-              )}
+              <SubmitErrorAlert error={submitError} />
               {submitSuccess && (
                 <p className="text-sm text-green-400" role="status">
                   {submitSuccess}
@@ -701,11 +720,7 @@ function SignInForm() {
                 </div>
               </div>
 
-              {submitError && (
-                <p className="text-sm text-red-400" role="alert">
-                  {submitError}
-                </p>
-              )}
+              <SubmitErrorAlert error={submitError} />
               {submitSuccess && (
                 <p className="text-sm text-green-400" role="status">
                   {submitSuccess}

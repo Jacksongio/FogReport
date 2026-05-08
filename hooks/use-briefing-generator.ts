@@ -14,6 +14,7 @@ import {
   fallbackSimulationResult,
 } from "@/lib/briefing-fallbacks";
 import { useToast } from "@/hooks/use-toast";
+import { describeError } from "@/lib/error-messages";
 
 interface UseBriefingGeneratorOptions {
   countries: Country[];
@@ -109,10 +110,10 @@ export function useBriefingGenerator(opts: UseBriefingGeneratorOptions) {
       });
     } catch (error) {
       console.error("Error saving analysis:", error);
+      const friendly = describeError("briefing.save", error);
       toast({
-        title: "Warning",
-        description:
-          "Failed to save analysis parameters, but simulation will continue.",
+        title: friendly.title,
+        description: friendly.description,
         variant: "destructive",
       });
     }
@@ -147,10 +148,10 @@ export function useBriefingGenerator(opts: UseBriefingGeneratorOptions) {
       setSimulationResults(fallbackSimulationResult);
 
       if (!skipRedirect) {
+        const friendly = describeError("briefing.simulation", error);
         toast({
-          title: "Analysis Warning",
-          description:
-            "AI analysis unavailable. Showing basic recommendations. Redirecting to results...",
+          title: friendly.title,
+          description: `${friendly.description} Redirecting to results...`,
           variant: "destructive",
         });
         opts.onTabChange("results");
@@ -161,11 +162,14 @@ export function useBriefingGenerator(opts: UseBriefingGeneratorOptions) {
   };
 
   const generateBriefing = async () => {
-    if (!opts.selectedCountry || !opts.scenarioDetails) {
+    const missing: string[] = [];
+    if (!opts.selectedCountry) missing.push("your country");
+    if (!opts.scenarioDetails) missing.push("scenario details");
+
+    if (missing.length > 0) {
       toast({
-        title: "Cannot Generate Briefing",
-        description:
-          "Please fill in all required fields before generating a briefing.",
+        title: "Missing required fields",
+        description: `Please fill in ${missing.join(" and ")} before generating a briefing.`,
         variant: "destructive",
       });
       return;
@@ -178,10 +182,10 @@ export function useBriefingGenerator(opts: UseBriefingGeneratorOptions) {
     const simulationPromise = !simulationResults
       ? runSimulation(true).catch((error) => {
           console.error("Failed to run simulation:", error);
+          const friendly = describeError("briefing.simulation", error);
           toast({
-            title: "Analysis Warning",
-            description:
-              "Unable to generate fresh analysis. AI will work with basic parameters.",
+            title: friendly.title,
+            description: friendly.description,
             variant: "destructive",
           });
           return null;
@@ -281,12 +285,10 @@ export function useBriefingGenerator(opts: UseBriefingGeneratorOptions) {
         ),
       );
 
+      const friendly = describeError("briefing.generate", error);
       toast({
-        title: "Briefing Generation Failed",
-        description:
-          error instanceof Error
-            ? error.message
-            : "Unknown error generating briefing.",
+        title: friendly.title,
+        description: friendly.description,
         variant: "destructive",
       });
     }
